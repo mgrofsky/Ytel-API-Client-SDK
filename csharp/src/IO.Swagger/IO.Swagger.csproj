@@ -4,7 +4,7 @@ Ytel API V3
 
 Ytel API version 3
 
-OpenAPI spec version: 3.0
+OpenAPI spec version: 3.11
 
 -->
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -12,7 +12,7 @@ OpenAPI spec version: 3.0
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{59676F4E-38A4-4944-A88F-E2878DA38CE5}</ProjectGuid>
+    <ProjectGuid>{0E35DB2B-E409-4C19-8077-D5D322CD271D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>IO.Swagger</RootNamespace>
