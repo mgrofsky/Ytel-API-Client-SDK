@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Errors
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-15T17:03:08.063Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-06-18T20:01:11.210Z")
 public class Errors {
   @SerializedName("Error")
   private List<Error> error = new ArrayList<Error>();
