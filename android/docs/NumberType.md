@@ -1,0 +1,8 @@
+
+# NumberType
+
+## Enum
+
+
+
+
