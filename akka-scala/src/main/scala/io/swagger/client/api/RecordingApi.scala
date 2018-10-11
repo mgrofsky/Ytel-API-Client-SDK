@@ -23,7 +23,7 @@ object RecordingApi {
    * @param recordingsid The unique identifier for a recording.
    */
   def recordingDeleterecording(recordingsid: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/recording/deleterecording.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/recording/deleterecording.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("recordingsid", recordingsid)
       .withSuccessResponse[String](200)
@@ -42,7 +42,7 @@ object RecordingApi {
    * @param callsid The unique identifier for a call.
    */
   def recordingListrecording(page: Option[Int], pagesize: Option[Int], datecreated: Option[String] = None, callsid: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/recording/listrecording.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/recording/listrecording.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("page", page)
       .withFormParam("pagesize", pagesize)
@@ -61,7 +61,7 @@ object RecordingApi {
    * @param recordingsid The unique identifier for the recording.
    */
   def recordingViewrecording(recordingsid: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/recording/viewrecording.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/recording/viewrecording.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("recordingsid", recordingsid)
       .withSuccessResponse[String](200)

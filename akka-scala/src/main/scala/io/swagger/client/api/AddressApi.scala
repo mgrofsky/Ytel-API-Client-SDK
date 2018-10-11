@@ -31,7 +31,7 @@ object AddressApi {
    * @param phone Phone number of user.
    */
   def addressCreateaddress(name: String, address: String, country: String, state: String, city: String, zip: String, description: Option[String] = None, email: Option[String] = None, phone: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/address/createaddress.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/address/createaddress.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("Name", name)
       .withFormParam("Address", address)
@@ -55,7 +55,7 @@ object AddressApi {
    * @param addressid The identifier of the address to be deleted.
    */
   def addressDeleteaddress(addressid: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/address/deleteaddress.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/address/deleteaddress.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("addressid", addressid)
       .withSuccessResponse[String](200)
@@ -74,7 +74,7 @@ object AddressApi {
    * @param dateCreated date created address.
    */
   def addressListaddress(page: Option[Int], pagesize: Option[Int], addressid: Option[String] = None, dateCreated: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/address/listaddress.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/address/listaddress.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("page", page)
       .withFormParam("pagesize", pagesize)
@@ -93,7 +93,7 @@ object AddressApi {
    * @param addressid The identifier of the address to be verified.
    */
   def addressVerifyaddress(addressid: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/address/verifyaddress.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/address/verifyaddress.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("addressid", addressid)
       .withSuccessResponse[String](200)
@@ -109,7 +109,7 @@ object AddressApi {
    * @param addressid The identifier of the address to be retrieved.
    */
   def addressViewaddress(addressid: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/address/viewaddress.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/address/viewaddress.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("addressid", addressid)
       .withSuccessResponse[String](200)

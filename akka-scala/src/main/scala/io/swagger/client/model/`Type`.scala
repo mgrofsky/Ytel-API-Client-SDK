@@ -10,7 +10,7 @@ import io.swagger.client.core.ApiModel
 import org.joda.time.DateTime
 import java.util.UUID
 
-case class &#x60;Type&#x60; (
+case class `Type` (
 ) extends ApiModel
 
 

@@ -23,7 +23,7 @@ object CarrierApi {
    * @param phoneNumber A valid 10-digit number (E.164 format).
    */
   def carrierLookup(phoneNumber: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/carrier/lookup.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/carrier/lookup.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("PhoneNumber", phoneNumber)
       .withSuccessResponse[String](200)
@@ -40,7 +40,7 @@ object CarrierApi {
    * @param pageSize The count of objects to return per page.
    */
   def carrierLookuplist(page: Option[Int], pageSize: Option[Int])(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/carrier/lookuplist.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/carrier/lookuplist.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("Page", page)
       .withFormParam("PageSize", pageSize)

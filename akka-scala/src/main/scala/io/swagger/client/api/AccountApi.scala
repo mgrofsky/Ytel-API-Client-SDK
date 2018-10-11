@@ -23,7 +23,7 @@ object AccountApi {
    * @param date Filter account information based on date.
    */
   def accountsViewaccount(date: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/accounts/viewaccount.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/accounts/viewaccount.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("Date", date)
       .withSuccessResponse[String](200)

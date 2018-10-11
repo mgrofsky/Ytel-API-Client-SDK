@@ -29,7 +29,7 @@ object AreaMailApi {
    * @param htmldata A string value that contains HTML markup.
    */
   def areamailCreate(routes: String, attachbyid: String, front: String, back: String, description: Option[String] = None, targettype: Option[String] = None, htmldata: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/areamail/create.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/areamail/create.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("routes", routes)
       .withFormParam("attachbyid", attachbyid)
@@ -51,7 +51,7 @@ object AreaMailApi {
    * @param areamailid The unique identifier for an AreaMail object.
    */
   def areamailDelete(areamailid: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/areamail/delete.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/areamail/delete.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("areamailid", areamailid)
       .withSuccessResponse[String](200)
@@ -70,7 +70,7 @@ object AreaMailApi {
    * @param dateCreated The date the AreaMail was created.
    */
   def areamailLists(page: Option[Int], pagesize: Option[Int], areamailsid: Option[String] = None, dateCreated: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/areamail/lists.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/areamail/lists.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("page", page)
       .withFormParam("pagesize", pagesize)
@@ -89,7 +89,7 @@ object AreaMailApi {
    * @param areamailid The unique identifier for an AreaMail object.
    */
   def areamailView(areamailid: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/areamail/view.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/areamail/view.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("areamailid", areamailid)
       .withSuccessResponse[String](200)

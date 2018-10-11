@@ -27,7 +27,7 @@ object SubAccountApi {
    * @param password The password of the sub account.  Please make sure to make as password that is at least 8 characters long, contain a symbol, uppercase and a number.
    */
   def userCreatesubaccount(firstName: String, lastName: String, email: String, friendlyName: String, password: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/user/createsubaccount.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/user/createsubaccount.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("FirstName", firstName)
       .withFormParam("LastName", lastName)
@@ -48,7 +48,7 @@ object SubAccountApi {
    * @param mergeNumber 0 to delete or 1 to merge numbers to parent account.
    */
   def userDeletesubaccount(subAccountSID: String, mergeNumber: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/user/deletesubaccount.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/user/deletesubaccount.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("SubAccountSID", subAccountSID)
       .withFormParam("MergeNumber", mergeNumber)
@@ -66,7 +66,7 @@ object SubAccountApi {
    * @param activate 0 to suspend or 1 to activate
    */
   def userSubaccountactivation(subAccountSID: String, activate: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/user/subaccountactivation.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/user/subaccountactivation.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("SubAccountSID", subAccountSID)
       .withFormParam("Activate", activate)
