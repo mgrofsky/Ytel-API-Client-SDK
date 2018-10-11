@@ -79,7 +79,7 @@ public class AccountApiExample {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.message360.com/api/v3/*
+All URIs are relative to *https://api.ytel.com/api/v3*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
