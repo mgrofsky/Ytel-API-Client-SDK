@@ -1,6 +1,6 @@
 # \LetterApi
 
-All URIs are relative to *https://api.message360.com/api/v3/*
+All URIs are relative to *https://api.ytel.com/api/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,7 +20,7 @@ Create, print, and mail a letter to an address. The letter file must be supplied
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **to** | **string**| The AddressId or an object structured when creating an address by addresses/Create. | 
   **from** | **string**| The AddressId or an object structured when creating an address by addresses/Create. | 
   **attachbyid** | **string**| Set an existing letter by attaching its LetterId. | 
@@ -69,7 +69,7 @@ Remove a letter object by its LetterId.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **lettersid** | **string**| The unique identifier for a letter object. | 
 
 ### Return type
@@ -97,7 +97,7 @@ Retrieve a list of letter objects. The letter objects are sorted by creation dat
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -135,7 +135,7 @@ Retrieve a letter object by its LetterSid.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **lettersid** | **string**| The unique identifier for a letter object. | 
 
 ### Return type

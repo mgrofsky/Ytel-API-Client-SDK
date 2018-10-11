@@ -1,0 +1,5685 @@
+---
+swagger: "2.0"
+info:
+  description: "Ytel API version 3"
+  version: "3.12"
+  title: "Ytel API V3"
+host: "api.ytel.com"
+basePath: "/api/v3"
+schemes:
+- "https"
+consumes:
+- "application/x-www-form-urlencoded"
+produces:
+- "application/json"
+paths:
+  /template/view.json:
+    post:
+      tags:
+      - "SharedShortCode"
+      summary: "View Template"
+      description: "View a Shared ShortCode Template"
+      operationId: "TemplateView"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "TemplateId"
+        in: "formData"
+        description: "The unique identifier for a template object"
+        required: true
+        type: "string"
+        format: "uuid"
+        x-exportParamName: "TemplateId"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /conferences/deafMuteParticipant.json:
+    post:
+      tags:
+      - "Conference"
+      summary: "Silence Participant"
+      description: "Deaf Mute Participant"
+      operationId: "ConferencesDeafMuteParticipant"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "conferenceSid"
+        in: "formData"
+        description: "ID of the active conference"
+        required: true
+        type: "string"
+        x-exportParamName: "ConferenceSid"
+      - name: "ParticipantSid"
+        in: "formData"
+        description: "ID of an active participant"
+        required: true
+        type: "string"
+        x-exportParamName: "ParticipantSid"
+      - name: "Muted"
+        in: "formData"
+        description: "Mute a participant"
+        required: false
+        type: "boolean"
+        x-exportParamName: "Muted"
+      - name: "Deaf"
+        in: "formData"
+        description: "Make it so a participant cant hear"
+        required: false
+        type: "boolean"
+        x-exportParamName: "Deaf"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /conferences/viewParticipant.json:
+    post:
+      tags:
+      - "Conference"
+      summary: "View Participant"
+      description: "Retrieve information about a participant by its ParticipantSid."
+      operationId: "ConferencesViewParticipant"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "ConferenceSid"
+        in: "formData"
+        description: "The unique identifier for a conference object."
+        required: true
+        type: "string"
+        x-exportParamName: "ConferenceSid"
+      - name: "ParticipantSid"
+        in: "formData"
+        description: "The unique identifier for a participant object."
+        required: true
+        type: "string"
+        x-exportParamName: "ParticipantSid"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /incomingphone/availablenumber.json:
+    post:
+      tags:
+      - "Phone Number"
+      summary: "Available Numbers"
+      description: "Retrieve a list of available phone numbers that can be purchased\
+        \ and used for your Ytel account."
+      operationId: "IncomingphoneAvailablenumber"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "numbertype"
+        in: "formData"
+        description: "Number type either SMS,Voice or all"
+        required: true
+        type: "string"
+        enum:
+        - "all"
+        - "voice"
+        - "sms"
+        x-enum-elements:
+        - name: "ALL"
+          description: "Get all phone Number type"
+        - name: "Voice"
+          description: "Get only voice number type"
+        - name: "SMS"
+          description: "Get Only SMs number type"
+        x-exportParamName: "Numbertype"
+      - name: "areacode"
+        in: "formData"
+        description: "Specifies the area code for the returned list of available numbers.\
+          \ Only available for North American numbers."
+        required: true
+        type: "string"
+        x-exportParamName: "Areacode"
+      - name: "pagesize"
+        in: "formData"
+        description: "The count of objects to return."
+        required: false
+        type: "integer"
+        default: 10
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Pagesize"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /incomingphone/massreleasenumber.json:
+    post:
+      tags:
+      - "Phone Number"
+      summary: "Bulk Release"
+      description: "Remove a purchased Ytel number from your account."
+      operationId: "IncomingphoneMassreleasenumber"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "PhoneNumber"
+        in: "formData"
+        description: "A valid Ytel comma separated numbers (E.164 format)."
+        required: true
+        type: "string"
+        x-exportParamName: "PhoneNumber"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /transcriptions/viewtranscription.json:
+    post:
+      tags:
+      - "Transcription"
+      summary: "View Transcription"
+      description: "Retrieve information about a transaction by its TranscriptionSid."
+      operationId: "TranscriptionsViewtranscription"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "transcriptionsid"
+        in: "formData"
+        description: "The unique identifier for a transcription object."
+        required: true
+        type: "string"
+        x-exportParamName: "Transcriptionsid"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /transcriptions/recordingtranscription.json:
+    post:
+      tags:
+      - "Transcription"
+      summary: "Transcribe Recording"
+      description: "Transcribe a recording by its RecordingSid."
+      operationId: "TranscriptionsRecordingtranscription"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "recordingSid"
+        in: "formData"
+        description: "The unique identifier for a recording object."
+        required: true
+        type: "string"
+        x-exportParamName: "RecordingSid"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /transcriptions/audiourltranscription.json:
+    post:
+      tags:
+      - "Transcription"
+      summary: "Transcribe Audio URL"
+      description: "Transcribe an audio recording from a file."
+      operationId: "TranscriptionsAudiourltranscription"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "audiourl"
+        in: "formData"
+        description: "URL pointing to the location of the audio file that is to be\
+          \ transcribed."
+        required: true
+        type: "string"
+        x-exportParamName: "Audiourl"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /recording/viewrecording.json:
+    post:
+      tags:
+      - "Recording"
+      summary: "View Recording"
+      description: "Retrieve the recording of a call by its RecordingSid. This resource\
+        \ will return information regarding the call such as start time, end time,\
+        \ duration, and so forth."
+      operationId: "RecordingViewrecording"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "recordingsid"
+        in: "formData"
+        description: "The unique identifier for the recording."
+        required: true
+        type: "string"
+        x-exportParamName: "Recordingsid"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /recording/deleterecording.json:
+    post:
+      tags:
+      - "Recording"
+      summary: "Delete Recording"
+      description: "Remove a recording from your Ytel account."
+      operationId: "RecordingDeleterecording"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "recordingsid"
+        in: "formData"
+        description: "The unique identifier for a recording."
+        required: true
+        type: "string"
+        x-exportParamName: "Recordingsid"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /incomingphone/viewnumber.json:
+    post:
+      tags:
+      - "Phone Number"
+      summary: "View Details"
+      description: "Retrieve the details for a phone number by its number."
+      operationId: "IncomingphoneViewnumber"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "PhoneNumber"
+        in: "formData"
+        description: "A valid Ytel 10-digit phone number (E.164 format)."
+        required: true
+        type: "string"
+        x-exportParamName: "PhoneNumber"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /incomingphone/releasenumber.{ResponseType}:
+    post:
+      tags:
+      - "Phone Number"
+      summary: "Release Number"
+      description: "Remove a purchased Ytel number from your account."
+      operationId: "IncomingphoneReleasenumberByResponseTypePost"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "PhoneNumber"
+        in: "formData"
+        description: "A valid 10-digit Ytel number (E.164 format)."
+        required: true
+        type: "string"
+        x-exportParamName: "PhoneNumber"
+      - name: "ResponseType"
+        in: "path"
+        description: "Response type format xml or json"
+        required: true
+        type: "string"
+        x-exportParamName: "ResponseType"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /incomingphone/buynumber.json:
+    post:
+      tags:
+      - "Phone Number"
+      summary: "Purchase Number"
+      description: "Purchase a phone number to be used with your Ytel account"
+      operationId: "IncomingphoneBuynumber"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "PhoneNumber"
+        in: "formData"
+        description: "A valid 10-digit Ytel number (E.164 format)."
+        required: true
+        type: "string"
+        x-exportParamName: "PhoneNumber"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /email/deletespamemail.json:
+    post:
+      tags:
+      - "Email"
+      summary: "Remove Spam Address"
+      description: "Remove an email from the spam email list."
+      operationId: "EmailDeletespamemail"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Email"
+        in: "formData"
+        description: "A valid email address that is to be remove from the spam list."
+        required: true
+        type: "string"
+        x-exportParamName: "Email"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /email/deleteblocksemail.json:
+    post:
+      tags:
+      - "Email"
+      summary: "Remove Blocked Address"
+      description: "Remove an email from blocked emails list."
+      operationId: "EmailDeleteblocksemail"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Email"
+        in: "formData"
+        description: "The email address to be remove from the blocked list."
+        required: true
+        type: "string"
+        x-exportParamName: "Email"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /email/addunsubscribesemail.json:
+    post:
+      tags:
+      - "Email"
+      summary: "Add Email Unsubscribe"
+      description: "Add an email to the unsubscribe list"
+      operationId: "EmailAddunsubscribesemail"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "email"
+        in: "formData"
+        description: "A valid email address that is to be added to the unsubscribe\
+          \ list"
+        required: true
+        type: "string"
+        x-exportParamName: "Email"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /conferences/viewconference.json:
+    post:
+      tags:
+      - "Conference"
+      summary: "View Conference"
+      description: "Retrieve information about a conference by its ConferenceSid."
+      operationId: "ConferencesViewconference"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "ConferenceSid"
+        in: "formData"
+        description: "The unique identifier of each conference resource"
+        required: true
+        type: "string"
+        x-exportParamName: "ConferenceSid"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /email/sendemails.json:
+    post:
+      tags:
+      - "Email"
+      summary: "Send Email"
+      description: "Create and submit an email message to one or more email addresses."
+      operationId: "EmailSendemails"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "To"
+        in: "formData"
+        description: "A valid address that will receive the email. Multiple addresses\
+          \ can be separated by using commas."
+        required: true
+        type: "string"
+        x-exportParamName: "To"
+      - name: "Type"
+        in: "formData"
+        description: "Specifies the type of email to be sent"
+        required: true
+        type: "string"
+        enum:
+        - "text"
+        - "html"
+        x-enum-elements:
+        - name: "TEXT"
+          description: "Email send as text format"
+        - name: "HTML"
+          description: "Email send as HTML format"
+        x-exportParamName: "Type_"
+      - name: "Subject"
+        in: "formData"
+        description: "The subject of the mail. Must be a valid string."
+        required: true
+        type: "string"
+        x-exportParamName: "Subject"
+      - name: "Message"
+        in: "formData"
+        description: "The email message that is to be sent in the text."
+        required: true
+        type: "string"
+        x-exportParamName: "Message"
+      - name: "From"
+        in: "formData"
+        description: "A valid address that will send the email."
+        required: false
+        type: "string"
+        x-exportParamName: "From"
+      - name: "Cc"
+        in: "formData"
+        description: "Carbon copy. A valid address that will receive the email. Multiple\
+          \ addresses can be separated by using commas."
+        required: false
+        type: "string"
+        x-exportParamName: "Cc"
+      - name: "Bcc"
+        in: "formData"
+        description: "Blind carbon copy. A valid address that will receive the email.\
+          \ Multiple addresses can be separated by using commas."
+        required: false
+        type: "string"
+        x-exportParamName: "Bcc"
+      - name: "Attachment"
+        in: "formData"
+        description: "A file that is attached to the email. Must be less than 7 MB\
+          \ in size."
+        required: false
+        type: "string"
+        x-exportParamName: "Attachment"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /sms/sendsms.json:
+    post:
+      tags:
+      - "SMS"
+      summary: "Send SMS"
+      description: "Send an SMS from a Ytel number"
+      operationId: "SmsSendsms"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "From"
+        in: "formData"
+        description: "The 10-digit SMS-enabled Ytel number (E.164 format) in which\
+          \ the message is sent."
+        required: true
+        type: "string"
+        x-exportParamName: "From"
+      - name: "To"
+        in: "formData"
+        description: "The 10-digit phone number (E.164 format) that will receive the\
+          \ message."
+        required: true
+        type: "string"
+        x-exportParamName: "To"
+      - name: "Body"
+        in: "formData"
+        description: "The body message that is to be sent in the text."
+        required: true
+        type: "string"
+        x-exportParamName: "Body"
+      - name: "Method"
+        in: "formData"
+        description: "Specifies the HTTP method used to request the required URL once\
+          \ SMS sent."
+        required: false
+        type: "string"
+        x-exportParamName: "Method"
+      - name: "MessageStatusCallback"
+        in: "formData"
+        description: "URL that can be requested to receive notification when SMS has\
+          \ Sent. A set of default parameters will be sent here once the SMS is finished."
+        required: false
+        type: "string"
+        x-exportParamName: "MessageStatusCallback"
+      - name: "Smartsms"
+        in: "formData"
+        description: "Check's 'to' number can receive sms or not using Carrier API,\
+          \ if wireless = true then text sms is sent, else wireless = false then call\
+          \ is recieved to end user with audible message."
+        required: false
+        type: "boolean"
+        default: false
+        x-exportParamName: "Smartsms"
+      - name: "DeliveryStatus"
+        in: "formData"
+        description: "Delivery reports are a method to tell your system if the message\
+          \ has arrived on the destination phone."
+        required: false
+        type: "boolean"
+        default: false
+        x-exportParamName: "DeliveryStatus"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /calls/makecall.json:
+    post:
+      tags:
+      - "Call"
+      summary: "Make Call"
+      description: "You can experiment with initiating a call through Ytel and view\
+        \ the request response generated when doing so and get the response in json"
+      operationId: "CallsMakecall"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "From"
+        in: "formData"
+        description: "A valid Ytel Voice enabled number (E.164 format) that will be\
+          \ initiating the phone call."
+        required: true
+        type: "string"
+        x-exportParamName: "From"
+      - name: "To"
+        in: "formData"
+        description: "To number"
+        required: true
+        type: "string"
+        x-exportParamName: "To"
+      - name: "Url"
+        in: "formData"
+        description: "URL requested once the call connects"
+        required: true
+        type: "string"
+        x-exportParamName: "Url"
+      - name: "Method"
+        in: "formData"
+        description: "Specifies the HTTP method used to request the required URL once\
+          \ call connects."
+        required: false
+        type: "string"
+        x-exportParamName: "Method"
+      - name: "StatusCallBackUrl"
+        in: "formData"
+        description: "URL that can be requested to receive notification when call\
+          \ has ended. A set of default parameters will be sent here once the call\
+          \ is finished."
+        required: false
+        type: "string"
+        x-exportParamName: "StatusCallBackUrl"
+      - name: "StatusCallBackMethod"
+        in: "formData"
+        description: "Specifies the HTTP methodlinkclass used to request StatusCallbackUrl."
+        required: false
+        type: "string"
+        x-exportParamName: "StatusCallBackMethod"
+      - name: "FallBackUrl"
+        in: "formData"
+        description: "URL requested if the initial Url parameter fails or encounters\
+          \ an error"
+        required: false
+        type: "string"
+        x-exportParamName: "FallBackUrl"
+      - name: "FallBackMethod"
+        in: "formData"
+        description: "Specifies the HTTP method used to request the required FallbackUrl\
+          \ once call connects."
+        required: false
+        type: "string"
+        x-exportParamName: "FallBackMethod"
+      - name: "HeartBeatUrl"
+        in: "formData"
+        description: "URL that can be requested every 60 seconds during the call to\
+          \ notify of elapsed tim"
+        required: false
+        type: "string"
+        x-exportParamName: "HeartBeatUrl"
+      - name: "HeartBeatMethod"
+        in: "formData"
+        description: "Specifies the HTTP method used to request HeartbeatUrl."
+        required: false
+        type: "string"
+        x-exportParamName: "HeartBeatMethod"
+      - name: "Timeout"
+        in: "formData"
+        description: "Time (in seconds) Ytel should wait while the call is ringing\
+          \ before canceling the call"
+        required: false
+        type: "integer"
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Timeout"
+      - name: "PlayDtmf"
+        in: "formData"
+        description: "DTMF Digits to play to the call once it connects. 0-9, #, or\
+          \ *"
+        required: false
+        type: "string"
+        x-exportParamName: "PlayDtmf"
+      - name: "HideCallerId"
+        in: "formData"
+        description: "Specifies if the caller id will be hidden"
+        required: false
+        type: "boolean"
+        x-exportParamName: "HideCallerId"
+      - name: "Record"
+        in: "formData"
+        description: "Specifies if the call should be recorded"
+        required: false
+        type: "boolean"
+        x-exportParamName: "Record"
+      - name: "RecordCallBackUrl"
+        in: "formData"
+        description: "Recording parameters will be sent here upon completion"
+        required: false
+        type: "string"
+        x-exportParamName: "RecordCallBackUrl"
+      - name: "RecordCallBackMethod"
+        in: "formData"
+        description: "Method used to request the RecordCallback URL."
+        required: false
+        type: "string"
+        x-exportParamName: "RecordCallBackMethod"
+      - name: "Transcribe"
+        in: "formData"
+        description: "Specifies if the call recording should be transcribed"
+        required: false
+        type: "boolean"
+        x-exportParamName: "Transcribe"
+      - name: "TranscribeCallBackUrl"
+        in: "formData"
+        description: "Transcription parameters will be sent here upon completion"
+        required: false
+        type: "string"
+        x-exportParamName: "TranscribeCallBackUrl"
+      - name: "IfMachine"
+        in: "formData"
+        description: "How Ytel should handle the receiving numbers voicemail machine"
+        required: false
+        type: "string"
+        enum:
+        - "continue"
+        - "hangup"
+        x-enum-elements:
+        - name: "CONTINUE"
+          description: ""
+        - name: "HANGUP"
+          description: ""
+        x-exportParamName: "IfMachine"
+      - name: "IfMachineUrl"
+        in: "formData"
+        description: "URL requested when IfMachine=continue"
+        required: false
+        type: "string"
+        x-exportParamName: "IfMachineUrl"
+      - name: "IfMachineMethod"
+        in: "formData"
+        description: "Method used to request the IfMachineUrl."
+        required: false
+        type: "string"
+        x-exportParamName: "IfMachineMethod"
+      - name: "Feedback"
+        in: "formData"
+        description: "Specify if survey should be enable or not"
+        required: false
+        type: "boolean"
+        x-exportParamName: "Feedback"
+      - name: "SurveyId"
+        in: "formData"
+        description: "The unique identifier for the survey."
+        required: false
+        type: "string"
+        x-exportParamName: "SurveyId"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /calls/playaudios.json:
+    post:
+      tags:
+      - "Call"
+      summary: "Play Audio"
+      description: "Play Audio from a url"
+      operationId: "CallsPlayaudios"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "CallSid"
+        in: "formData"
+        description: "The unique identifier of each call resource"
+        required: true
+        type: "string"
+        x-exportParamName: "CallSid"
+      - name: "AudioUrl"
+        in: "formData"
+        description: "URL to sound that should be played. You also can add more than\
+          \ one audio file using semicolons e.g. http://example.com/audio1.mp3;http://example.com/audio2.wav"
+        required: true
+        type: "string"
+        x-exportParamName: "AudioUrl"
+      - name: "SayText"
+        in: "formData"
+        description: "Valid alphanumeric string that should be played to the In-progress\
+          \ call."
+        required: true
+        type: "string"
+        x-exportParamName: "SayText"
+      - name: "Length"
+        in: "formData"
+        description: "Time limit in seconds for audio play back"
+        required: false
+        type: "integer"
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Length"
+      - name: "Direction"
+        in: "formData"
+        description: "The leg of the call audio will be played to"
+        required: false
+        type: "string"
+        enum:
+        - "in"
+        - "out"
+        - "both"
+        x-enum-elements:
+        - name: "IN"
+          description: "in direction"
+        - name: "OUT"
+          description: "out direction"
+        - name: "BOTH"
+          description: "both"
+        x-exportParamName: "Direction"
+      - name: "Mix"
+        in: "formData"
+        description: "If false, all other audio will be muted"
+        required: false
+        type: "boolean"
+        x-exportParamName: "Mix"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /calls/recordcalls.json:
+    post:
+      tags:
+      - "Call"
+      summary: "Record Call"
+      description: "Start or stop recording of an in-progress voice call."
+      operationId: "CallsRecordcalls"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "CallSid"
+        in: "formData"
+        description: "The unique identifier of each call resource"
+        required: true
+        type: "string"
+        x-exportParamName: "CallSid"
+      - name: "Record"
+        in: "formData"
+        description: "Set true to initiate recording or false to terminate recording"
+        required: true
+        type: "boolean"
+        x-exportParamName: "Record"
+      - name: "Direction"
+        in: "formData"
+        description: "The leg of the call to record"
+        required: false
+        type: "string"
+        enum:
+        - "in"
+        - "out"
+        - "both"
+        x-enum-elements:
+        - name: "IN"
+          description: "in direction"
+        - name: "OUT"
+          description: "out direction"
+        - name: "BOTH"
+          description: "both"
+        x-exportParamName: "Direction"
+      - name: "TimeLimit"
+        in: "formData"
+        description: "Time in seconds the recording duration should not exceed"
+        required: false
+        type: "integer"
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "TimeLimit"
+      - name: "CallBackUrl"
+        in: "formData"
+        description: "URL consulted after the recording completes"
+        required: false
+        type: "string"
+        x-exportParamName: "CallBackUrl"
+      - name: "Fileformat"
+        in: "formData"
+        description: "Format of the recording file. Can be .mp3 or .wav"
+        required: false
+        type: "string"
+        enum:
+        - "mp3"
+        - "wav"
+        x-enum-elements:
+        - name: "mp3"
+          description: "mp3 file"
+        - name: "wav"
+          description: "wav file"
+        x-exportParamName: "Fileformat"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /calls/voiceeffect.json:
+    post:
+      tags:
+      - "Call"
+      summary: "Voice Effect"
+      description: "Add audio voice effects to the an in-progress voice call."
+      operationId: "CallsVoiceeffect"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "CallSid"
+        in: "formData"
+        description: "The unique identifier for the in-progress voice call."
+        required: true
+        type: "string"
+        x-exportParamName: "CallSid"
+      - name: "AudioDirection"
+        in: "formData"
+        description: "The direction the audio effect should be placed on. If IN, the\
+          \ effects will occur on the incoming audio stream. If OUT, the effects will\
+          \ occur on the outgoing audio stream."
+        required: false
+        type: "string"
+        enum:
+        - "in"
+        - "out"
+        x-enum-elements:
+        - name: "IN"
+          description: ""
+        - name: "OUT"
+          description: ""
+        x-exportParamName: "AudioDirection"
+      - name: "PitchSemiTones"
+        in: "formData"
+        description: "Set the pitch in semitone (half-step) intervals. Value between\
+          \ -14 and 14"
+        required: false
+        type: "number"
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "double"
+        x-exportParamName: "PitchSemiTones"
+      - name: "PitchOctaves"
+        in: "formData"
+        description: "Set the pitch in octave intervals.. Value between -1 and 1"
+        required: false
+        type: "number"
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "double"
+        x-exportParamName: "PitchOctaves"
+      - name: "Pitch"
+        in: "formData"
+        description: "Set the pitch (lowness/highness) of the audio. The higher the\
+          \ value, the higher the pitch. Value greater than 0"
+        required: false
+        type: "number"
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "double"
+        x-exportParamName: "Pitch"
+      - name: "Rate"
+        in: "formData"
+        description: "Set the rate for audio. The lower the value, the lower the rate.\
+          \ value greater than 0"
+        required: false
+        type: "number"
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "double"
+        x-exportParamName: "Rate"
+      - name: "Tempo"
+        in: "formData"
+        description: "Set the tempo (speed) of the audio. A higher value denotes a\
+          \ faster tempo. Value greater than 0"
+        required: false
+        type: "number"
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "double"
+        x-exportParamName: "Tempo"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /email/deleteunsubscribedemail.json:
+    post:
+      tags:
+      - "Email"
+      summary: "Remove Unsubscribed Email"
+      description: "Remove an email address from the list of unsubscribed emails."
+      operationId: "EmailDeleteunsubscribedemail"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "email"
+        in: "formData"
+        description: "A valid email address that is to be remove from the unsubscribe\
+          \ list."
+        required: true
+        type: "string"
+        x-exportParamName: "Email"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /email/listunsubscribedemail.json:
+    post:
+      tags:
+      - "Email"
+      summary: "List Unsubscribed Emails"
+      description: "Retrieve a list of email addresses from the unsubscribe list."
+      operationId: "EmailListunsubscribedemail"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Offset"
+        in: "formData"
+        description: "The starting point of the list of unsubscribed emails that should\
+          \ be returned."
+        required: false
+        type: "string"
+        x-exportParamName: "Offset"
+      - name: "Limit"
+        in: "formData"
+        description: "The count of results that should be returned."
+        required: false
+        type: "string"
+        x-exportParamName: "Limit"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /calls/senddigits.json:
+    post:
+      tags:
+      - "Call"
+      summary: "Play DTMF"
+      description: "Play Dtmf and send the Digit"
+      operationId: "CallsSenddigits"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "CallSid"
+        in: "formData"
+        description: "The unique identifier of each call resource"
+        required: true
+        type: "string"
+        x-exportParamName: "CallSid"
+      - name: "PlayDtmf"
+        in: "formData"
+        description: "DTMF digits to play to the call. 0-9, #, *, W, or w"
+        required: true
+        type: "string"
+        x-exportParamName: "PlayDtmf"
+      - name: "PlayDtmfDirection"
+        in: "formData"
+        description: "The leg of the call DTMF digits should be sent to"
+        required: false
+        type: "string"
+        enum:
+        - "in"
+        - "out"
+        - "both"
+        x-enum-elements:
+        - name: "IN"
+          description: "in direction"
+        - name: "OUT"
+          description: "out direction"
+        - name: "BOTH"
+          description: "both"
+        x-exportParamName: "PlayDtmfDirection"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /calls/interruptcalls.json:
+    post:
+      tags:
+      - "Call"
+      summary: "Interrupt Call"
+      description: "Interrupt the Call by Call Sid"
+      operationId: "CallsInterruptcalls"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "CallSid"
+        in: "formData"
+        description: "The unique identifier for voice call that is in progress."
+        required: true
+        type: "string"
+        x-exportParamName: "CallSid"
+      - name: "Url"
+        in: "formData"
+        description: "URL the in-progress call will be redirected to"
+        required: false
+        type: "string"
+        x-exportParamName: "Url"
+      - name: "Method"
+        in: "formData"
+        description: "The method used to request the above Url parameter"
+        required: false
+        type: "string"
+        x-exportParamName: "Method"
+      - name: "Status"
+        in: "formData"
+        description: "Status to set the in-progress call to"
+        required: false
+        type: "string"
+        enum:
+        - "canceled"
+        - "completed"
+        x-enum-elements:
+        - name: "CANCELED"
+          description: "Interrupt Call will be cancel"
+        - name: "COMPLETED"
+          description: "Interrupt Call is complete"
+        x-exportParamName: "Status"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /carrier/lookuplist.json:
+    post:
+      tags:
+      - "Carrier"
+      summary: "Carrier Results"
+      description: "Retrieve a list of carrier lookup objects."
+      operationId: "CarrierLookuplist"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Page"
+        in: "formData"
+        description: "The page count to retrieve from the total results in the collection.\
+          \ Page indexing starts at 1."
+        required: false
+        type: "integer"
+        default: 1
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Page"
+      - name: "PageSize"
+        in: "formData"
+        description: "The count of objects to return per page."
+        required: false
+        type: "integer"
+        default: 10
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "PageSize"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /email/listinvalidemail.json:
+    post:
+      tags:
+      - "Email"
+      summary: "Invalid Emails"
+      description: "Retrieve a list of invalid email addresses."
+      operationId: "EmailListinvalidemail"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Offset"
+        in: "formData"
+        description: "The starting point of the list of invalid emails that should\
+          \ be returned."
+        required: false
+        type: "string"
+        x-exportParamName: "Offset"
+      - name: "Limit"
+        in: "formData"
+        description: "The count of results that should be returned."
+        required: false
+        type: "string"
+        x-exportParamName: "Limit"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /email/deletebouncesemail.json:
+    post:
+      tags:
+      - "Email"
+      summary: "Remove Bounced Email"
+      description: "Remove an email address from the bounced list."
+      operationId: "EmailDeletebouncesemail"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Email"
+        in: "formData"
+        description: "The email address to be remove from the bounced email list."
+        required: true
+        type: "string"
+        x-exportParamName: "Email"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /email/listbounceemail.json:
+    post:
+      tags:
+      - "Email"
+      summary: "Bounced Emails"
+      description: "Retrieve a list of emails that have bounced."
+      operationId: "EmailListbounceemail"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Offset"
+        in: "formData"
+        description: "The starting point of the list of bounced emails that should\
+          \ be returned."
+        required: false
+        type: "string"
+        x-exportParamName: "Offset"
+      - name: "Limit"
+        in: "formData"
+        description: "The count of results that should be returned."
+        required: false
+        type: "string"
+        x-exportParamName: "Limit"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /email/listspamemail.json:
+    post:
+      tags:
+      - "Email"
+      summary: "Spam Emails"
+      description: "Retrieve a list of emails that are on the spam list."
+      operationId: "EmailListspamemail"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Offset"
+        in: "formData"
+        description: "The starting point of the list of spam emails that should be\
+          \ returned."
+        required: false
+        type: "string"
+        x-exportParamName: "Offset"
+      - name: "Limit"
+        in: "formData"
+        description: "The count of results that should be returned."
+        required: false
+        type: "string"
+        x-exportParamName: "Limit"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /email/listblockemail.json:
+    post:
+      tags:
+      - "Email"
+      summary: "Blocked Emails"
+      description: "Retrieve a list of emails that have been blocked."
+      operationId: "EmailListblockemail"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Offset"
+        in: "formData"
+        description: "The starting point of the list of blocked emails that should\
+          \ be returned."
+        required: false
+        type: "string"
+        x-exportParamName: "Offset"
+      - name: "Limit"
+        in: "formData"
+        description: "The count of results that should be returned."
+        required: false
+        type: "string"
+        x-exportParamName: "Limit"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /address/viewaddress.json:
+    post:
+      tags:
+      - "Address"
+      summary: "View Address"
+      description: "View Address Specific address Book by providing the address id"
+      operationId: "AddressViewaddress"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "addressid"
+        in: "formData"
+        description: "The identifier of the address to be retrieved."
+        required: true
+        type: "string"
+        x-exportParamName: "Addressid"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /address/listaddress.json:
+    post:
+      tags:
+      - "Address"
+      summary: "List Addresses"
+      description: "List All Address "
+      operationId: "AddressListaddress"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "page"
+        in: "formData"
+        description: "The page count to retrieve from the total results in the collection.\
+          \ Page indexing starts at 1."
+        required: false
+        type: "integer"
+        default: 1
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Page"
+      - name: "pagesize"
+        in: "formData"
+        description: "How many results to return, default is 10, max is 100, must\
+          \ be an integer"
+        required: false
+        type: "integer"
+        default: 10
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Pagesize"
+      - name: "addressid"
+        in: "formData"
+        description: "addresses Sid"
+        required: false
+        type: "string"
+        x-exportParamName: "Addressid"
+      - name: "dateCreated"
+        in: "formData"
+        description: "date created address."
+        required: false
+        type: "string"
+        x-exportParamName: "DateCreated"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /address/verifyaddress.json:
+    post:
+      tags:
+      - "Address"
+      summary: "Verify Address"
+      description: "Validates an address given."
+      operationId: "AddressVerifyaddress"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "addressid"
+        in: "formData"
+        description: "The identifier of the address to be verified."
+        required: true
+        type: "string"
+        x-exportParamName: "Addressid"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /address/deleteaddress.json:
+    post:
+      tags:
+      - "Address"
+      summary: "Delete Address"
+      description: "To delete Address to your address book"
+      operationId: "AddressDeleteaddress"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "addressid"
+        in: "formData"
+        description: "The identifier of the address to be deleted."
+        required: true
+        type: "string"
+        x-exportParamName: "Addressid"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /user/deletesubaccount.json:
+    post:
+      tags:
+      - "Sub Account"
+      summary: "Delete Subaccount"
+      description: "Delete sub account or merge numbers into parent"
+      operationId: "UserDeletesubaccount"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "SubAccountSID"
+        in: "formData"
+        description: "The SubaccountSid to be deleted"
+        required: true
+        type: "string"
+        x-exportParamName: "SubAccountSID"
+      - name: "MergeNumber"
+        in: "formData"
+        description: "0 to delete or 1 to merge numbers to parent account."
+        required: true
+        type: "string"
+        enum:
+        - "0"
+        - "1"
+        x-enum-elements:
+        - name: "Delete"
+          description: ""
+        - name: "Merge"
+          description: ""
+        x-exportParamName: "MergeNumber"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /user/subaccountactivation.json:
+    post:
+      tags:
+      - "Sub Account"
+      summary: "Toggle Subaccount Status"
+      description: "Suspend or unsuspend"
+      operationId: "UserSubaccountactivation"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "SubAccountSID"
+        in: "formData"
+        description: "The SubaccountSid to be activated or suspended"
+        required: true
+        type: "string"
+        x-exportParamName: "SubAccountSID"
+      - name: "Activate"
+        in: "formData"
+        description: "0 to suspend or 1 to activate"
+        required: true
+        type: "string"
+        enum:
+        - "1"
+        - "0"
+        x-enum-elements:
+        - name: "Activate"
+          description: ""
+        - name: "DeActivate"
+          description: ""
+        x-exportParamName: "Activate"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /accounts/viewaccount.json:
+    post:
+      tags:
+      - "Account"
+      summary: "View Account"
+      description: "Retrieve information regarding your Ytel account by a specific\
+        \ date. The response object will contain data such as account status, balance,\
+        \ and account usage totals."
+      operationId: "AccountsViewaccount"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Date"
+        in: "formData"
+        description: "Filter account information based on date."
+        required: true
+        type: "string"
+        x-exportParamName: "Date"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /sms/viewsms.json:
+    post:
+      tags:
+      - "SMS"
+      summary: "View SMS"
+      description: "Retrieve a single SMS message object by its SmsSid."
+      operationId: "SmsViewsms"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "MessageSid"
+        in: "formData"
+        description: "The unique identifier for a sms message."
+        required: true
+        type: "string"
+        x-exportParamName: "MessageSid"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /shortcode/viewsms.json:
+    post:
+      tags:
+      - "ShortCode"
+      summary: "View SMS"
+      description: "View a single Sms Short Code message."
+      operationId: "ShortcodeViewsms"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "MessageSid"
+        in: "formData"
+        description: "The unique identifier for the sms resource"
+        required: true
+        type: "string"
+        x-exportParamName: "MessageSid"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /shortcode/listsms.json:
+    post:
+      tags:
+      - "ShortCode"
+      summary: "List SMS"
+      description: "Retrieve a list of Short Code messages."
+      operationId: "ShortcodeListsms"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Shortcode"
+        in: "formData"
+        description: "Only list messages sent from this Short Code"
+        required: false
+        type: "string"
+        x-exportParamName: "Shortcode"
+      - name: "To"
+        in: "formData"
+        description: "Only list messages sent to this number"
+        required: false
+        type: "string"
+        x-exportParamName: "To"
+      - name: "DateSent"
+        in: "formData"
+        description: "Only list messages sent with the specified date"
+        required: false
+        type: "string"
+        x-exportParamName: "DateSent"
+      - name: "Page"
+        in: "formData"
+        description: "The page count to retrieve from the total results in the collection.\
+          \ Page indexing starts at 1."
+        required: false
+        type: "integer"
+        default: 1
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Page"
+      - name: "PageSize"
+        in: "formData"
+        description: "The count of objects to return per page."
+        required: false
+        type: "integer"
+        default: 10
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "PageSize"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /shortcode/getinboundsms.json:
+    post:
+      tags:
+      - "SharedShortCode"
+      summary: "List Inbound SMS"
+      description: "List All Inbound ShortCode"
+      operationId: "ShortcodeGetinboundsms"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "page"
+        in: "formData"
+        description: "The page count to retrieve from the total results in the collection.\
+          \ Page indexing starts at 1."
+        required: false
+        type: "integer"
+        default: 1
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Page"
+      - name: "pagesize"
+        in: "formData"
+        description: "Number of individual resources listed in the response per page"
+        required: false
+        type: "integer"
+        default: 10
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Pagesize"
+      - name: "from"
+        in: "formData"
+        description: "From Number to Inbound ShortCode"
+        required: false
+        type: "string"
+        x-exportParamName: "From"
+      - name: "Shortcode"
+        in: "formData"
+        description: "Only list messages sent to this Short Code"
+        required: false
+        type: "string"
+        x-exportParamName: "Shortcode"
+      - name: "Datecreated"
+        in: "query"
+        description: "Only list messages sent with the specified date"
+        required: false
+        type: "string"
+        x-exportParamName: "Datecreated"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /shortcode/sendsms.json:
+    post:
+      tags:
+      - "SharedShortCode"
+      summary: "Send SMS"
+      description: "Send an SMS from a Ytel ShortCode"
+      operationId: "ShortcodeSendsms"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "shortcode"
+        in: "formData"
+        description: "The Short Code number that is the sender of this message"
+        required: true
+        type: "string"
+        x-exportParamName: "Shortcode"
+      - name: "to"
+        in: "formData"
+        description: "A valid 10-digit number that should receive the message"
+        required: true
+        type: "string"
+        x-exportParamName: "To"
+      - name: "templateid"
+        in: "formData"
+        description: "The unique identifier for the template used for the message"
+        required: true
+        type: "string"
+        format: "uuid"
+        x-exportParamName: "Templateid"
+      - name: "data"
+        in: "formData"
+        description: "format of your data, example: {companyname}:test,{otpcode}:1234"
+        required: true
+        type: "string"
+        x-exportParamName: "Data"
+      - name: "Method"
+        in: "formData"
+        description: "Specifies the HTTP method used to request the required URL once\
+          \ the Short Code message is sent."
+        required: false
+        type: "string"
+        default: "GET"
+        x-exportParamName: "Method"
+      - name: "MessageStatusCallback"
+        in: "formData"
+        description: "URL that can be requested to receive notification when Short\
+          \ Code message was sent."
+        required: false
+        type: "string"
+        x-exportParamName: "MessageStatusCallback"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /sms/listsms.json:
+    post:
+      tags:
+      - "SMS"
+      summary: "List SMS"
+      description: "Retrieve a list of Outbound SMS message objects."
+      operationId: "SmsListsms"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Page"
+        in: "formData"
+        description: "The page count to retrieve from the total results in the collection.\
+          \ Page indexing starts at 1."
+        required: false
+        type: "integer"
+        default: 1
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Page"
+      - name: "PageSize"
+        in: "formData"
+        description: "Number of individual resources listed in the response per page"
+        required: false
+        type: "integer"
+        default: 10
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "PageSize"
+      - name: "From"
+        in: "formData"
+        description: "Filter SMS message objects from this valid 10-digit phone number\
+          \ (E.164 format)."
+        required: false
+        type: "string"
+        x-exportParamName: "From"
+      - name: "To"
+        in: "formData"
+        description: "Filter SMS message objects to this valid 10-digit phone number\
+          \ (E.164 format)."
+        required: false
+        type: "string"
+        x-exportParamName: "To"
+      - name: "DateSent"
+        in: "formData"
+        description: "Only list SMS messages sent in the specified date range"
+        required: false
+        type: "string"
+        x-exportParamName: "DateSent"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /calls/listcalls.json:
+    post:
+      tags:
+      - "Call"
+      summary: "List Calls"
+      description: "A list of calls associated with your Ytel account"
+      operationId: "CallsListcalls"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Page"
+        in: "formData"
+        description: "The page count to retrieve from the total results in the collection.\
+          \ Page indexing starts at 1."
+        required: false
+        type: "integer"
+        default: 1
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Page"
+      - name: "PageSize"
+        in: "formData"
+        description: "Number of individual resources listed in the response per page"
+        required: false
+        type: "integer"
+        default: 10
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "PageSize"
+      - name: "To"
+        in: "formData"
+        description: "Filter calls that were sent to this 10-digit number (E.164 format)."
+        required: false
+        type: "string"
+        x-exportParamName: "To"
+      - name: "From"
+        in: "formData"
+        description: "Filter calls that were sent from this 10-digit number (E.164\
+          \ format)."
+        required: false
+        type: "string"
+        x-exportParamName: "From"
+      - name: "DateCreated"
+        in: "formData"
+        description: "Return calls that are from a specified date."
+        required: false
+        type: "string"
+        x-exportParamName: "DateCreated"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /calls/makervm.json:
+    post:
+      tags:
+      - "Call"
+      summary: "Send RVM"
+      description: "Initiate an outbound Ringless Voicemail through Ytel."
+      operationId: "CallsMakervm"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "From"
+        in: "formData"
+        description: "A valid Ytel Voice enabled number (E.164 format) that will be\
+          \ initiating the phone call."
+        required: true
+        type: "string"
+        x-exportParamName: "From"
+      - name: "RVMCallerId"
+        in: "formData"
+        description: "A required secondary Caller ID for RVM to work."
+        required: true
+        type: "string"
+        x-exportParamName: "RVMCallerId"
+      - name: "To"
+        in: "formData"
+        description: "A valid number (E.164 format) that will receive the phone call."
+        required: true
+        type: "string"
+        x-exportParamName: "To"
+      - name: "VoiceMailURL"
+        in: "formData"
+        description: "The URL requested once the RVM connects. A set of default parameters\
+          \ will be sent here."
+        required: true
+        type: "string"
+        x-exportParamName: "VoiceMailURL"
+      - name: "Method"
+        in: "formData"
+        description: "Specifies the HTTP method used to request the required URL once\
+          \ call connects."
+        required: false
+        type: "string"
+        default: "GET"
+        x-exportParamName: "Method"
+      - name: "StatusCallBackUrl"
+        in: "formData"
+        description: "URL that can be requested to receive notification when call\
+          \ has ended. A set of default parameters will be sent here once the call\
+          \ is finished."
+        required: false
+        type: "string"
+        x-exportParamName: "StatusCallBackUrl"
+      - name: "StatsCallBackMethod"
+        in: "formData"
+        description: "Specifies the HTTP method used to request the required StatusCallBackUrl\
+          \ once call connects."
+        required: false
+        type: "string"
+        x-exportParamName: "StatsCallBackMethod"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /email/deleteinvalidemail.json:
+    post:
+      tags:
+      - "Email"
+      summary: "Remove Invalid Email"
+      description: "Remove an email from the invalid email list."
+      operationId: "EmailDeleteinvalidemail"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Email"
+        in: "formData"
+        description: "A valid email address that is to be remove from the invalid\
+          \ email list."
+        required: true
+        type: "string"
+        x-exportParamName: "Email"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /carrier/lookup.json:
+    post:
+      tags:
+      - "Carrier"
+      summary: "Lookup Carrier"
+      description: "Get the Carrier Lookup"
+      operationId: "CarrierLookup"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "PhoneNumber"
+        in: "formData"
+        description: "A valid 10-digit number (E.164 format)."
+        required: true
+        type: "string"
+        x-exportParamName: "PhoneNumber"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /calls/viewcalls.json:
+    post:
+      tags:
+      - "Call"
+      summary: "View Call"
+      description: "Retrieve a single voice call’s information by its CallSid."
+      operationId: "CallsViewcalls"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "callsid"
+        in: "formData"
+        description: "The unique identifier for the voice call."
+        required: true
+        type: "string"
+        x-exportParamName: "Callsid"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /incomingphone/updatenumber.json:
+    post:
+      tags:
+      - "Phone Number"
+      summary: "Update Number"
+      description: "Update properties for a Ytel number that has been purchased for\
+        \ your account. Refer to the parameters list for the list of properties that\
+        \ can be updated."
+      operationId: "IncomingphoneUpdatenumber"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "PhoneNumber"
+        in: "formData"
+        description: "A valid Ytel number (E.164 format)."
+        required: true
+        type: "string"
+        x-exportParamName: "PhoneNumber"
+      - name: "VoiceUrl"
+        in: "formData"
+        description: "URL requested once the call connects"
+        required: true
+        type: "string"
+        x-exportParamName: "VoiceUrl"
+      - name: "FriendlyName"
+        in: "formData"
+        description: "Phone number friendly name description"
+        required: false
+        type: "string"
+        x-exportParamName: "FriendlyName"
+      - name: "VoiceMethod"
+        in: "formData"
+        description: "Post or Get"
+        required: false
+        type: "string"
+        x-exportParamName: "VoiceMethod"
+      - name: "VoiceFallbackUrl"
+        in: "formData"
+        description: "URL requested if the voice URL is not available"
+        required: false
+        type: "string"
+        x-exportParamName: "VoiceFallbackUrl"
+      - name: "VoiceFallbackMethod"
+        in: "formData"
+        description: "Post or Get"
+        required: false
+        type: "string"
+        x-exportParamName: "VoiceFallbackMethod"
+      - name: "HangupCallback"
+        in: "formData"
+        description: "callback url after a hangup occurs"
+        required: false
+        type: "string"
+        x-exportParamName: "HangupCallback"
+      - name: "HangupCallbackMethod"
+        in: "formData"
+        description: "Post or Get"
+        required: false
+        type: "string"
+        x-exportParamName: "HangupCallbackMethod"
+      - name: "HeartbeatUrl"
+        in: "formData"
+        description: "URL requested once the call connects"
+        required: false
+        type: "string"
+        x-exportParamName: "HeartbeatUrl"
+      - name: "HeartbeatMethod"
+        in: "formData"
+        description: "URL that can be requested every 60 seconds during the call to\
+          \ notify of elapsed time"
+        required: false
+        type: "string"
+        x-exportParamName: "HeartbeatMethod"
+      - name: "SmsUrl"
+        in: "formData"
+        description: "URL requested when an SMS is received"
+        required: false
+        type: "string"
+        x-exportParamName: "SmsUrl"
+      - name: "SmsMethod"
+        in: "formData"
+        description: "Post or Get"
+        required: false
+        type: "string"
+        x-exportParamName: "SmsMethod"
+      - name: "SmsFallbackUrl"
+        in: "formData"
+        description: "URL used if any errors occur during execution of InboundXML\
+          \ from an SMS or at initial request of the SmsUrl."
+        required: false
+        type: "string"
+        x-exportParamName: "SmsFallbackUrl"
+      - name: "SmsFallbackMethod"
+        in: "formData"
+        description: "The HTTP method Ytel will use when URL requested if the SmsUrl\
+          \ is not available."
+        required: false
+        type: "string"
+        x-exportParamName: "SmsFallbackMethod"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /recording/listrecording.json:
+    post:
+      tags:
+      - "Recording"
+      summary: "List Recordings"
+      description: "Retrieve a list of recording objects."
+      operationId: "RecordingListrecording"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "page"
+        in: "formData"
+        description: "The page count to retrieve from the total results in the collection.\
+          \ Page indexing starts at 1."
+        required: false
+        type: "integer"
+        default: 1
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Page"
+      - name: "pagesize"
+        in: "formData"
+        description: "The count of objects to return per page."
+        required: false
+        type: "integer"
+        default: 10
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Pagesize"
+      - name: "Datecreated"
+        in: "formData"
+        description: "Filter results by creation date"
+        required: false
+        type: "string"
+        x-exportParamName: "Datecreated"
+      - name: "callsid"
+        in: "formData"
+        description: "The unique identifier for a call."
+        required: false
+        type: "string"
+        x-exportParamName: "Callsid"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /usage/listusage.json:
+    post:
+      tags:
+      - "Usage"
+      summary: "List Usage"
+      description: "Retrieve usage metrics regarding your Ytel account. The results\
+        \ includes inbound/outbound voice calls and inbound/outbound SMS messages\
+        \ as well as carrier lookup requests."
+      operationId: "UsageListusage"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "ProductCode"
+        in: "formData"
+        description: "Filter usage results by product type."
+        required: false
+        type: "string"
+        default: "0"
+        enum:
+        - "0"
+        - "1"
+        - "2"
+        - "3"
+        - "4"
+        - "5"
+        - "6"
+        - "7"
+        - "8"
+        - "9"
+        - "10"
+        - "11"
+        - "12"
+        - "13"
+        x-enum-elements:
+        - name: "ALL"
+          description: ""
+        - name: "Enum_1"
+          description: ""
+        - name: "Enum_2"
+          description: ""
+        - name: "Enum_3"
+          description: ""
+        - name: "Enum_4"
+          description: ""
+        - name: "Transcription"
+          description: ""
+        - name: "Email"
+          description: ""
+        - name: "Conference"
+          description: ""
+        - name: "Carrier"
+          description: ""
+        - name: "Enum_9"
+          description: ""
+        - name: "Enum_10"
+          description: ""
+        - name: "Enum_11"
+          description: ""
+        - name: "Enum_12"
+          description: ""
+        - name: "Enum_13"
+          description: ""
+        x-exportParamName: "ProductCode"
+      - name: "startDate"
+        in: "formData"
+        description: "Filter usage objects by start date."
+        required: false
+        type: "string"
+        default: "2016-09-06"
+        x-exportParamName: "StartDate"
+      - name: "endDate"
+        in: "formData"
+        description: "Filter usage objects by end date."
+        required: false
+        type: "string"
+        default: "2016-09-06"
+        x-exportParamName: "EndDate"
+      - name: "IncludeSubAccounts"
+        in: "formData"
+        description: "Will include all subaccount usage data"
+        required: false
+        type: "string"
+        x-exportParamName: "IncludeSubAccounts"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /transcriptions/listtranscription.json:
+    post:
+      tags:
+      - "Transcription"
+      summary: "List Transcriptions"
+      description: "Retrieve a list of transcription objects for your Ytel account."
+      operationId: "TranscriptionsListtranscription"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "page"
+        in: "formData"
+        description: "The page count to retrieve from the total results in the collection.\
+          \ Page indexing starts at 1."
+        required: false
+        type: "integer"
+        default: 1
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Page"
+      - name: "pagesize"
+        in: "formData"
+        description: "The count of objects to return per page."
+        required: false
+        type: "integer"
+        default: 10
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Pagesize"
+      - name: "status"
+        in: "formData"
+        description: "The state of the transcription."
+        required: false
+        type: "string"
+        enum:
+        - "inprogress"
+        - "success"
+        - "failure"
+        x-enum-elements:
+        - name: "INPROGRESS"
+          description: ""
+        - name: "Success"
+          description: ""
+        - name: "Failure"
+          description: ""
+        x-exportParamName: "Status"
+      - name: "dateTranscribed"
+        in: "formData"
+        description: "The date the transcription took place."
+        required: false
+        type: "string"
+        x-exportParamName: "DateTranscribed"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /conferences/addParticipant.json:
+    post:
+      tags:
+      - "Conference"
+      summary: "Add Participant"
+      description: "Add Participant in conference "
+      operationId: "ConferencesAddParticipant"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "ConferenceSid"
+        in: "formData"
+        description: "The unique identifier for a conference object."
+        required: true
+        type: "string"
+        x-exportParamName: "ConferenceSid"
+      - name: "ParticipantNumber"
+        in: "formData"
+        description: "The phone number of the participant to be added."
+        required: true
+        type: "string"
+        x-exportParamName: "ParticipantNumber"
+      - name: "Muted"
+        in: "formData"
+        description: "Specifies if participant should be muted."
+        required: false
+        type: "boolean"
+        x-exportParamName: "Muted"
+      - name: "Deaf"
+        in: "formData"
+        description: "Specifies if the participant should hear audio in the conference."
+        required: false
+        type: "boolean"
+        x-exportParamName: "Deaf"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /dedicatedshortcode/sendsms.json:
+    post:
+      tags:
+      - "ShortCode"
+      summary: "Send SMS"
+      description: "Send Dedicated Shortcode"
+      operationId: "DedicatedshortcodeSendsms"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "shortcode"
+        in: "formData"
+        description: "Your dedicated shortcode"
+        required: true
+        type: "integer"
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Shortcode"
+      - name: "to"
+        in: "formData"
+        description: "The number to send your SMS to"
+        required: true
+        type: "number"
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "double"
+        x-exportParamName: "To"
+      - name: "body"
+        in: "formData"
+        description: "The body of your message"
+        required: true
+        type: "string"
+        x-exportParamName: "Body"
+      - name: "method"
+        in: "formData"
+        description: "Specifies the HTTP method used to request the required URL once\
+          \ the Short Code message is sent.GET or POST"
+        required: false
+        type: "string"
+        x-exportParamName: "Method"
+      - name: "messagestatuscallback"
+        in: "formData"
+        description: "URL that can be requested to receive notification when Short\
+          \ Code message was sent."
+        required: false
+        type: "string"
+        x-exportParamName: "Messagestatuscallback"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /template/lists.json:
+    post:
+      tags:
+      - "SharedShortCode"
+      summary: "List Templates"
+      description: "List Shortcode Templates by Type"
+      operationId: "TemplateLists"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "type"
+        in: "formData"
+        description: "The type (category) of template Valid values: marketing, authorization"
+        required: false
+        type: "string"
+        default: "authorization"
+        x-exportParamName: "Type_"
+      - name: "page"
+        in: "formData"
+        description: "The page count to retrieve from the total results in the collection.\
+          \ Page indexing starts at 1."
+        required: false
+        type: "integer"
+        default: 1
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Page"
+      - name: "pagesize"
+        in: "formData"
+        description: "The count of objects to return per page."
+        required: false
+        type: "integer"
+        default: 10
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Pagesize"
+      - name: "Shortcode"
+        in: "formData"
+        description: "Only list templates of type"
+        required: false
+        type: "string"
+        x-exportParamName: "Shortcode"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /sms/getinboundsms.json:
+    post:
+      tags:
+      - "SMS"
+      summary: "List Inbound SMS"
+      description: "Retrieve a list of Inbound SMS message objects."
+      operationId: "SmsGetinboundsms"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Page"
+        in: "formData"
+        description: "The page count to retrieve from the total results in the collection.\
+          \ Page indexing starts at 1."
+        required: false
+        type: "integer"
+        default: 1
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Page"
+      - name: "PageSize"
+        in: "formData"
+        description: "The count of objects to return per page."
+        required: false
+        type: "integer"
+        default: 10
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "PageSize"
+      - name: "From"
+        in: "formData"
+        description: "Filter SMS message objects from this valid 10-digit phone number\
+          \ (E.164 format)."
+        required: false
+        type: "string"
+        x-exportParamName: "From"
+      - name: "To"
+        in: "formData"
+        description: "Filter SMS message objects to this valid 10-digit phone number\
+          \ (E.164 format)."
+        required: false
+        type: "string"
+        x-exportParamName: "To"
+      - name: "DateSent"
+        in: "formData"
+        description: "Filter sms message objects by this date."
+        required: false
+        type: "string"
+        x-exportParamName: "DateSent"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /conferences/createConference.json:
+    post:
+      tags:
+      - "Conference"
+      summary: "Create Conference"
+      description: "Here you can experiment with initiating a conference call through\
+        \ Ytel and view the request response generated when doing so."
+      operationId: "ConferencesCreateConference"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "From"
+        in: "formData"
+        description: "A valid 10-digit number (E.164 format) that will be initiating\
+          \ the conference call."
+        required: true
+        type: "string"
+        x-exportParamName: "From"
+      - name: "To"
+        in: "formData"
+        description: "A valid 10-digit number (E.164 format) that is to receive the\
+          \ conference call."
+        required: true
+        type: "string"
+        x-exportParamName: "To"
+      - name: "Url"
+        in: "query"
+        description: "URL requested once the conference connects"
+        required: true
+        type: "string"
+        x-exportParamName: "Url"
+      - name: "Method"
+        in: "formData"
+        description: "Specifies the HTTP method used to request the required URL once\
+          \ call connects."
+        required: false
+        type: "string"
+        default: "POST"
+        x-exportParamName: "Method"
+      - name: "StatusCallBackUrl"
+        in: "formData"
+        description: "URL that can be requested to receive notification when call\
+          \ has ended. A set of default parameters will be sent here once the conference\
+          \ is finished."
+        required: false
+        type: "string"
+        x-exportParamName: "StatusCallBackUrl"
+      - name: "StatusCallBackMethod"
+        in: "formData"
+        description: "Specifies the HTTP methodlinkclass used to request StatusCallbackUrl."
+        required: false
+        type: "string"
+        x-exportParamName: "StatusCallBackMethod"
+      - name: "FallbackUrl"
+        in: "formData"
+        description: "URL requested if the initial Url parameter fails or encounters\
+          \ an error"
+        required: false
+        type: "string"
+        x-exportParamName: "FallbackUrl"
+      - name: "FallbackMethod"
+        in: "formData"
+        description: "Specifies the HTTP method used to request the required FallbackUrl\
+          \ once call connects."
+        required: false
+        type: "string"
+        x-exportParamName: "FallbackMethod"
+      - name: "Record"
+        in: "formData"
+        description: "Specifies if the conference should be recorded."
+        required: false
+        type: "boolean"
+        x-exportParamName: "Record"
+      - name: "RecordCallBackUrl"
+        in: "formData"
+        description: "Recording parameters will be sent here upon completion."
+        required: false
+        type: "string"
+        x-exportParamName: "RecordCallBackUrl"
+      - name: "RecordCallBackMethod"
+        in: "formData"
+        description: "Specifies the HTTP method used to request the required URL once\
+          \ conference connects."
+        required: false
+        type: "string"
+        x-exportParamName: "RecordCallBackMethod"
+      - name: "ScheduleTime"
+        in: "formData"
+        description: "Schedule conference in future. Schedule time must be greater\
+          \ than current time"
+        required: false
+        type: "string"
+        x-exportParamName: "ScheduleTime"
+      - name: "Timeout"
+        in: "formData"
+        description: "The number of seconds the call stays on the line while waiting\
+          \ for an answer. The max time limit is 999 and the default limit is 60 seconds\
+          \ but lower times can be set."
+        required: false
+        type: "integer"
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Timeout"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /conferences/hangupParticipant.json:
+    post:
+      tags:
+      - "Conference"
+      summary: "Hangup Participant"
+      description: "Remove a participant from a conference."
+      operationId: "ConferencesHangupParticipant"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "ConferenceSid"
+        in: "formData"
+        description: "The unique identifier for a conference object."
+        required: true
+        type: "string"
+        x-exportParamName: "ConferenceSid"
+      - name: "ParticipantSid"
+        in: "query"
+        description: "The unique identifier for a participant object."
+        required: true
+        type: "string"
+        x-exportParamName: "ParticipantSid"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /conferences/playAudio.json:
+    post:
+      tags:
+      - "Conference"
+      summary: "Play Audio"
+      description: "Play an audio file during a conference."
+      operationId: "ConferencesPlayAudio"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "ConferenceSid"
+        in: "formData"
+        description: "The unique identifier for a conference object."
+        required: true
+        type: "string"
+        x-exportParamName: "ConferenceSid"
+      - name: "ParticipantSid"
+        in: "formData"
+        description: "The unique identifier for a participant object."
+        required: true
+        type: "string"
+        x-exportParamName: "ParticipantSid"
+      - name: "AudioUrl"
+        in: "formData"
+        description: "The URL for the audio file that is to be played during the conference.\
+          \ Multiple audio files can be chained by using a semicolon."
+        required: true
+        type: "string"
+        enum:
+        - "mp3"
+        - "wav"
+        x-enum-elements:
+        - name: "mp3"
+          description: "mp3 file"
+        - name: "wav"
+          description: "wav file"
+        x-exportParamName: "AudioUrl"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /dedicatedshortcode/getinboundsms.json:
+    post:
+      tags:
+      - "ShortCode"
+      summary: "List Inbound SMS"
+      description: "Retrive a list of inbound Sms Short Code messages associated with\
+        \ your Ytel account."
+      operationId: "DedicatedshortcodeGetinboundsms"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "page"
+        in: "formData"
+        description: "The page count to retrieve from the total results in the collection.\
+          \ Page indexing starts at 1."
+        required: false
+        type: "integer"
+        default: 1
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Page"
+      - name: "pagesize"
+        in: "formData"
+        description: "Number of individual resources listed in the response per page"
+        required: false
+        type: "integer"
+        default: 10
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Pagesize"
+      - name: "From"
+        in: "formData"
+        description: "Only list SMS messages sent from this number"
+        required: false
+        type: "string"
+        x-exportParamName: "From"
+      - name: "Shortcode"
+        in: "formData"
+        description: "Only list SMS messages sent to Shortcode"
+        required: false
+        type: "string"
+        x-exportParamName: "Shortcode"
+      - name: "Datecreated"
+        in: "formData"
+        description: "Only list SMS messages sent in the specified date MAKE REQUEST"
+        required: false
+        type: "string"
+        x-exportParamName: "Datecreated"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /keyword/view.json:
+    post:
+      tags:
+      - "SharedShortCode"
+      summary: "View Keyword"
+      description: "View a set of properties for a single keyword."
+      operationId: "KeywordView"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Keywordid"
+        in: "formData"
+        description: "The unique identifier of each keyword"
+        required: true
+        type: "string"
+        x-exportParamName: "Keywordid"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /keyword/lists.json:
+    post:
+      tags:
+      - "SharedShortCode"
+      summary: "List Keywords"
+      description: "Retrieve a list of keywords associated with your Ytel account."
+      operationId: "KeywordLists"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "page"
+        in: "formData"
+        description: "The page count to retrieve from the total results in the collection.\
+          \ Page indexing starts at 1."
+        required: false
+        type: "integer"
+        default: 1
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Page"
+      - name: "pagesize"
+        in: "formData"
+        description: "Number of individual resources listed in the response per page"
+        required: false
+        type: "integer"
+        default: 10
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Pagesize"
+      - name: "Keyword"
+        in: "formData"
+        description: "Only list keywords of keyword"
+        required: false
+        type: "string"
+        x-exportParamName: "Keyword"
+      - name: "Shortcode"
+        in: "formData"
+        description: "Only list keywords of shortcode"
+        required: false
+        type: "integer"
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Shortcode"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /shortcode/viewshortcode.json:
+    post:
+      tags:
+      - "SharedShortCode"
+      summary: "View Shortcode"
+      description: "The response returned here contains all resource properties associated\
+        \ with the given Shortcode."
+      operationId: "ShortcodeViewshortcode"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Shortcode"
+        in: "formData"
+        description: "List of valid Shortcode to your Ytel account"
+        required: true
+        type: "string"
+        x-exportParamName: "Shortcode"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /shortcode/listshortcode.json:
+    post:
+      tags:
+      - "SharedShortCode"
+      summary: "List Shortcodes"
+      description: "Retrieve a list of shortcode assignment associated with your Ytel\
+        \ account."
+      operationId: "ShortcodeListshortcode"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "page"
+        in: "formData"
+        description: "The page count to retrieve from the total results in the collection.\
+          \ Page indexing starts at 1."
+        required: false
+        type: "integer"
+        default: 1
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Page"
+      - name: "pagesize"
+        in: "formData"
+        description: "Number of individual resources listed in the response per page"
+        required: false
+        type: "integer"
+        default: 10
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Pagesize"
+      - name: "Shortcode"
+        in: "query"
+        description: "Only list keywords of shortcode"
+        required: false
+        type: "string"
+        x-exportParamName: "Shortcode"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /shortcode/updateshortcode.json:
+    post:
+      tags:
+      - "SharedShortCode"
+      summary: "Update Shortcode"
+      description: "Update Assignment"
+      operationId: "ShortcodeUpdateshortcode"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Shortcode"
+        in: "formData"
+        description: "List of valid shortcode to your Ytel account"
+        required: true
+        type: "string"
+        x-exportParamName: "Shortcode"
+      - name: "FriendlyName"
+        in: "formData"
+        description: "User generated name of the shortcode"
+        required: false
+        type: "string"
+        x-exportParamName: "FriendlyName"
+      - name: "CallbackUrl"
+        in: "formData"
+        description: "URL that can be requested to receive notification when call\
+          \ has ended. A set of default parameters will be sent here once the call\
+          \ is finished."
+        required: false
+        type: "string"
+        x-exportParamName: "CallbackUrl"
+      - name: "CallbackMethod"
+        in: "formData"
+        description: "Specifies the HTTP method used to request the required StatusCallBackUrl\
+          \ once call connects."
+        required: false
+        type: "string"
+        x-exportParamName: "CallbackMethod"
+      - name: "FallbackUrl"
+        in: "formData"
+        description: "URL used if any errors occur during execution of InboundXML\
+          \ or at initial request of the required Url provided with the POST."
+        required: false
+        type: "string"
+        x-exportParamName: "FallbackUrl"
+      - name: "FallbackUrlMethod"
+        in: "formData"
+        description: "Specifies the HTTP method used to request the required FallbackUrl\
+          \ once call connects."
+        required: false
+        type: "string"
+        x-exportParamName: "FallbackUrlMethod"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /conferences/listParticipant.json:
+    post:
+      tags:
+      - "Conference"
+      summary: "List Participants"
+      description: "Retrieve a list of participants for an in-progress conference."
+      operationId: "ConferencesListParticipant"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "ConferenceSid"
+        in: "formData"
+        description: "The unique identifier for a conference."
+        required: true
+        type: "string"
+        x-exportParamName: "ConferenceSid"
+      - name: "Page"
+        in: "formData"
+        description: "The page count to retrieve from the total results in the collection.\
+          \ Page indexing starts at 1."
+        required: false
+        type: "integer"
+        default: 1
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Page"
+      - name: "Pagesize"
+        in: "formData"
+        description: "The count of objects to return per page."
+        required: false
+        type: "integer"
+        default: 10
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Pagesize"
+      - name: "Muted"
+        in: "formData"
+        description: "Specifies if participant should be muted."
+        required: false
+        type: "boolean"
+        x-exportParamName: "Muted"
+      - name: "Deaf"
+        in: "formData"
+        description: "Specifies if the participant should hear audio in the conference."
+        required: false
+        type: "boolean"
+        x-exportParamName: "Deaf"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /conferences/listconference.json:
+    post:
+      tags:
+      - "Conference"
+      summary: "List Conferences"
+      description: "Retrieve a list of conference objects."
+      operationId: "ConferencesListconference"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "page"
+        in: "formData"
+        description: "The page count to retrieve from the total results in the collection.\
+          \ Page indexing starts at 1."
+        required: false
+        type: "integer"
+        default: 1
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Page"
+      - name: "pagesize"
+        in: "formData"
+        description: "Number of individual resources listed in the response per page"
+        required: false
+        type: "integer"
+        default: 10
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Pagesize"
+      - name: "FriendlyName"
+        in: "formData"
+        description: "Only return conferences with the specified FriendlyName"
+        required: false
+        type: "string"
+        x-exportParamName: "FriendlyName"
+      - name: "DateCreated"
+        in: "formData"
+        description: "Conference created date"
+        required: false
+        type: "string"
+        x-exportParamName: "DateCreated"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /incomingphone/transferphonenumbers.json:
+    post:
+      tags:
+      - "Phone Number"
+      summary: "Move Number"
+      description: "Transfer phone number that has been purchased for from one account\
+        \ to another account."
+      operationId: "IncomingphoneTransferphonenumbers"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "phonenumber"
+        in: "formData"
+        description: "A valid 10-digit Ytel number (E.164 format)."
+        required: true
+        type: "string"
+        x-exportParamName: "Phonenumber"
+      - name: "fromaccountsid"
+        in: "formData"
+        description: "A specific Accountsid from where Number is getting transfer."
+        required: true
+        type: "string"
+        x-exportParamName: "Fromaccountsid"
+      - name: "toaccountsid"
+        in: "formData"
+        description: "A specific Accountsid to which Number is getting transfer."
+        required: true
+        type: "string"
+        x-exportParamName: "Toaccountsid"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /dedicatedshortcode/viewshortcode.json:
+    post:
+      tags:
+      - "ShortCode"
+      summary: "View SMS"
+      description: "Retrieve a single Short Code object by its shortcode assignment."
+      operationId: "DedicatedshortcodeViewshortcode"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Shortcode"
+        in: "formData"
+        description: "List of valid Dedicated Short Code to your Ytel account"
+        required: true
+        type: "string"
+        x-exportParamName: "Shortcode"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /user/createsubaccount.json:
+    post:
+      tags:
+      - "Sub Account"
+      summary: "Create Subaccount"
+      description: "Create a sub user account under the parent account"
+      operationId: "UserCreatesubaccount"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "FirstName"
+        in: "formData"
+        description: "Sub account user first name"
+        required: true
+        type: "string"
+        x-exportParamName: "FirstName"
+      - name: "LastName"
+        in: "formData"
+        description: "sub account user last name"
+        required: true
+        type: "string"
+        x-exportParamName: "LastName"
+      - name: "Email"
+        in: "formData"
+        description: "Sub account email address"
+        required: true
+        type: "string"
+        x-exportParamName: "Email"
+      - name: "FriendlyName"
+        in: "formData"
+        description: "Descriptive name of the sub account"
+        required: true
+        type: "string"
+        x-exportParamName: "FriendlyName"
+      - name: "Password"
+        in: "formData"
+        description: "The password of the sub account.  Please make sure to make as\
+          \ password that is at least 8 characters long, contain a symbol, uppercase\
+          \ and a number."
+        required: true
+        type: "string"
+        x-exportParamName: "Password"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /Postcard/viewpostcard.json:
+    post:
+      tags:
+      - "PostCard"
+      summary: "View Postcard"
+      description: "Retrieve a postcard object by its PostcardId."
+      operationId: "PostcardViewpostcard"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "postcardid"
+        in: "formData"
+        description: "The unique identifier for a postcard object."
+        required: true
+        type: "string"
+        x-exportParamName: "Postcardid"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /letter/viewletter.json:
+    post:
+      tags:
+      - "Letter"
+      summary: "View Letter"
+      description: "Retrieve a letter object by its LetterSid."
+      operationId: "LetterViewletter"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "lettersid"
+        in: "formData"
+        description: "The unique identifier for a letter object."
+        required: true
+        type: "string"
+        x-exportParamName: "Lettersid"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /sms/viewdetailsms.json:
+    post:
+      tags:
+      - "SMS"
+      summary: "View SMS"
+      description: "Retrieve a single SMS message object with details by its SmsSid."
+      operationId: "SmsViewdetailsms"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "MessageSid"
+        in: "formData"
+        description: "The unique identifier for a sms message."
+        required: true
+        type: "string"
+        x-exportParamName: "MessageSid"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /incomingphone/listnumber.json:
+    post:
+      tags:
+      - "Phone Number"
+      summary: "List Numbers"
+      description: "Retrieve a list of purchased phones numbers associated with your\
+        \ Ytel account."
+      operationId: "IncomingphoneListnumber"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Page"
+        in: "formData"
+        description: "Which page of the overall response will be returned. Page indexing\
+          \ starts at 1."
+        required: false
+        type: "integer"
+        default: 1
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Page"
+      - name: "PageSize"
+        in: "formData"
+        description: "The page count to retrieve from the total results in the collection.\
+          \ Page indexing starts at 1."
+        required: false
+        type: "integer"
+        default: 10
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "PageSize"
+      - name: "NumberType"
+        in: "formData"
+        description: "The capability supported by the number.Number type either SMS,Voice\
+          \ or all"
+        required: false
+        type: "string"
+        enum:
+        - "all"
+        - "voice"
+        - "sms"
+        x-enum-elements:
+        - name: "ALL"
+          description: "Get all phone Number type"
+        - name: "Voice"
+          description: "Get only voice number type"
+        - name: "SMS"
+          description: "Get Only SMs number type"
+        x-exportParamName: "NumberType"
+      - name: "FriendlyName"
+        in: "formData"
+        description: "A human-readable label added to the number object."
+        required: false
+        type: "string"
+        x-exportParamName: "FriendlyName"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /incomingphone/massupdatenumber.json:
+    post:
+      tags:
+      - "Phone Number"
+      summary: "Bulk Update Numbers"
+      description: "Update properties for a Ytel numbers that has been purchased for\
+        \ your account. Refer to the parameters list for the list of properties that\
+        \ can be updated."
+      operationId: "IncomingphoneMassupdatenumber"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "PhoneNumber"
+        in: "formData"
+        description: "A valid comma(,) separated Ytel numbers. (E.164 format)."
+        required: true
+        type: "string"
+        x-exportParamName: "PhoneNumber"
+      - name: "VoiceUrl"
+        in: "formData"
+        description: "The URL returning InboundXML incoming calls should execute when\
+          \ connected."
+        required: true
+        type: "string"
+        x-exportParamName: "VoiceUrl"
+      - name: "FriendlyName"
+        in: "formData"
+        description: "A human-readable value for labeling the number."
+        required: false
+        type: "string"
+        x-exportParamName: "FriendlyName"
+      - name: "VoiceMethod"
+        in: "formData"
+        description: "Specifies the HTTP method used to request the VoiceUrl once\
+          \ incoming call connects."
+        required: false
+        type: "string"
+        x-exportParamName: "VoiceMethod"
+      - name: "VoiceFallbackUrl"
+        in: "formData"
+        description: "URL used if any errors occur during execution of InboundXML\
+          \ on a call or at initial request of the voice url"
+        required: false
+        type: "string"
+        x-exportParamName: "VoiceFallbackUrl"
+      - name: "VoiceFallbackMethod"
+        in: "formData"
+        description: "Specifies the HTTP method used to request the VoiceFallbackUrl\
+          \ once incoming call connects."
+        required: false
+        type: "string"
+        x-exportParamName: "VoiceFallbackMethod"
+      - name: "HangupCallback"
+        in: "formData"
+        description: "URL that can be requested to receive notification when and how\
+          \ incoming call has ended."
+        required: false
+        type: "string"
+        x-exportParamName: "HangupCallback"
+      - name: "HangupCallbackMethod"
+        in: "formData"
+        description: "The HTTP method Ytel will use when requesting the HangupCallback\
+          \ URL."
+        required: false
+        type: "string"
+        x-exportParamName: "HangupCallbackMethod"
+      - name: "HeartbeatUrl"
+        in: "formData"
+        description: "URL that can be used to monitor the phone number."
+        required: false
+        type: "string"
+        x-exportParamName: "HeartbeatUrl"
+      - name: "HeartbeatMethod"
+        in: "formData"
+        description: "The HTTP method Ytel will use when requesting the HeartbeatUrl."
+        required: false
+        type: "string"
+        x-exportParamName: "HeartbeatMethod"
+      - name: "SmsUrl"
+        in: "formData"
+        description: "URL requested when an SMS is received."
+        required: false
+        type: "string"
+        x-exportParamName: "SmsUrl"
+      - name: "SmsMethod"
+        in: "formData"
+        description: "The HTTP method Ytel will use when requesting the SmsUrl."
+        required: false
+        type: "string"
+        x-exportParamName: "SmsMethod"
+      - name: "SmsFallbackUrl"
+        in: "formData"
+        description: "URL used if any errors occur during execution of InboundXML\
+          \ from an SMS or at initial request of the SmsUrl."
+        required: false
+        type: "string"
+        x-exportParamName: "SmsFallbackUrl"
+      - name: "SmsFallbackMethod"
+        in: "formData"
+        description: "The HTTP method Ytel will use when URL requested if the SmsUrl\
+          \ is not available."
+        required: false
+        type: "string"
+        x-exportParamName: "SmsFallbackMethod"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /incomingphone/getdidscore.json:
+    post:
+      tags:
+      - "Phone Number"
+      summary: "Get DID Score"
+      description: "Get DID Score Number"
+      operationId: "IncomingphoneGetdidscore"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Phonenumber"
+        in: "formData"
+        description: "Specifies the multiple phone numbers for check updated spamscore\
+          \ ."
+        required: true
+        type: "string"
+        x-exportParamName: "Phonenumber"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /incomingphone/bulkbuy.json:
+    post:
+      tags:
+      - "Phone Number"
+      summary: "Bulk Buy Numbers"
+      description: "Purchase a selected number of DID's from specific area codes to\
+        \ be used with your Ytel account."
+      operationId: "IncomingphoneBulkbuy"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "NumberType"
+        in: "formData"
+        description: "The capability the number supports."
+        required: true
+        type: "string"
+        enum:
+        - "all"
+        - "voice"
+        - "sms"
+        x-enum-elements:
+        - name: "ALL"
+          description: "Get all phone Number type"
+        - name: "Voice"
+          description: "Get only voice number type"
+        - name: "SMS"
+          description: "Get Only SMs number type"
+        x-exportParamName: "NumberType"
+      - name: "AreaCode"
+        in: "formData"
+        description: "Specifies the area code for the returned list of available numbers.\
+          \ Only available for North American numbers."
+        required: true
+        type: "string"
+        x-exportParamName: "AreaCode"
+      - name: "Quantity"
+        in: "formData"
+        description: "A positive integer that tells how many number you want to buy\
+          \ at a time."
+        required: true
+        type: "string"
+        x-exportParamName: "Quantity"
+      - name: "Leftover"
+        in: "formData"
+        description: "If desired quantity is unavailable purchase what is available\
+          \ ."
+        required: false
+        type: "string"
+        x-exportParamName: "Leftover"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /calls/viewcalldetail.json:
+    post:
+      tags:
+      - "Call"
+      summary: "View Call"
+      description: "Retrieve a single voice call’s information by its CallSid."
+      operationId: "CallsViewcalldetail"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "callSid"
+        in: "formData"
+        description: "The unique identifier for the voice call."
+        required: true
+        type: "string"
+        x-exportParamName: "CallSid"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: false
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /letter/create.json:
+    post:
+      tags:
+      - "Letter"
+      summary: "Create Letter"
+      description: "Create, print, and mail a letter to an address. The letter file\
+        \ must be supplied as a PDF or an HTML string."
+      operationId: "LetterCreate"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "to"
+        in: "formData"
+        description: "The AddressId or an object structured when creating an address\
+          \ by addresses/Create."
+        required: true
+        type: "string"
+        x-exportParamName: "To"
+      - name: "from"
+        in: "formData"
+        description: "The AddressId or an object structured when creating an address\
+          \ by addresses/Create."
+        required: true
+        type: "string"
+        x-exportParamName: "From"
+      - name: "attachbyid"
+        in: "formData"
+        description: "Set an existing letter by attaching its LetterId."
+        required: true
+        type: "string"
+        x-exportParamName: "Attachbyid"
+      - name: "file"
+        in: "formData"
+        description: "File can be a 8.5\"x11\" PDF uploaded file or URL that links\
+          \ to a file."
+        required: true
+        type: "string"
+        x-exportParamName: "File"
+      - name: "color"
+        in: "formData"
+        description: "Specify if letter should be printed in color."
+        required: true
+        type: "string"
+        x-exportParamName: "Color"
+      - name: "description"
+        in: "formData"
+        description: "A description for the letter."
+        required: false
+        type: "string"
+        x-exportParamName: "Description"
+      - name: "extraservice"
+        in: "formData"
+        description: "Add an extra service to your letter. Options are \"certified\"\
+          \ or \"registered\". Certified provides tracking and delivery confirmation\
+          \ for domestic destinations and is an additional $5.00. Registered provides\
+          \ tracking and confirmation for international addresses and is an additional\
+          \ $16.50."
+        required: false
+        type: "string"
+        x-exportParamName: "Extraservice"
+      - name: "doublesided"
+        in: "formData"
+        description: "Specify if letter should be printed on both sides."
+        required: false
+        type: "string"
+        x-exportParamName: "Doublesided"
+      - name: "template"
+        in: "formData"
+        description: "Boolean that defaults to true. When set to false, this specifies\
+          \ that your letter does not follow the m360 address template. In this case,\
+          \ a blank address page will be inserted at the beginning of your file and\
+          \ you will be charged for the extra page."
+        required: false
+        type: "string"
+        x-exportParamName: "Template"
+      - name: "htmldata"
+        in: "formData"
+        description: "A string value that contains HTML markup."
+        required: false
+        type: "string"
+        x-exportParamName: "Htmldata"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /letter/listsletter.json:
+    post:
+      tags:
+      - "Letter"
+      summary: "List Letters"
+      description: "Retrieve a list of letter objects. The letter objects are sorted\
+        \ by creation date, with the most recently created letters appearing first."
+      operationId: "LetterListsletter"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "page"
+        in: "formData"
+        description: "The page count to retrieve from the total results in the collection.\
+          \ Page indexing starts at 1."
+        required: false
+        type: "integer"
+        default: 1
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Page"
+      - name: "pagesize"
+        in: "formData"
+        description: "The count of objects to return per page."
+        required: false
+        type: "integer"
+        default: 10
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Pagesize"
+      - name: "lettersid"
+        in: "formData"
+        description: "The unique identifier for a letter object."
+        required: false
+        type: "string"
+        x-exportParamName: "Lettersid"
+      - name: "dateCreated"
+        in: "formData"
+        description: "The date the letter was created."
+        required: false
+        type: "string"
+        x-exportParamName: "DateCreated"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /letter/delete.json:
+    post:
+      tags:
+      - "Letter"
+      summary: "Delete Letter"
+      description: "Remove a letter object by its LetterId."
+      operationId: "LetterDelete"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "lettersid"
+        in: "formData"
+        description: "The unique identifier for a letter object."
+        required: true
+        type: "string"
+        x-exportParamName: "Lettersid"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /Postcard/createpostcard.json:
+    post:
+      tags:
+      - "PostCard"
+      summary: "Create Postcard"
+      description: "Create, print, and mail a postcard to an address. The postcard\
+        \ front must be supplied as a PDF, image, or an HTML string. The back can\
+        \ be a PDF, image, HTML string, or it can be automatically generated by supplying\
+        \ a custom message."
+      operationId: "PostcardCreatepostcard"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "to"
+        in: "formData"
+        description: "The AddressId or an object structured when creating an address\
+          \ by addresses/Create."
+        required: true
+        type: "string"
+        x-exportParamName: "To"
+      - name: "from"
+        in: "formData"
+        description: "The AddressId or an object structured when creating an address\
+          \ by addresses/Create."
+        required: true
+        type: "string"
+        x-exportParamName: "From"
+      - name: "attachbyid"
+        in: "formData"
+        description: "Set an existing postcard by attaching its PostcardId."
+        required: true
+        type: "string"
+        x-exportParamName: "Attachbyid"
+      - name: "front"
+        in: "formData"
+        description: "A 4.25\"x6.25\" or 6.25\"x11.25\" image to use as the front\
+          \ of the postcard.  This can be a URL, local file, or an HTML string. Supported\
+          \ file types are PDF, PNG, and JPEG."
+        required: true
+        type: "string"
+        x-exportParamName: "Front"
+      - name: "back"
+        in: "formData"
+        description: "A 4.25\"x6.25\" or 6.25\"x11.25\" image to use as the back of\
+          \ the postcard, supplied as a URL, local file, or HTML string.  This allows\
+          \ you to customize your back design, but we will still insert the recipient\
+          \ address for you."
+        required: true
+        type: "string"
+        x-exportParamName: "Back"
+      - name: "message"
+        in: "formData"
+        description: "The message for the back of the postcard with a maximum of 350\
+          \ characters."
+        required: true
+        type: "string"
+        x-exportParamName: "Message"
+      - name: "setting"
+        in: "formData"
+        description: "Code for the dimensions of the media to be printed."
+        required: true
+        type: "string"
+        x-exportParamName: "Setting"
+      - name: "description"
+        in: "formData"
+        description: "A description for the postcard."
+        required: false
+        type: "string"
+        x-exportParamName: "Description"
+      - name: "htmldata"
+        in: "formData"
+        description: "A string value that contains HTML markup."
+        required: false
+        type: "string"
+        x-exportParamName: "Htmldata"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /Postcard/listpostcard.json:
+    post:
+      tags:
+      - "PostCard"
+      summary: "List Postcards"
+      description: "Retrieve a list of postcard objects. The postcards objects are\
+        \ sorted by creation date, with the most recently created postcards appearing\
+        \ first."
+      operationId: "PostcardListpostcard"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "page"
+        in: "formData"
+        description: "The page count to retrieve from the total results in the collection.\
+          \ Page indexing starts at 1."
+        required: false
+        type: "integer"
+        default: 1
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Page"
+      - name: "pagesize"
+        in: "formData"
+        description: "The count of objects to return per page."
+        required: false
+        type: "integer"
+        default: 10
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Pagesize"
+      - name: "postcardid"
+        in: "formData"
+        description: "The unique identifier for a postcard object."
+        required: false
+        type: "string"
+        x-exportParamName: "Postcardid"
+      - name: "dateCreated"
+        in: "formData"
+        description: "The date the postcard was created."
+        required: false
+        type: "string"
+        x-exportParamName: "DateCreated"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /Postcard/deletepostcard.json:
+    post:
+      tags:
+      - "PostCard"
+      summary: "Delete Postcard"
+      description: "Remove a postcard object."
+      operationId: "PostcardDeletepostcard"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "postcardid"
+        in: "formData"
+        description: "The unique identifier of a postcard object."
+        required: true
+        type: "string"
+        x-exportParamName: "Postcardid"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /areamail/view.json:
+    post:
+      tags:
+      - "AreaMail"
+      summary: "View AreaMail"
+      description: "Retrieve an AreaMail object by its AreaMailId."
+      operationId: "AreamailView"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "areamailid"
+        in: "formData"
+        description: "The unique identifier for an AreaMail object."
+        required: true
+        type: "string"
+        x-exportParamName: "Areamailid"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /areamail/lists.json:
+    post:
+      tags:
+      - "AreaMail"
+      summary: "List AreaMails"
+      description: "Retrieve a list of AreaMail objects."
+      operationId: "AreamailLists"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "page"
+        in: "formData"
+        description: "The page count to retrieve from the total results in the collection.\
+          \ Page indexing starts at 1."
+        required: false
+        type: "integer"
+        default: 1
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Page"
+      - name: "pagesize"
+        in: "formData"
+        description: "The count of objects to return per page."
+        required: false
+        type: "integer"
+        default: 10
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Pagesize"
+      - name: "areamailsid"
+        in: "formData"
+        description: "The unique identifier for an AreaMail object."
+        required: false
+        type: "string"
+        x-exportParamName: "Areamailsid"
+      - name: "dateCreated"
+        in: "formData"
+        description: "The date the AreaMail was created."
+        required: false
+        type: "string"
+        x-exportParamName: "DateCreated"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /areamail/delete.json:
+    post:
+      tags:
+      - "AreaMail"
+      summary: "Delete AreaMail"
+      description: "Remove an AreaMail object by its AreaMailId."
+      operationId: "AreamailDelete"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "areamailid"
+        in: "formData"
+        description: "The unique identifier for an AreaMail object."
+        required: true
+        type: "string"
+        x-exportParamName: "Areamailid"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /dedicatedshortcode/updateshortcode.json:
+    post:
+      tags:
+      - "ShortCode"
+      summary: "Update Shortcode"
+      description: "Update a dedicated shortcode."
+      operationId: "DedicatedshortcodeUpdateshortcode"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Shortcode"
+        in: "formData"
+        description: "List of valid dedicated shortcode to your Ytel account."
+        required: true
+        type: "string"
+        x-exportParamName: "Shortcode"
+      - name: "FriendlyName"
+        in: "formData"
+        description: "User generated name of the dedicated shortcode."
+        required: false
+        type: "string"
+        x-exportParamName: "FriendlyName"
+      - name: "CallbackMethod"
+        in: "formData"
+        description: "Specifies the HTTP method used to request the required StatusCallBackUrl\
+          \ once call connects."
+        required: false
+        type: "string"
+        x-exportParamName: "CallbackMethod"
+      - name: "CallbackUrl"
+        in: "formData"
+        description: "URL that can be requested to receive notification when call\
+          \ has ended. A set of default parameters will be sent here once the call\
+          \ is finished."
+        required: false
+        type: "string"
+        x-exportParamName: "CallbackUrl"
+      - name: "FallbackMethod"
+        in: "formData"
+        description: "Specifies the HTTP method used to request the required FallbackUrl\
+          \ once call connects."
+        required: false
+        type: "string"
+        x-exportParamName: "FallbackMethod"
+      - name: "FallbackUrl"
+        in: "formData"
+        description: "URL used if any errors occur during execution of InboundXML\
+          \ or at initial request of the required Url provided with the POST."
+        required: false
+        type: "string"
+        x-exportParamName: "FallbackUrl"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /dedicatedshortcode/listshortcode.json:
+    post:
+      tags:
+      - "ShortCode"
+      summary: "List Shortcodes"
+      description: "Retrieve a list of Short Code assignment associated with your\
+        \ Ytel account."
+      operationId: "DedicatedshortcodeListshortcode"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Shortcode"
+        in: "formData"
+        description: "Only list Short Code Assignment sent from this Short Code"
+        required: false
+        type: "string"
+        x-exportParamName: "Shortcode"
+      - name: "page"
+        in: "formData"
+        description: "The page count to retrieve from the total results in the collection.\
+          \ Page indexing starts at 1."
+        required: false
+        type: "string"
+        x-exportParamName: "Page"
+      - name: "pagesize"
+        in: "formData"
+        description: "The count of objects to return per page."
+        required: false
+        type: "string"
+        x-exportParamName: "Pagesize"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /calls/groupcall.json:
+    post:
+      tags:
+      - "Call"
+      summary: "Group Call"
+      description: "Group Call"
+      operationId: "CallsGroupcall"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "From"
+        in: "formData"
+        description: "This number to display on Caller ID as calling"
+        required: true
+        type: "string"
+        x-exportParamName: "From"
+      - name: "To"
+        in: "formData"
+        description: "Please enter multiple E164 number. You can add max 10 numbers.\
+          \ Add numbers separated with comma. e.g : 1111111111,2222222222"
+        required: true
+        type: "string"
+        x-exportParamName: "To"
+      - name: "Url"
+        in: "formData"
+        description: "URL requested once the call connects"
+        required: true
+        type: "string"
+        x-exportParamName: "Url"
+      - name: "GroupConfirmKey"
+        in: "formData"
+        description: "Define the DTMF that the called party should send to bridge\
+          \ the call. Allowed Values : 0-9, #, *"
+        required: true
+        type: "string"
+        x-exportParamName: "GroupConfirmKey"
+      - name: "GroupConfirmFile"
+        in: "formData"
+        description: "Specify the audio file you want to play when the called party\
+          \ picks up the call"
+        required: true
+        type: "string"
+        enum:
+        - "mp3"
+        - "wav"
+        x-enum-elements:
+        - name: "mp3"
+          description: "mp3 file"
+        - name: "wav"
+          description: "wav file"
+        x-exportParamName: "GroupConfirmFile"
+      - name: "Method"
+        in: "formData"
+        description: "Specifies the HTTP method used to request the required URL once\
+          \ call connects."
+        required: false
+        type: "string"
+        x-exportParamName: "Method"
+      - name: "StatusCallBackUrl"
+        in: "formData"
+        description: "URL that can be requested to receive notification when call\
+          \ has ended. A set of default parameters will be sent here once the call\
+          \ is finished."
+        required: false
+        type: "string"
+        x-exportParamName: "StatusCallBackUrl"
+      - name: "StatusCallBackMethod"
+        in: "formData"
+        description: "Specifies the HTTP methodlinkclass used to request StatusCallbackUrl."
+        required: false
+        type: "string"
+        x-exportParamName: "StatusCallBackMethod"
+      - name: "FallBackUrl"
+        in: "formData"
+        description: "URL requested if the initial Url parameter fails or encounters\
+          \ an error"
+        required: false
+        type: "string"
+        x-exportParamName: "FallBackUrl"
+      - name: "FallBackMethod"
+        in: "formData"
+        description: "Specifies the HTTP method used to request the required FallbackUrl\
+          \ once call connects."
+        required: false
+        type: "string"
+        x-exportParamName: "FallBackMethod"
+      - name: "HeartBeatUrl"
+        in: "formData"
+        description: "URL that can be requested every 60 seconds during the call to\
+          \ notify of elapsed time and pass other general information."
+        required: false
+        type: "string"
+        x-exportParamName: "HeartBeatUrl"
+      - name: "HeartBeatMethod"
+        in: "formData"
+        description: "Specifies the HTTP method used to request HeartbeatUrl."
+        required: false
+        type: "string"
+        x-exportParamName: "HeartBeatMethod"
+      - name: "Timeout"
+        in: "formData"
+        description: "Time (in seconds) we should wait while the call is ringing before\
+          \ canceling the call"
+        required: false
+        type: "integer"
+        exclusiveMaximum: false
+        exclusiveMinimum: false
+        format: "int32"
+        x-exportParamName: "Timeout"
+      - name: "PlayDtmf"
+        in: "formData"
+        description: "DTMF Digits to play to the call once it connects. 0-9, #, or\
+          \ *"
+        required: false
+        type: "string"
+        x-exportParamName: "PlayDtmf"
+      - name: "HideCallerId"
+        in: "formData"
+        description: "Specifies if the caller id will be hidden"
+        required: false
+        type: "string"
+        x-exportParamName: "HideCallerId"
+      - name: "Record"
+        in: "formData"
+        description: "Specifies if the call should be recorded"
+        required: false
+        type: "boolean"
+        x-exportParamName: "Record"
+      - name: "RecordCallBackUrl"
+        in: "formData"
+        description: "Recording parameters will be sent here upon completion"
+        required: false
+        type: "string"
+        x-exportParamName: "RecordCallBackUrl"
+      - name: "RecordCallBackMethod"
+        in: "formData"
+        description: "Method used to request the RecordCallback URL."
+        required: false
+        type: "string"
+        x-exportParamName: "RecordCallBackMethod"
+      - name: "Transcribe"
+        in: "formData"
+        description: "Specifies if the call recording should be transcribed"
+        required: false
+        type: "boolean"
+        x-exportParamName: "Transcribe"
+      - name: "TranscribeCallBackUrl"
+        in: "formData"
+        description: "Transcription parameters will be sent here upon completion"
+        required: false
+        type: "string"
+        x-exportParamName: "TranscribeCallBackUrl"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /address/createaddress.json:
+    post:
+      tags:
+      - "Address"
+      summary: "Create Address"
+      description: "To add an address to your address book, you create a new address\
+        \ object. You can retrieve and delete individual addresses as well as get\
+        \ a list of addresses. Addresses are identified by a unique random ID."
+      operationId: "AddressCreateaddress"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Name"
+        in: "formData"
+        description: "Name of user"
+        required: true
+        type: "string"
+        x-exportParamName: "Name"
+      - name: "Address"
+        in: "formData"
+        description: "Address of user."
+        required: true
+        type: "string"
+        x-exportParamName: "Address"
+      - name: "Country"
+        in: "formData"
+        description: "Must be a 2 letter country short-name code (ISO 3166)"
+        required: true
+        type: "string"
+        x-exportParamName: "Country"
+      - name: "State"
+        in: "formData"
+        description: "Must be a 2 letter State eg. CA for US. For Some Countries it\
+          \ can be greater than 2 letters."
+        required: true
+        type: "string"
+        x-exportParamName: "State"
+      - name: "City"
+        in: "formData"
+        description: "City Name."
+        required: true
+        type: "string"
+        x-exportParamName: "City"
+      - name: "Zip"
+        in: "formData"
+        description: "Zip code of city."
+        required: true
+        type: "string"
+        x-exportParamName: "Zip"
+      - name: "Description"
+        in: "formData"
+        description: "Description of addresses."
+        required: false
+        type: "string"
+        x-exportParamName: "Description"
+      - name: "email"
+        in: "formData"
+        description: "Email Id of user."
+        required: false
+        type: "string"
+        x-exportParamName: "Email"
+      - name: "Phone"
+        in: "formData"
+        description: "Phone number of user."
+        required: false
+        type: "string"
+        x-exportParamName: "Phone"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+  /areamail/create.json:
+    post:
+      tags:
+      - "AreaMail"
+      summary: "Create AreaMail"
+      description: "Create a new AreaMail object."
+      operationId: "AreamailCreate"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "routes"
+        in: "formData"
+        description: "List of routes that AreaMail should be delivered to.  A single\
+          \ route can be either a zipcode or a carrier route.List of routes that AreaMail\
+          \ should be delivered to.  A single route can be either a zipcode or a carrier\
+          \ route. A carrier route is in the form of 92610-C043 where the carrier\
+          \ route is composed of 5 numbers for zipcode, 1 letter for carrier route\
+          \ type, and 3 numbers for carrier route code. Delivery can be sent to mutliple\
+          \ routes by separating them with a commas. Valid Values: 92656, 92610-C043"
+        required: true
+        type: "string"
+        x-exportParamName: "Routes"
+      - name: "attachbyid"
+        in: "formData"
+        description: "Set an existing areamail by attaching its AreamailId."
+        required: true
+        type: "string"
+        x-exportParamName: "Attachbyid"
+      - name: "front"
+        in: "formData"
+        description: "The front of the AreaMail item to be created. This can be a\
+          \ URL, local file, or an HTML string. Supported file types are PDF, PNG,\
+          \ and JPEG. Back required"
+        required: true
+        type: "string"
+        x-exportParamName: "Front"
+      - name: "back"
+        in: "formData"
+        description: "The back of the AreaMail item to be created. This can be a URL,\
+          \ local file, or an HTML string. Supported file types are PDF, PNG, and\
+          \ JPEG."
+        required: true
+        type: "string"
+        x-exportParamName: "Back"
+      - name: "description"
+        in: "formData"
+        description: "A string value to use as a description for this AreaMail item."
+        required: false
+        type: "string"
+        x-exportParamName: "Description"
+      - name: "targettype"
+        in: "formData"
+        description: "The delivery location type."
+        required: false
+        type: "string"
+        x-exportParamName: "Targettype"
+      - name: "htmldata"
+        in: "formData"
+        description: "A string value that contains HTML markup."
+        required: false
+        type: "string"
+        x-exportParamName: "Htmldata"
+      responses:
+        200:
+          description: ""
+          examples: {}
+          schema:
+            type: "string"
+      security:
+      - auth: []
+      x-unitTests: []
+      x-operation-settings:
+        CollectParameters: true
+        AllowDynamicQueryParameters: false
+        AllowDynamicFormParameters: false
+        IsMultiContentStreaming: false
+securityDefinitions:
+  auth:
+    type: "basic"
+    x-testValue: []
+    x-skip-client-authentication: false
+definitions:
+  Errors:
+    type: "object"
+    required:
+    - "Error"
+    properties:
+      Error:
+        type: "array"
+        description: ""
+        items:
+          $ref: "#/definitions/Error"
+    title: "Errors"
+  Error:
+    type: "object"
+    required:
+    - "Code"
+    - "Message"
+    - "MoreInfo"
+    properties:
+      Code:
+        type: "string"
+        description: ""
+      Message:
+        type: "string"
+        description: ""
+      MoreInfo:
+        type: "array"
+        description: ""
+        items:
+          type: "string"
+    title: "Error"
+  Message:
+    type: "object"
+    required:
+    - "ApiVersion"
+    - "Body"
+    - "DateSent"
+    - "From"
+    - "MessagePrice"
+    - "MessageSid"
+    - "Status"
+    - "TemplateData"
+    - "TemplateId"
+    - "To"
+    properties:
+      ApiVersion:
+        type: "string"
+        description: ""
+      MessageSid:
+        type: "string"
+        description: ""
+      From:
+        type: "string"
+        description: ""
+      To:
+        type: "string"
+        description: ""
+      MessagePrice:
+        type: "string"
+        description: ""
+      Body:
+        type: "string"
+        description: ""
+      DateSent:
+        type: "string"
+        description: ""
+      Status:
+        type: "string"
+        description: ""
+      TemplateId:
+        type: "string"
+        description: ""
+      TemplateData:
+        $ref: "#/definitions/TemplateData"
+    title: "Message"
+  TemplateData:
+    type: "object"
+    required:
+    - "companyname"
+    - "otpcode"
+    properties:
+      companyname:
+        type: "string"
+        description: ""
+      otpcode:
+        type: "string"
+        description: ""
+    title: "TemplateData"
+  Direction:
+    type: "string"
+    title: "Direction"
+    description: "Play DTMF Direction & in play audio & sendDigit"
+    example: "in"
+    enum:
+    - "in"
+    - "out"
+    - "both"
+    x-enum-elements:
+    - name: "IN"
+      description: "in direction"
+    - name: "OUT"
+      description: "out direction"
+    - name: "BOTH"
+      description: "both"
+  NumberType:
+    type: "string"
+    title: "Number Type"
+    description: "Phone Number Type All,SMS or Voice"
+    example: "all"
+    enum:
+    - "all"
+    - "voice"
+    - "sms"
+    x-enum-elements:
+    - name: "ALL"
+      description: "Get all phone Number type"
+    - name: "Voice"
+      description: "Get only voice number type"
+    - name: "SMS"
+      description: "Get Only SMs number type"
+  Status:
+    type: "string"
+    title: "Status"
+    description: "Transcription Status"
+    example: "inprogress"
+    enum:
+    - "inprogress"
+    - "success"
+    - "failure"
+    x-enum-elements:
+    - name: "INPROGRESS"
+      description: ""
+    - name: "Success"
+      description: ""
+    - name: "Failure"
+      description: ""
+  SendEmailAs:
+    type: "string"
+    title: "SendEmailAs"
+    description: "send email TEXT or HTML format"
+    example: "text"
+    enum:
+    - "text"
+    - "html"
+    x-enum-elements:
+    - name: "TEXT"
+      description: "Email send as text format"
+    - name: "HTML"
+      description: "Email send as HTML format"
+  ActivateStatus:
+    type: "integer"
+    title: "ActivateStatus"
+    format: "int32"
+    description: "Choose account status either 0 or 1"
+    example: 1
+    enum:
+    - "1"
+    - "0"
+    x-enum-elements:
+    - name: "Activate"
+      description: ""
+    - name: "DeActivate"
+      description: ""
+  MergeNumberStatus:
+    type: "integer"
+    title: "MergeNumberStatus"
+    format: "int32"
+    description: "Choose sub account either merge or delete"
+    example: 0
+    enum:
+    - "0"
+    - "1"
+    x-enum-elements:
+    - name: "Delete"
+      description: ""
+    - name: "Merge"
+      description: ""
+  AudioDirection:
+    type: "string"
+    title: "AudioDirection"
+    description: "Audio Direction"
+    example: "in"
+    enum:
+    - "in"
+    - "out"
+    x-enum-elements:
+    - name: "IN"
+      description: ""
+    - name: "OUT"
+      description: ""
+  ProductCode:
+    type: "integer"
+    title: "Product Code"
+    format: "int32"
+    description: "Returns a list of all usage for a specific \"product\" or feature\
+      \ of Message360."
+    example: 0
+    enum:
+    - "0"
+    - "1"
+    - "2"
+    - "3"
+    - "4"
+    - "5"
+    - "6"
+    - "7"
+    - "8"
+    - "9"
+    - "10"
+    - "11"
+    - "12"
+    - "13"
+    x-enum-elements:
+    - name: "ALL"
+      description: ""
+    - name: "Enum_1"
+      description: ""
+    - name: "Enum_2"
+      description: ""
+    - name: "Enum_3"
+      description: ""
+    - name: "Enum_4"
+      description: ""
+    - name: "Transcription"
+      description: ""
+    - name: "Email"
+      description: ""
+    - name: "Conference"
+      description: ""
+    - name: "Carrier"
+      description: ""
+    - name: "Enum_9"
+      description: ""
+    - name: "Enum_10"
+      description: ""
+    - name: "Enum_11"
+      description: ""
+    - name: "Enum_12"
+      description: ""
+    - name: "Enum_13"
+      description: ""
+  HttpAction:
+    type: "string"
+    title: "HttpAction"
+    description: "Types Of Method"
+    example: "GET"
+    enum:
+    - "GET"
+    - "POST"
+    x-enum-elements:
+    - name: "GET"
+      description: "Get type"
+    - name: "POST"
+      description: "Post Type"
+  IfMachine:
+    type: "string"
+    title: "ifMachine"
+    description: "How Message360 should handle the receiving numbers voicemail machine"
+    example: "continue"
+    enum:
+    - "continue"
+    - "hangup"
+    x-enum-elements:
+    - name: "CONTINUE"
+      description: ""
+    - name: "HANGUP"
+      description: ""
+  InterruptedCallStatus:
+    type: "string"
+    title: "InterruptedCallStatus"
+    description: "Interrupted Call Status"
+    example: "canceled"
+    enum:
+    - "canceled"
+    - "completed"
+    x-enum-elements:
+    - name: "CANCELED"
+      description: "Interrupt Call will be cancel"
+    - name: "COMPLETED"
+      description: "Interrupt Call is complete"
+  AudioFormat:
+    type: "string"
+    title: "AudioFormat"
+    description: "Audio Format file type mp3 or wav"
+    example: "mp3"
+    enum:
+    - "mp3"
+    - "wav"
+    x-enum-elements:
+    - name: "mp3"
+      description: "mp3 file"
+    - name: "wav"
+      description: "wav file"
+  Numbertype16:
+    type: "string"
+    title: "numbertype16"
+    example: "all"
+    enum:
+    - "all"
+    - "voice"
+    - "sms"
+    x-enum-elements:
+    - name: "ALL"
+      description: "Get all phone Number type"
+    - name: "Voice"
+      description: "Get only voice number type"
+    - name: "SMS"
+      description: "Get Only SMs number type"
+  Type:
+    type: "string"
+    title: "Type"
+    example: "text"
+    enum:
+    - "text"
+    - "html"
+    x-enum-elements:
+    - name: "TEXT"
+      description: "Email send as text format"
+    - name: "HTML"
+      description: "Email send as HTML format"
+  Fileformat:
+    type: "string"
+    title: "Fileformat"
+    example: "mp3"
+    enum:
+    - "mp3"
+    - "wav"
+    x-enum-elements:
+    - name: "mp3"
+      description: "mp3 file"
+    - name: "wav"
+      description: "wav file"
+  PlayDtmfDirection:
+    type: "string"
+    title: "PlayDtmfDirection"
+    example: "in"
+    enum:
+    - "in"
+    - "out"
+    - "both"
+    x-enum-elements:
+    - name: "IN"
+      description: "in direction"
+    - name: "OUT"
+      description: "out direction"
+    - name: "BOTH"
+      description: "both"
+  Status24:
+    type: "string"
+    title: "Status24"
+    example: "canceled"
+    enum:
+    - "canceled"
+    - "completed"
+    x-enum-elements:
+    - name: "CANCELED"
+      description: "Interrupt Call will be cancel"
+    - name: "COMPLETED"
+      description: "Interrupt Call is complete"
+  MergeNumber:
+    type: "integer"
+    title: "MergeNumber"
+    format: "int32"
+    example: 0
+    enum:
+    - "0"
+    - "1"
+    x-enum-elements:
+    - name: "Delete"
+      description: ""
+    - name: "Merge"
+      description: ""
+  Activate:
+    type: "integer"
+    title: "Activate"
+    format: "int32"
+    example: 1
+    enum:
+    - "1"
+    - "0"
+    x-enum-elements:
+    - name: "Activate"
+      description: ""
+    - name: "DeActivate"
+      description: ""
+  ProductCode27:
+    type: "integer"
+    title: "ProductCode27"
+    format: "int32"
+    example: 0
+    enum:
+    - "0"
+    - "1"
+    - "2"
+    - "3"
+    - "4"
+    - "5"
+    - "6"
+    - "7"
+    - "8"
+    - "9"
+    - "10"
+    - "11"
+    - "12"
+    - "13"
+    x-enum-elements:
+    - name: "ALL"
+      description: ""
+    - name: "Enum_1"
+      description: ""
+    - name: "Enum_2"
+      description: ""
+    - name: "Enum_3"
+      description: ""
+    - name: "Enum_4"
+      description: ""
+    - name: "Transcription"
+      description: ""
+    - name: "Email"
+      description: ""
+    - name: "Conference"
+      description: ""
+    - name: "Carrier"
+      description: ""
+    - name: "Enum_9"
+      description: ""
+    - name: "Enum_10"
+      description: ""
+    - name: "Enum_11"
+      description: ""
+    - name: "Enum_12"
+      description: ""
+    - name: "Enum_13"
+      description: ""
+  AudioUrl:
+    type: "string"
+    title: "AudioUrl"
+    example: "mp3"
+    enum:
+    - "mp3"
+    - "wav"
+    x-enum-elements:
+    - name: "mp3"
+      description: "mp3 file"
+    - name: "wav"
+      description: "wav file"
+  GroupConfirmFile:
+    type: "string"
+    title: "GroupConfirmFile"
+    example: "mp3"
+    enum:
+    - "mp3"
+    - "wav"
+    x-enum-elements:
+    - name: "mp3"
+      description: "mp3 file"
+    - name: "wav"
+      description: "wav file"

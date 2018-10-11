@@ -1,6 +1,6 @@
 # \CallApi
 
-All URIs are relative to *https://api.message360.com/api/v3/*
+All URIs are relative to *https://api.ytel.com/api/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,7 +27,7 @@ Group Call
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **from** | **string**| This number to display on Caller ID as calling | 
   **to** | **string**| Please enter multiple E164 number. You can add max 10 numbers. Add numbers separated with comma. e.g : 1111111111,2222222222 | 
   **url** | **string**| URL requested once the call connects | 
@@ -86,7 +86,7 @@ Interrupt the Call by Call Sid
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **callSid** | **string**| The unique identifier for voice call that is in progress. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -125,7 +125,7 @@ A list of calls associated with your Ytel account
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -164,7 +164,7 @@ You can experiment with initiating a call through Ytel and view the request resp
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **from** | **string**| A valid Ytel Voice enabled number (E.164 format) that will be initiating the phone call. | 
   **to** | **string**| To number | 
   **url** | **string**| URL requested once the call connects | 
@@ -224,7 +224,7 @@ Initiate an outbound Ringless Voicemail through Ytel.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **from** | **string**| A valid Ytel Voice enabled number (E.164 format) that will be initiating the phone call. | 
   **rVMCallerId** | **string**| A required secondary Caller ID for RVM to work. | 
   **to** | **string**| A valid number (E.164 format) that will receive the phone call. | 
@@ -269,7 +269,7 @@ Play Audio from a url
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **callSid** | **string**| The unique identifier of each call resource | 
   **audioUrl** | **string**| URL to sound that should be played. You also can add more than one audio file using semicolons e.g. http://example.com/audio1.mp3;http://example.com/audio2.wav | 
   **sayText** | **string**| Valid alphanumeric string that should be played to the In-progress call. | 
@@ -312,7 +312,7 @@ Start or stop recording of an in-progress voice call.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **callSid** | **string**| The unique identifier of each call resource | 
   **record** | **bool**| Set true to initiate recording or false to terminate recording | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -354,7 +354,7 @@ Play Dtmf and send the Digit
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **callSid** | **string**| The unique identifier of each call resource | 
   **playDtmf** | **string**| DTMF digits to play to the call. 0-9, #, *, W, or w | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -393,7 +393,7 @@ Retrieve a single voice call’s information by its CallSid.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **callSid** | **string**| The unique identifier for the voice call. | 
 
 ### Return type
@@ -421,7 +421,7 @@ Retrieve a single voice call’s information by its CallSid.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **callsid** | **string**| The unique identifier for the voice call. | 
 
 ### Return type
@@ -449,7 +449,7 @@ Add audio voice effects to the an in-progress voice call.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **callSid** | **string**| The unique identifier for the in-progress voice call. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 

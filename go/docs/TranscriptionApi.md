@@ -1,6 +1,6 @@
 # \TranscriptionApi
 
-All URIs are relative to *https://api.message360.com/api/v3/*
+All URIs are relative to *https://api.ytel.com/api/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,7 +20,7 @@ Transcribe an audio recording from a file.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **audiourl** | **string**| URL pointing to the location of the audio file that is to be transcribed. | 
 
 ### Return type
@@ -48,7 +48,7 @@ Retrieve a list of transcription objects for your Ytel account.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -86,7 +86,7 @@ Transcribe a recording by its RecordingSid.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **recordingSid** | **string**| The unique identifier for a recording object. | 
 
 ### Return type
@@ -114,7 +114,7 @@ Retrieve information about a transaction by its TranscriptionSid.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **transcriptionsid** | **string**| The unique identifier for a transcription object. | 
 
 ### Return type

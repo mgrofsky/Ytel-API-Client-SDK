@@ -1,6 +1,6 @@
 # \PostCardApi
 
-All URIs are relative to *https://api.message360.com/api/v3/*
+All URIs are relative to *https://api.ytel.com/api/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,7 +20,7 @@ Create, print, and mail a postcard to an address. The postcard front must be sup
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **to** | **string**| The AddressId or an object structured when creating an address by addresses/Create. | 
   **from** | **string**| The AddressId or an object structured when creating an address by addresses/Create. | 
   **attachbyid** | **string**| Set an existing postcard by attaching its PostcardId. | 
@@ -70,7 +70,7 @@ Remove a postcard object.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **postcardid** | **string**| The unique identifier of a postcard object. | 
 
 ### Return type
@@ -98,7 +98,7 @@ Retrieve a list of postcard objects. The postcards objects are sorted by creatio
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -136,7 +136,7 @@ Retrieve a postcard object by its PostcardId.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **postcardid** | **string**| The unique identifier for a postcard object. | 
 
 ### Return type

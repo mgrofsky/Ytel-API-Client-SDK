@@ -1,6 +1,6 @@
 # \SharedShortCodeApi
 
-All URIs are relative to *https://api.message360.com/api/v3/*
+All URIs are relative to *https://api.ytel.com/api/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,7 +25,7 @@ Retrieve a list of keywords associated with your Ytel account.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -63,7 +63,7 @@ View a set of properties for a single keyword.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **keywordid** | **string**| The unique identifier of each keyword | 
 
 ### Return type
@@ -91,7 +91,7 @@ List All Inbound ShortCode
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -130,7 +130,7 @@ Retrieve a list of shortcode assignment associated with your Ytel account.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -167,10 +167,10 @@ Send an SMS from a Ytel ShortCode
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **shortcode** | **string**| The Short Code number that is the sender of this message | 
   **to** | **string**| A valid 10-digit number that should receive the message | 
-  **templateid** | **string**| The unique identifier for the template used for the message | 
+  **templateid** | [**string**](.md)| The unique identifier for the template used for the message | 
   **data** | **string**| format of your data, example: {companyname}:test,{otpcode}:1234 | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **shortcode** | **string**| The Short Code number that is the sender of this message | 
  **to** | **string**| A valid 10-digit number that should receive the message | 
- **templateid** | **string**| The unique identifier for the template used for the message | 
+ **templateid** | [**string**](.md)| The unique identifier for the template used for the message | 
  **data** | **string**| format of your data, example: {companyname}:test,{otpcode}:1234 | 
  **method** | **string**| Specifies the HTTP method used to request the required URL once the Short Code message is sent. | [default to GET]
  **messageStatusCallback** | **string**| URL that can be requested to receive notification when Short Code message was sent. | 
@@ -211,7 +211,7 @@ Update Assignment
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **shortcode** | **string**| List of valid shortcode to your Ytel account | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -252,7 +252,7 @@ The response returned here contains all resource properties associated with the 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **shortcode** | **string**| List of valid Shortcode to your Ytel account | 
 
 ### Return type
@@ -280,7 +280,7 @@ List Shortcode Templates by Type
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -318,8 +318,8 @@ View a Shared ShortCode Template
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
-  **templateId** | **string**| The unique identifier for a template object | 
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
+  **templateId** | [**string**](.md)| The unique identifier for a template object | 
 
 ### Return type
 
