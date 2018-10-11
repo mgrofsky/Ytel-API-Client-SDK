@@ -1,6 +1,6 @@
 # IO.Swagger.Api.SharedShortCodeApi
 
-All URIs are relative to *https://api.message360.com/api/v3/*
+All URIs are relative to *https://api.ytel.com/api/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -322,7 +322,7 @@ namespace Example
             var apiInstance = new SharedShortCodeApi();
             var shortcode = shortcode_example;  // string | The Short Code number that is the sender of this message
             var to = to_example;  // string | A valid 10-digit number that should receive the message
-            var templateid = templateid_example;  // Guid? | The unique identifier for the template used for the message
+            var templateid = new Guid?(); // Guid? | The unique identifier for the template used for the message
             var data = data_example;  // string | format of your data, example: {companyname}:test,{otpcode}:1234
             var method = method_example;  // string | Specifies the HTTP method used to request the required URL once the Short Code message is sent. (optional)  (default to GET)
             var messageStatusCallback = messageStatusCallback_example;  // string | URL that can be requested to receive notification when Short Code message was sent. (optional) 
@@ -348,7 +348,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **shortcode** | **string**| The Short Code number that is the sender of this message | 
  **to** | **string**| A valid 10-digit number that should receive the message | 
- **templateid** | **Guid?**| The unique identifier for the template used for the message | 
+ **templateid** | [**Guid?**](Guid?.md)| The unique identifier for the template used for the message | 
  **data** | **string**| format of your data, example: {companyname}:test,{otpcode}:1234 | 
  **method** | **string**| Specifies the HTTP method used to request the required URL once the Short Code message is sent. | [optional] [default to GET]
  **messageStatusCallback** | **string**| URL that can be requested to receive notification when Short Code message was sent. | [optional] 
@@ -606,7 +606,7 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new SharedShortCodeApi();
-            var templateId = templateId_example;  // Guid? | The unique identifier for a template object
+            var templateId = new Guid?(); // Guid? | The unique identifier for a template object
 
             try
             {
@@ -627,7 +627,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **templateId** | **Guid?**| The unique identifier for a template object | 
+ **templateId** | [**Guid?**](Guid?.md)| The unique identifier for a template object | 
 
 ### Return type
 
