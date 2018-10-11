@@ -26,7 +26,7 @@ object ConferenceApi {
    * @param deaf Specifies if the participant should hear audio in the conference.
    */
   def conferencesAddParticipant(conferenceSid: String, participantNumber: String, muted: Option[Boolean] = None, deaf: Option[Boolean] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/conferences/addParticipant.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/conferences/addParticipant.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("ConferenceSid", conferenceSid)
       .withFormParam("ParticipantNumber", participantNumber)
@@ -57,7 +57,7 @@ object ConferenceApi {
    * @param timeout The number of seconds the call stays on the line while waiting for an answer. The max time limit is 999 and the default limit is 60 seconds but lower times can be set.
    */
   def conferencesCreateConference(from: String, to: String, url: String, method: Option[String], statusCallBackUrl: Option[String] = None, statusCallBackMethod: Option[String] = None, fallbackUrl: Option[String] = None, fallbackMethod: Option[String] = None, record: Option[Boolean] = None, recordCallBackUrl: Option[String] = None, recordCallBackMethod: Option[String] = None, scheduleTime: Option[String] = None, timeout: Option[Int] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/conferences/createConference.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/conferences/createConference.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("From", from)
       .withFormParam("To", to)
@@ -88,7 +88,7 @@ object ConferenceApi {
    * @param deaf Make it so a participant cant hear
    */
   def conferencesDeafMuteParticipant(conferenceSid: String, participantSid: String, muted: Option[Boolean] = None, deaf: Option[Boolean] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/conferences/deafMuteParticipant.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/conferences/deafMuteParticipant.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("conferenceSid", conferenceSid)
       .withFormParam("ParticipantSid", participantSid)
@@ -108,7 +108,7 @@ object ConferenceApi {
    * @param participantSid The unique identifier for a participant object.
    */
   def conferencesHangupParticipant(conferenceSid: String, participantSid: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/conferences/hangupParticipant.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/conferences/hangupParticipant.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("ConferenceSid", conferenceSid)
       .withQueryParam("ParticipantSid", participantSid)
@@ -129,7 +129,7 @@ object ConferenceApi {
    * @param deaf Specifies if the participant should hear audio in the conference.
    */
   def conferencesListParticipant(conferenceSid: String, page: Option[Int], pagesize: Option[Int], muted: Option[Boolean] = None, deaf: Option[Boolean] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/conferences/listParticipant.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/conferences/listParticipant.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("ConferenceSid", conferenceSid)
       .withFormParam("Page", page)
@@ -152,7 +152,7 @@ object ConferenceApi {
    * @param dateCreated Conference created date
    */
   def conferencesListconference(page: Option[Int], pagesize: Option[Int], friendlyName: Option[String] = None, dateCreated: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/conferences/listconference.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/conferences/listconference.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("page", page)
       .withFormParam("pagesize", pagesize)
@@ -173,7 +173,7 @@ object ConferenceApi {
    * @param audioUrl The URL for the audio file that is to be played during the conference. Multiple audio files can be chained by using a semicolon.
    */
   def conferencesPlayAudio(conferenceSid: String, participantSid: String, audioUrl: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/conferences/playAudio.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/conferences/playAudio.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("ConferenceSid", conferenceSid)
       .withFormParam("ParticipantSid", participantSid)
@@ -192,7 +192,7 @@ object ConferenceApi {
    * @param participantSid The unique identifier for a participant object.
    */
   def conferencesViewParticipant(conferenceSid: String, participantSid: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/conferences/viewParticipant.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/conferences/viewParticipant.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("ConferenceSid", conferenceSid)
       .withFormParam("ParticipantSid", participantSid)
@@ -209,7 +209,7 @@ object ConferenceApi {
    * @param conferenceSid The unique identifier of each conference resource
    */
   def conferencesViewconference(conferenceSid: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/conferences/viewconference.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/conferences/viewconference.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("ConferenceSid", conferenceSid)
       .withSuccessResponse[String](200)

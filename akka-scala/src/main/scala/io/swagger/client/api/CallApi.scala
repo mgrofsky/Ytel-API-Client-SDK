@@ -42,7 +42,7 @@ object CallApi {
    * @param transcribeCallBackUrl Transcription parameters will be sent here upon completion
    */
   def callsGroupcall(from: String, to: String, url: String, groupConfirmKey: String, groupConfirmFile: String, method: Option[String] = None, statusCallBackUrl: Option[String] = None, statusCallBackMethod: Option[String] = None, fallBackUrl: Option[String] = None, fallBackMethod: Option[String] = None, heartBeatUrl: Option[String] = None, heartBeatMethod: Option[String] = None, timeout: Option[Int] = None, playDtmf: Option[String] = None, hideCallerId: Option[String] = None, record: Option[Boolean] = None, recordCallBackUrl: Option[String] = None, recordCallBackMethod: Option[String] = None, transcribe: Option[Boolean] = None, transcribeCallBackUrl: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/calls/groupcall.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/calls/groupcall.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("From", from)
       .withFormParam("To", to)
@@ -80,7 +80,7 @@ object CallApi {
    * @param status Status to set the in-progress call to
    */
   def callsInterruptcalls(callSid: String, url: Option[String] = None, method: Option[String] = None, status: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/calls/interruptcalls.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/calls/interruptcalls.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("CallSid", callSid)
       .withFormParam("Url", url)
@@ -103,7 +103,7 @@ object CallApi {
    * @param dateCreated Return calls that are from a specified date.
    */
   def callsListcalls(page: Option[Int], pageSize: Option[Int], to: Option[String] = None, from: Option[String] = None, dateCreated: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/calls/listcalls.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/calls/listcalls.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("Page", page)
       .withFormParam("PageSize", pageSize)
@@ -145,7 +145,7 @@ object CallApi {
    * @param surveyId The unique identifier for the survey.
    */
   def callsMakecall(from: String, to: String, url: String, method: Option[String] = None, statusCallBackUrl: Option[String] = None, statusCallBackMethod: Option[String] = None, fallBackUrl: Option[String] = None, fallBackMethod: Option[String] = None, heartBeatUrl: Option[String] = None, heartBeatMethod: Option[String] = None, timeout: Option[Int] = None, playDtmf: Option[String] = None, hideCallerId: Option[Boolean] = None, record: Option[Boolean] = None, recordCallBackUrl: Option[String] = None, recordCallBackMethod: Option[String] = None, transcribe: Option[Boolean] = None, transcribeCallBackUrl: Option[String] = None, ifMachine: Option[String] = None, ifMachineUrl: Option[String] = None, ifMachineMethod: Option[String] = None, feedback: Option[Boolean] = None, surveyId: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/calls/makecall.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/calls/makecall.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("From", from)
       .withFormParam("To", to)
@@ -189,7 +189,7 @@ object CallApi {
    * @param statsCallBackMethod Specifies the HTTP method used to request the required StatusCallBackUrl once call connects.
    */
   def callsMakervm(from: String, rVMCallerId: String, to: String, voiceMailURL: String, method: Option[String], statusCallBackUrl: Option[String] = None, statsCallBackMethod: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/calls/makervm.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/calls/makervm.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("From", from)
       .withFormParam("RVMCallerId", rVMCallerId)
@@ -216,7 +216,7 @@ object CallApi {
    * @param mix If false, all other audio will be muted
    */
   def callsPlayaudios(callSid: String, audioUrl: String, sayText: String, length: Option[Int] = None, direction: Option[String] = None, mix: Option[Boolean] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/calls/playaudios.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/calls/playaudios.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("CallSid", callSid)
       .withFormParam("AudioUrl", audioUrl)
@@ -242,7 +242,7 @@ object CallApi {
    * @param fileformat Format of the recording file. Can be .mp3 or .wav
    */
   def callsRecordcalls(callSid: String, record: Boolean, direction: Option[String] = None, timeLimit: Option[Int] = None, callBackUrl: Option[String] = None, fileformat: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/calls/recordcalls.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/calls/recordcalls.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("CallSid", callSid)
       .withFormParam("Record", record)
@@ -265,7 +265,7 @@ object CallApi {
    * @param playDtmfDirection The leg of the call DTMF digits should be sent to
    */
   def callsSenddigits(callSid: String, playDtmf: String, playDtmfDirection: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/calls/senddigits.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/calls/senddigits.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("CallSid", callSid)
       .withFormParam("PlayDtmf", playDtmf)
@@ -283,7 +283,7 @@ object CallApi {
    * @param callSid The unique identifier for the voice call.
    */
   def callsViewcalldetail(callSid: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/calls/viewcalldetail.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/calls/viewcalldetail.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("callSid", callSid)
       .withSuccessResponse[String](200)
@@ -299,7 +299,7 @@ object CallApi {
    * @param callsid The unique identifier for the voice call.
    */
   def callsViewcalls(callsid: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/calls/viewcalls.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/calls/viewcalls.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("callsid", callsid)
       .withSuccessResponse[String](200)
@@ -321,7 +321,7 @@ object CallApi {
    * @param tempo Set the tempo (speed) of the audio. A higher value denotes a faster tempo. Value greater than 0
    */
   def callsVoiceeffect(callSid: String, audioDirection: Option[String] = None, pitchSemiTones: Option[Double] = None, pitchOctaves: Option[Double] = None, pitch: Option[Double] = None, rate: Option[Double] = None, tempo: Option[Double] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/calls/voiceeffect.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/calls/voiceeffect.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("CallSid", callSid)
       .withFormParam("AudioDirection", audioDirection)

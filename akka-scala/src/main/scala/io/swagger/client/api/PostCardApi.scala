@@ -31,7 +31,7 @@ object PostCardApi {
    * @param htmldata A string value that contains HTML markup.
    */
   def postcardCreatepostcard(to: String, from: String, attachbyid: String, front: String, back: String, message: String, setting: String, description: Option[String] = None, htmldata: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/Postcard/createpostcard.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/Postcard/createpostcard.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("to", to)
       .withFormParam("from", from)
@@ -55,7 +55,7 @@ object PostCardApi {
    * @param postcardid The unique identifier of a postcard object.
    */
   def postcardDeletepostcard(postcardid: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/Postcard/deletepostcard.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/Postcard/deletepostcard.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("postcardid", postcardid)
       .withSuccessResponse[String](200)
@@ -74,7 +74,7 @@ object PostCardApi {
    * @param dateCreated The date the postcard was created.
    */
   def postcardListpostcard(page: Option[Int], pagesize: Option[Int], postcardid: Option[String] = None, dateCreated: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/Postcard/listpostcard.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/Postcard/listpostcard.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("page", page)
       .withFormParam("pagesize", pagesize)
@@ -93,7 +93,7 @@ object PostCardApi {
    * @param postcardid The unique identifier for a postcard object.
    */
   def postcardViewpostcard(postcardid: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/Postcard/viewpostcard.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/Postcard/viewpostcard.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("postcardid", postcardid)
       .withSuccessResponse[String](200)

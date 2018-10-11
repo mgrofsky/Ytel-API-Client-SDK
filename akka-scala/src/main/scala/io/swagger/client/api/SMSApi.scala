@@ -27,7 +27,7 @@ object SMSApi {
    * @param dateSent Filter sms message objects by this date.
    */
   def smsGetinboundsms(page: Option[Int], pageSize: Option[Int], from: Option[String] = None, to: Option[String] = None, dateSent: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/sms/getinboundsms.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/sms/getinboundsms.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("Page", page)
       .withFormParam("PageSize", pageSize)
@@ -51,7 +51,7 @@ object SMSApi {
    * @param dateSent Only list SMS messages sent in the specified date range
    */
   def smsListsms(page: Option[Int], pageSize: Option[Int], from: Option[String] = None, to: Option[String] = None, dateSent: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/sms/listsms.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/sms/listsms.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("Page", page)
       .withFormParam("PageSize", pageSize)
@@ -77,7 +77,7 @@ object SMSApi {
    * @param deliveryStatus Delivery reports are a method to tell your system if the message has arrived on the destination phone.
    */
   def smsSendsms(from: String, to: String, body: String, method: Option[String] = None, messageStatusCallback: Option[String] = None, smartsms: Option[Boolean], deliveryStatus: Option[Boolean])(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/sms/sendsms.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/sms/sendsms.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("From", from)
       .withFormParam("To", to)
@@ -99,7 +99,7 @@ object SMSApi {
    * @param messageSid The unique identifier for a sms message.
    */
   def smsViewdetailsms(messageSid: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/sms/viewdetailsms.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/sms/viewdetailsms.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("MessageSid", messageSid)
       .withSuccessResponse[String](200)
@@ -115,7 +115,7 @@ object SMSApi {
    * @param messageSid The unique identifier for a sms message.
    */
   def smsViewsms(messageSid: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/sms/viewsms.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/sms/viewsms.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("MessageSid", messageSid)
       .withSuccessResponse[String](200)

@@ -23,7 +23,7 @@ object TranscriptionApi {
    * @param audiourl URL pointing to the location of the audio file that is to be transcribed.
    */
   def transcriptionsAudiourltranscription(audiourl: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/transcriptions/audiourltranscription.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/transcriptions/audiourltranscription.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("audiourl", audiourl)
       .withSuccessResponse[String](200)
@@ -42,7 +42,7 @@ object TranscriptionApi {
    * @param dateTranscribed The date the transcription took place.
    */
   def transcriptionsListtranscription(page: Option[Int], pagesize: Option[Int], status: Option[String] = None, dateTranscribed: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/transcriptions/listtranscription.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/transcriptions/listtranscription.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("page", page)
       .withFormParam("pagesize", pagesize)
@@ -61,7 +61,7 @@ object TranscriptionApi {
    * @param recordingSid The unique identifier for a recording object.
    */
   def transcriptionsRecordingtranscription(recordingSid: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/transcriptions/recordingtranscription.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/transcriptions/recordingtranscription.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("recordingSid", recordingSid)
       .withSuccessResponse[String](200)
@@ -77,7 +77,7 @@ object TranscriptionApi {
    * @param transcriptionsid The unique identifier for a transcription object.
    */
   def transcriptionsViewtranscription(transcriptionsid: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/transcriptions/viewtranscription.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/transcriptions/viewtranscription.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("transcriptionsid", transcriptionsid)
       .withSuccessResponse[String](200)

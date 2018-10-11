@@ -23,7 +23,7 @@ object EmailApi {
    * @param email A valid email address that is to be added to the unsubscribe list
    */
   def emailAddunsubscribesemail(email: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/email/addunsubscribesemail.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/email/addunsubscribesemail.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("email", email)
       .withSuccessResponse[String](200)
@@ -39,7 +39,7 @@ object EmailApi {
    * @param email The email address to be remove from the blocked list.
    */
   def emailDeleteblocksemail(email: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/email/deleteblocksemail.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/email/deleteblocksemail.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("Email", email)
       .withSuccessResponse[String](200)
@@ -55,7 +55,7 @@ object EmailApi {
    * @param email The email address to be remove from the bounced email list.
    */
   def emailDeletebouncesemail(email: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/email/deletebouncesemail.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/email/deletebouncesemail.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("Email", email)
       .withSuccessResponse[String](200)
@@ -71,7 +71,7 @@ object EmailApi {
    * @param email A valid email address that is to be remove from the invalid email list.
    */
   def emailDeleteinvalidemail(email: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/email/deleteinvalidemail.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/email/deleteinvalidemail.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("Email", email)
       .withSuccessResponse[String](200)
@@ -87,7 +87,7 @@ object EmailApi {
    * @param email A valid email address that is to be remove from the spam list.
    */
   def emailDeletespamemail(email: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/email/deletespamemail.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/email/deletespamemail.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("Email", email)
       .withSuccessResponse[String](200)
@@ -103,7 +103,7 @@ object EmailApi {
    * @param email A valid email address that is to be remove from the unsubscribe list.
    */
   def emailDeleteunsubscribedemail(email: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/email/deleteunsubscribedemail.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/email/deleteunsubscribedemail.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("email", email)
       .withSuccessResponse[String](200)
@@ -120,7 +120,7 @@ object EmailApi {
    * @param limit The count of results that should be returned.
    */
   def emailListblockemail(offset: Option[String] = None, limit: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/email/listblockemail.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/email/listblockemail.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("Offset", offset)
       .withFormParam("Limit", limit)
@@ -138,7 +138,7 @@ object EmailApi {
    * @param limit The count of results that should be returned.
    */
   def emailListbounceemail(offset: Option[String] = None, limit: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/email/listbounceemail.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/email/listbounceemail.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("Offset", offset)
       .withFormParam("Limit", limit)
@@ -156,7 +156,7 @@ object EmailApi {
    * @param limit The count of results that should be returned.
    */
   def emailListinvalidemail(offset: Option[String] = None, limit: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/email/listinvalidemail.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/email/listinvalidemail.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("Offset", offset)
       .withFormParam("Limit", limit)
@@ -174,7 +174,7 @@ object EmailApi {
    * @param limit The count of results that should be returned.
    */
   def emailListspamemail(offset: Option[String] = None, limit: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/email/listspamemail.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/email/listspamemail.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("Offset", offset)
       .withFormParam("Limit", limit)
@@ -192,7 +192,7 @@ object EmailApi {
    * @param limit The count of results that should be returned.
    */
   def emailListunsubscribedemail(offset: Option[String] = None, limit: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/email/listunsubscribedemail.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/email/listunsubscribedemail.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("Offset", offset)
       .withFormParam("Limit", limit)
@@ -207,7 +207,7 @@ object EmailApi {
    *   auth (basic)
    * 
    * @param to A valid address that will receive the email. Multiple addresses can be separated by using commas.
-   * @param &#x60;type&#x60; Specifies the type of email to be sent
+   * @param `type` Specifies the type of email to be sent
    * @param subject The subject of the mail. Must be a valid string.
    * @param message The email message that is to be sent in the text.
    * @param from A valid address that will send the email.
@@ -215,8 +215,8 @@ object EmailApi {
    * @param bcc Blind carbon copy. A valid address that will receive the email. Multiple addresses can be separated by using commas.
    * @param attachment A file that is attached to the email. Must be less than 7 MB in size.
    */
-  def emailSendemails(to: String, &#x60;type&#x60;: String, subject: String, message: String, from: Option[String] = None, cc: Option[String] = None, bcc: Option[String] = None, attachment: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/email/sendemails.json", "application/x-www-form-urlencoded")
+  def emailSendemails(to: String, `type`: String, subject: String, message: String, from: Option[String] = None, cc: Option[String] = None, bcc: Option[String] = None, attachment: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/email/sendemails.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("To", to)
       .withFormParam("Type", `type`)

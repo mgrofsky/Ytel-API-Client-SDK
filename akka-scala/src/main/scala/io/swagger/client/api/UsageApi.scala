@@ -26,7 +26,7 @@ object UsageApi {
    * @param includeSubAccounts Will include all subaccount usage data
    */
   def usageListusage(productCode: Option[String], startDate: Option[String], endDate: Option[String], includeSubAccounts: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/usage/listusage.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/usage/listusage.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("ProductCode", productCode)
       .withFormParam("startDate", startDate)

@@ -27,7 +27,7 @@ object SharedShortCodeApi {
    * @param shortcode Only list keywords of shortcode
    */
   def keywordLists(page: Option[Int], pagesize: Option[Int], keyword: Option[String] = None, shortcode: Option[Int] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/keyword/lists.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/keyword/lists.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("page", page)
       .withFormParam("pagesize", pagesize)
@@ -46,7 +46,7 @@ object SharedShortCodeApi {
    * @param keywordid The unique identifier of each keyword
    */
   def keywordView(keywordid: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/keyword/view.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/keyword/view.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("Keywordid", keywordid)
       .withSuccessResponse[String](200)
@@ -66,7 +66,7 @@ object SharedShortCodeApi {
    * @param datecreated Only list messages sent with the specified date
    */
   def shortcodeGetinboundsms(page: Option[Int], pagesize: Option[Int], from: Option[String] = None, shortcode: Option[String] = None, datecreated: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/shortcode/getinboundsms.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/shortcode/getinboundsms.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("page", page)
       .withFormParam("pagesize", pagesize)
@@ -88,7 +88,7 @@ object SharedShortCodeApi {
    * @param shortcode Only list keywords of shortcode
    */
   def shortcodeListshortcode(page: Option[Int], pagesize: Option[Int], shortcode: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/shortcode/listshortcode.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/shortcode/listshortcode.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("page", page)
       .withFormParam("pagesize", pagesize)
@@ -111,7 +111,7 @@ object SharedShortCodeApi {
    * @param messageStatusCallback URL that can be requested to receive notification when Short Code message was sent.
    */
   def shortcodeSendsms(shortcode: String, to: String, templateid: UUID, data: String, method: Option[String], messageStatusCallback: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/shortcode/sendsms.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/shortcode/sendsms.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("shortcode", shortcode)
       .withFormParam("to", to)
@@ -137,7 +137,7 @@ object SharedShortCodeApi {
    * @param fallbackUrlMethod Specifies the HTTP method used to request the required FallbackUrl once call connects.
    */
   def shortcodeUpdateshortcode(shortcode: String, friendlyName: Option[String] = None, callbackUrl: Option[String] = None, callbackMethod: Option[String] = None, fallbackUrl: Option[String] = None, fallbackUrlMethod: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/shortcode/updateshortcode.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/shortcode/updateshortcode.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("Shortcode", shortcode)
       .withFormParam("FriendlyName", friendlyName)
@@ -158,7 +158,7 @@ object SharedShortCodeApi {
    * @param shortcode List of valid Shortcode to your Ytel account
    */
   def shortcodeViewshortcode(shortcode: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/shortcode/viewshortcode.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/shortcode/viewshortcode.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("Shortcode", shortcode)
       .withSuccessResponse[String](200)
@@ -171,13 +171,13 @@ object SharedShortCodeApi {
    * Available security schemes:
    *   auth (basic)
    * 
-   * @param &#x60;type&#x60; The type (category) of template Valid values: marketing, authorization
+   * @param `type` The type (category) of template Valid values: marketing, authorization
    * @param page The page count to retrieve from the total results in the collection. Page indexing starts at 1.
    * @param pagesize The count of objects to return per page.
    * @param shortcode Only list templates of type
    */
-  def templateLists(&#x60;type&#x60;: Option[String], page: Option[Int], pagesize: Option[Int], shortcode: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/template/lists.json", "application/x-www-form-urlencoded")
+  def templateLists(`type`: Option[String], page: Option[Int], pagesize: Option[Int], shortcode: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/template/lists.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("type", `type`)
       .withFormParam("page", page)
@@ -196,7 +196,7 @@ object SharedShortCodeApi {
    * @param templateId The unique identifier for a template object
    */
   def templateView(templateId: UUID)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/template/view.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/template/view.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("TemplateId", templateId)
       .withSuccessResponse[String](200)

@@ -27,7 +27,7 @@ object ShortCodeApi {
    * @param datecreated Only list SMS messages sent in the specified date MAKE REQUEST
    */
   def dedicatedshortcodeGetinboundsms(page: Option[Int], pagesize: Option[Int], from: Option[String] = None, shortcode: Option[String] = None, datecreated: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/dedicatedshortcode/getinboundsms.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/dedicatedshortcode/getinboundsms.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("page", page)
       .withFormParam("pagesize", pagesize)
@@ -49,7 +49,7 @@ object ShortCodeApi {
    * @param pagesize The count of objects to return per page.
    */
   def dedicatedshortcodeListshortcode(shortcode: Option[String] = None, page: Option[String] = None, pagesize: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/dedicatedshortcode/listshortcode.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/dedicatedshortcode/listshortcode.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("Shortcode", shortcode)
       .withFormParam("page", page)
@@ -71,7 +71,7 @@ object ShortCodeApi {
    * @param messagestatuscallback URL that can be requested to receive notification when Short Code message was sent.
    */
   def dedicatedshortcodeSendsms(shortcode: Int, to: Double, body: String, method: Option[String] = None, messagestatuscallback: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/dedicatedshortcode/sendsms.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/dedicatedshortcode/sendsms.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("shortcode", shortcode)
       .withFormParam("to", to)
@@ -96,7 +96,7 @@ object ShortCodeApi {
    * @param fallbackUrl URL used if any errors occur during execution of InboundXML or at initial request of the required Url provided with the POST.
    */
   def dedicatedshortcodeUpdateshortcode(shortcode: String, friendlyName: Option[String] = None, callbackMethod: Option[String] = None, callbackUrl: Option[String] = None, fallbackMethod: Option[String] = None, fallbackUrl: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/dedicatedshortcode/updateshortcode.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/dedicatedshortcode/updateshortcode.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("Shortcode", shortcode)
       .withFormParam("FriendlyName", friendlyName)
@@ -117,7 +117,7 @@ object ShortCodeApi {
    * @param shortcode List of valid Dedicated Short Code to your Ytel account
    */
   def dedicatedshortcodeViewshortcode(shortcode: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/dedicatedshortcode/viewshortcode.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/dedicatedshortcode/viewshortcode.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("Shortcode", shortcode)
       .withSuccessResponse[String](200)
@@ -137,7 +137,7 @@ object ShortCodeApi {
    * @param pageSize The count of objects to return per page.
    */
   def shortcodeListsms(shortcode: Option[String] = None, to: Option[String] = None, dateSent: Option[String] = None, page: Option[Int], pageSize: Option[Int])(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/shortcode/listsms.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/shortcode/listsms.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("Shortcode", shortcode)
       .withFormParam("To", to)
@@ -157,7 +157,7 @@ object ShortCodeApi {
    * @param messageSid The unique identifier for the sms resource
    */
   def shortcodeViewsms(messageSid: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/shortcode/viewsms.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/shortcode/viewsms.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("MessageSid", messageSid)
       .withSuccessResponse[String](200)

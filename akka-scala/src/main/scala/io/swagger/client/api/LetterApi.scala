@@ -32,7 +32,7 @@ object LetterApi {
    * @param htmldata A string value that contains HTML markup.
    */
   def letterCreate(to: String, from: String, attachbyid: String, file: String, color: String, description: Option[String] = None, extraservice: Option[String] = None, doublesided: Option[String] = None, template: Option[String] = None, htmldata: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/letter/create.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/letter/create.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("to", to)
       .withFormParam("from", from)
@@ -57,7 +57,7 @@ object LetterApi {
    * @param lettersid The unique identifier for a letter object.
    */
   def letterDelete(lettersid: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/letter/delete.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/letter/delete.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("lettersid", lettersid)
       .withSuccessResponse[String](200)
@@ -76,7 +76,7 @@ object LetterApi {
    * @param dateCreated The date the letter was created.
    */
   def letterListsletter(page: Option[Int], pagesize: Option[Int], lettersid: Option[String] = None, dateCreated: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/letter/listsletter.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/letter/listsletter.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("page", page)
       .withFormParam("pagesize", pagesize)
@@ -95,7 +95,7 @@ object LetterApi {
    * @param lettersid The unique identifier for a letter object.
    */
   def letterViewletter(lettersid: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/letter/viewletter.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/letter/viewletter.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("lettersid", lettersid)
       .withSuccessResponse[String](200)

@@ -25,7 +25,7 @@ object PhoneNumberApi {
    * @param pagesize The count of objects to return.
    */
   def incomingphoneAvailablenumber(numbertype: String, areacode: String, pagesize: Option[Int])(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/incomingphone/availablenumber.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/incomingphone/availablenumber.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("numbertype", numbertype)
       .withFormParam("areacode", areacode)
@@ -46,7 +46,7 @@ object PhoneNumberApi {
    * @param leftover If desired quantity is unavailable purchase what is available .
    */
   def incomingphoneBulkbuy(numberType: String, areaCode: String, quantity: String, leftover: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/incomingphone/bulkbuy.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/incomingphone/bulkbuy.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("NumberType", numberType)
       .withFormParam("AreaCode", areaCode)
@@ -65,7 +65,7 @@ object PhoneNumberApi {
    * @param phoneNumber A valid 10-digit Ytel number (E.164 format).
    */
   def incomingphoneBuynumber(phoneNumber: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/incomingphone/buynumber.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/incomingphone/buynumber.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("PhoneNumber", phoneNumber)
       .withSuccessResponse[String](200)
@@ -81,7 +81,7 @@ object PhoneNumberApi {
    * @param phonenumber Specifies the multiple phone numbers for check updated spamscore .
    */
   def incomingphoneGetdidscore(phonenumber: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/incomingphone/getdidscore.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/incomingphone/getdidscore.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("Phonenumber", phonenumber)
       .withSuccessResponse[String](200)
@@ -100,7 +100,7 @@ object PhoneNumberApi {
    * @param friendlyName A human-readable label added to the number object.
    */
   def incomingphoneListnumber(page: Option[Int], pageSize: Option[Int], numberType: Option[String] = None, friendlyName: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/incomingphone/listnumber.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/incomingphone/listnumber.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("Page", page)
       .withFormParam("PageSize", pageSize)
@@ -119,7 +119,7 @@ object PhoneNumberApi {
    * @param phoneNumber A valid Ytel comma separated numbers (E.164 format).
    */
   def incomingphoneMassreleasenumber(phoneNumber: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/incomingphone/massreleasenumber.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/incomingphone/massreleasenumber.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("PhoneNumber", phoneNumber)
       .withSuccessResponse[String](200)
@@ -148,7 +148,7 @@ object PhoneNumberApi {
    * @param smsFallbackMethod The HTTP method Ytel will use when URL requested if the SmsUrl is not available.
    */
   def incomingphoneMassupdatenumber(phoneNumber: String, voiceUrl: String, friendlyName: Option[String] = None, voiceMethod: Option[String] = None, voiceFallbackUrl: Option[String] = None, voiceFallbackMethod: Option[String] = None, hangupCallback: Option[String] = None, hangupCallbackMethod: Option[String] = None, heartbeatUrl: Option[String] = None, heartbeatMethod: Option[String] = None, smsUrl: Option[String] = None, smsMethod: Option[String] = None, smsFallbackUrl: Option[String] = None, smsFallbackMethod: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/incomingphone/massupdatenumber.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/incomingphone/massupdatenumber.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("PhoneNumber", phoneNumber)
       .withFormParam("VoiceUrl", voiceUrl)
@@ -178,7 +178,7 @@ object PhoneNumberApi {
    * @param responseType Response type format xml or json
    */
   def incomingphoneReleasenumberByResponseTypePost(phoneNumber: String, responseType: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/incomingphone/releasenumber.{ResponseType}", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/incomingphone/releasenumber.{ResponseType}", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("PhoneNumber", phoneNumber)
       .withPathParam("ResponseType", responseType)
@@ -197,7 +197,7 @@ object PhoneNumberApi {
    * @param toaccountsid A specific Accountsid to which Number is getting transfer.
    */
   def incomingphoneTransferphonenumbers(phonenumber: String, fromaccountsid: String, toaccountsid: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/incomingphone/transferphonenumbers.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/incomingphone/transferphonenumbers.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("phonenumber", phonenumber)
       .withFormParam("fromaccountsid", fromaccountsid)
@@ -228,7 +228,7 @@ object PhoneNumberApi {
    * @param smsFallbackMethod The HTTP method Ytel will use when URL requested if the SmsUrl is not available.
    */
   def incomingphoneUpdatenumber(phoneNumber: String, voiceUrl: String, friendlyName: Option[String] = None, voiceMethod: Option[String] = None, voiceFallbackUrl: Option[String] = None, voiceFallbackMethod: Option[String] = None, hangupCallback: Option[String] = None, hangupCallbackMethod: Option[String] = None, heartbeatUrl: Option[String] = None, heartbeatMethod: Option[String] = None, smsUrl: Option[String] = None, smsMethod: Option[String] = None, smsFallbackUrl: Option[String] = None, smsFallbackMethod: Option[String] = None)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/incomingphone/updatenumber.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/incomingphone/updatenumber.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("PhoneNumber", phoneNumber)
       .withFormParam("VoiceUrl", voiceUrl)
@@ -257,7 +257,7 @@ object PhoneNumberApi {
    * @param phoneNumber A valid Ytel 10-digit phone number (E.164 format).
    */
   def incomingphoneViewnumber(phoneNumber: String)(implicit basicAuth: BasicCredentials): ApiRequest[String] =
-    ApiRequest[String](ApiMethods.POST, "https://api.message360.com/api/v3/", "/incomingphone/viewnumber.json", "application/x-www-form-urlencoded")
+    ApiRequest[String](ApiMethods.POST, "https://api.ytel.com/api/v3", "/incomingphone/viewnumber.json", "application/x-www-form-urlencoded")
       .withCredentials(basicAuth)
       .withFormParam("PhoneNumber", phoneNumber)
       .withSuccessResponse[String](200)
