@@ -1,6 +1,6 @@
 # SharedShortCodeApi
 
-All URIs are relative to *https://api.message360.com/api/v3/*
+All URIs are relative to *https://api.ytel.com/api/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -238,7 +238,7 @@ Send an SMS from a Ytel ShortCode
 val apiInstance = SharedShortCodeApi()
 val shortcode : kotlin.String = shortcode_example // kotlin.String | The Short Code number that is the sender of this message
 val to : kotlin.String = to_example // kotlin.String | A valid 10-digit number that should receive the message
-val templateid : java.util.UUID = templateid_example // java.util.UUID | The unique identifier for the template used for the message
+val templateid : java.util.UUID =  // java.util.UUID | The unique identifier for the template used for the message
 val `data` : kotlin.String = `data`_example // kotlin.String | format of your data, example: {companyname}:test,{otpcode}:1234
 val method : kotlin.String = method_example // kotlin.String | Specifies the HTTP method used to request the required URL once the Short Code message is sent.
 val messageStatusCallback : kotlin.String = messageStatusCallback_example // kotlin.String | URL that can be requested to receive notification when Short Code message was sent.
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **shortcode** | **kotlin.String**| The Short Code number that is the sender of this message |
  **to** | **kotlin.String**| A valid 10-digit number that should receive the message |
- **templateid** | **java.util.UUID**| The unique identifier for the template used for the message |
+ **templateid** | [**java.util.UUID**](.md)| The unique identifier for the template used for the message |
  **&#x60;data&#x60;** | **kotlin.String**| format of your data, example: {companyname}:test,{otpcode}:1234 |
  **method** | **kotlin.String**| Specifies the HTTP method used to request the required URL once the Short Code message is sent. | [optional] [default to GET]
  **messageStatusCallback** | **kotlin.String**| URL that can be requested to receive notification when Short Code message was sent. | [optional]
@@ -450,7 +450,7 @@ View a Shared ShortCode Template
 //import io.swagger.client.models.*
 
 val apiInstance = SharedShortCodeApi()
-val templateId : java.util.UUID = templateId_example // java.util.UUID | The unique identifier for a template object
+val templateId : java.util.UUID =  // java.util.UUID | The unique identifier for a template object
 try {
     val result : kotlin.String = apiInstance.templateView(templateId)
     println(result)
@@ -467,7 +467,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **templateId** | **java.util.UUID**| The unique identifier for a template object |
+ **templateId** | [**java.util.UUID**](.md)| The unique identifier for a template object |
 
 ### Return type
 

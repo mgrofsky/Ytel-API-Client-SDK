@@ -28,7 +28,7 @@
 - (instancetype) init {
     self = [super init];
     if (self) {
-        _host = @"https://api.message360.com/api/v3/";
+        _host = @"https://api.ytel.com/api/v3";
         _username = @"";
         _password = @"";
         _accessToken= @"";

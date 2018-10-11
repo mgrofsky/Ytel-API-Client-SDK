@@ -1,6 +1,6 @@
 # \ShortCodeApi
 
-All URIs are relative to *https://api.message360.com/api/v3/*
+All URIs are relative to *https://api.ytel.com/api/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -23,7 +23,7 @@ Retrive a list of inbound Sms Short Code messages associated with your Ytel acco
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -62,7 +62,7 @@ Retrieve a list of Short Code assignment associated with your Ytel account.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -99,7 +99,7 @@ Send Dedicated Shortcode
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **shortcode** | **int32**| Your dedicated shortcode | 
   **to** | **float64**| The number to send your SMS to | 
   **body** | **string**| The body of your message | 
@@ -141,7 +141,7 @@ Update a dedicated shortcode.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **shortcode** | **string**| List of valid dedicated shortcode to your Ytel account. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -182,7 +182,7 @@ Retrieve a single Short Code object by its shortcode assignment.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **shortcode** | **string**| List of valid Dedicated Short Code to your Ytel account | 
 
 ### Return type
@@ -210,7 +210,7 @@ Retrieve a list of Short Code messages.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -249,7 +249,7 @@ View a single Sms Short Code message.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **messageSid** | **string**| The unique identifier for the sms resource | 
 
 ### Return type

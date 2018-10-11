@@ -1,6 +1,6 @@
 # Swagger\Client\SharedShortCodeApi
 
-All URIs are relative to *https://api.message360.com/api/v3/*
+All URIs are relative to *https://api.ytel.com/api/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **shortcode** | **string**| The Short Code number that is the sender of this message |
  **to** | **string**| A valid 10-digit number that should receive the message |
- **templateid** | **string**| The unique identifier for the template used for the message |
+ **templateid** | [**string**](../Model/.md)| The unique identifier for the template used for the message |
  **data** | **string**| format of your data, example: {companyname}:test,{otpcode}:1234 |
  **method** | **string**| Specifies the HTTP method used to request the required URL once the Short Code message is sent. | [optional] [default to GET]
  **message_status_callback** | **string**| URL that can be requested to receive notification when Short Code message was sent. | [optional]
@@ -546,7 +546,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **template_id** | **string**| The unique identifier for a template object |
+ **template_id** | [**string**](../Model/.md)| The unique identifier for a template object |
 
 ### Return type
 

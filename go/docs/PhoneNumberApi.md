@@ -1,6 +1,6 @@
 # \PhoneNumberApi
 
-All URIs are relative to *https://api.message360.com/api/v3/*
+All URIs are relative to *https://api.ytel.com/api/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,7 +27,7 @@ Retrieve a list of available phone numbers that can be purchased and used for yo
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **numbertype** | **string**| Number type either SMS,Voice or all | 
   **areacode** | **string**| Specifies the area code for the returned list of available numbers. Only available for North American numbers. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -66,7 +66,7 @@ Purchase a selected number of DID's from specific area codes to be used with you
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **numberType** | **string**| The capability the number supports. | 
   **areaCode** | **string**| Specifies the area code for the returned list of available numbers. Only available for North American numbers. | 
   **quantity** | **string**| A positive integer that tells how many number you want to buy at a time. | 
@@ -107,7 +107,7 @@ Purchase a phone number to be used with your Ytel account
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **phoneNumber** | **string**| A valid 10-digit Ytel number (E.164 format). | 
 
 ### Return type
@@ -135,7 +135,7 @@ Get DID Score Number
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **phonenumber** | **string**| Specifies the multiple phone numbers for check updated spamscore . | 
 
 ### Return type
@@ -163,7 +163,7 @@ Retrieve a list of purchased phones numbers associated with your Ytel account.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -201,7 +201,7 @@ Remove a purchased Ytel number from your account.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **phoneNumber** | **string**| A valid Ytel comma separated numbers (E.164 format). | 
 
 ### Return type
@@ -229,7 +229,7 @@ Update properties for a Ytel numbers that has been purchased for your account. R
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **phoneNumber** | **string**| A valid comma(,) separated Ytel numbers. (E.164 format). | 
   **voiceUrl** | **string**| The URL returning InboundXML incoming calls should execute when connected. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -279,7 +279,7 @@ Remove a purchased Ytel number from your account.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **phoneNumber** | **string**| A valid 10-digit Ytel number (E.164 format). | 
   **responseType** | **string**| Response type format xml or json | 
 
@@ -308,7 +308,7 @@ Transfer phone number that has been purchased for from one account to another ac
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **phonenumber** | **string**| A valid 10-digit Ytel number (E.164 format). | 
   **fromaccountsid** | **string**| A specific Accountsid from where Number is getting transfer. | 
   **toaccountsid** | **string**| A specific Accountsid to which Number is getting transfer. | 
@@ -338,7 +338,7 @@ Update properties for a Ytel number that has been purchased for your account. Re
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **phoneNumber** | **string**| A valid Ytel number (E.164 format). | 
   **voiceUrl** | **string**| URL requested once the call connects | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -388,7 +388,7 @@ Retrieve the details for a phone number by its number.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **phoneNumber** | **string**| A valid Ytel 10-digit phone number (E.164 format). | 
 
 ### Return type

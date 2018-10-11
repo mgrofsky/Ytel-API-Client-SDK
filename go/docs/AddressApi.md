@@ -1,6 +1,6 @@
 # \AddressApi
 
-All URIs are relative to *https://api.message360.com/api/v3/*
+All URIs are relative to *https://api.ytel.com/api/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -21,7 +21,7 @@ To add an address to your address book, you create a new address object. You can
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **name** | **string**| Name of user | 
   **address** | **string**| Address of user. | 
   **country** | **string**| Must be a 2 letter country short-name code (ISO 3166) | 
@@ -70,7 +70,7 @@ To delete Address to your address book
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **addressid** | **string**| The identifier of the address to be deleted. | 
 
 ### Return type
@@ -98,7 +98,7 @@ List All Address
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -136,7 +136,7 @@ Validates an address given.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **addressid** | **string**| The identifier of the address to be verified. | 
 
 ### Return type
@@ -164,7 +164,7 @@ View Address Specific address Book by providing the address id
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **addressid** | **string**| The identifier of the address to be retrieved. | 
 
 ### Return type

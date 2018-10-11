@@ -1,6 +1,6 @@
 # \ConferenceApi
 
-All URIs are relative to *https://api.message360.com/api/v3/*
+All URIs are relative to *https://api.ytel.com/api/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,7 +25,7 @@ Add Participant in conference
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **conferenceSid** | **string**| The unique identifier for a conference object. | 
   **participantNumber** | **string**| The phone number of the participant to be added. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -65,7 +65,7 @@ Here you can experiment with initiating a conference call through Ytel and view 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **from** | **string**| A valid 10-digit number (E.164 format) that will be initiating the conference call. | 
   **to** | **string**| A valid 10-digit number (E.164 format) that is to receive the conference call. | 
   **url** | **string**| URL requested once the conference connects | 
@@ -115,7 +115,7 @@ Deaf Mute Participant
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **conferenceSid** | **string**| ID of the active conference | 
   **participantSid** | **string**| ID of an active participant | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
@@ -155,7 +155,7 @@ Remove a participant from a conference.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **conferenceSid** | **string**| The unique identifier for a conference object. | 
   **participantSid** | **string**| The unique identifier for a participant object. | 
 
@@ -184,7 +184,7 @@ Retrieve a list of participants for an in-progress conference.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **conferenceSid** | **string**| The unique identifier for a conference. | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
@@ -224,7 +224,7 @@ Retrieve a list of conference objects.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -262,7 +262,7 @@ Play an audio file during a conference.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **conferenceSid** | **string**| The unique identifier for a conference object. | 
   **participantSid** | **string**| The unique identifier for a participant object. | 
   **audioUrl** | **string**| The URL for the audio file that is to be played during the conference. Multiple audio files can be chained by using a semicolon. | 
@@ -292,7 +292,7 @@ Retrieve information about a participant by its ParticipantSid.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **conferenceSid** | **string**| The unique identifier for a conference object. | 
   **participantSid** | **string**| The unique identifier for a participant object. | 
 
@@ -321,7 +321,7 @@ Retrieve information about a conference by its ConferenceSid.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **conferenceSid** | **string**| The unique identifier of each conference resource | 
 
 ### Return type

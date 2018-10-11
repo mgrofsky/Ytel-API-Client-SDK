@@ -1,6 +1,6 @@
 # \SMSApi
 
-All URIs are relative to *https://api.message360.com/api/v3/*
+All URIs are relative to *https://api.ytel.com/api/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -21,7 +21,7 @@ Retrieve a list of Inbound SMS message objects.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -60,7 +60,7 @@ Retrieve a list of Outbound SMS message objects.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -99,7 +99,7 @@ Send an SMS from a Ytel number
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **from** | **string**| The 10-digit SMS-enabled Ytel number (E.164 format) in which the message is sent. | 
   **to** | **string**| The 10-digit phone number (E.164 format) that will receive the message. | 
   **body** | **string**| The body message that is to be sent in the text. | 
@@ -143,7 +143,7 @@ Retrieve a single SMS message object with details by its SmsSid.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **messageSid** | **string**| The unique identifier for a sms message. | 
 
 ### Return type
@@ -171,7 +171,7 @@ Retrieve a single SMS message object by its SmsSid.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **messageSid** | **string**| The unique identifier for a sms message. | 
 
 ### Return type

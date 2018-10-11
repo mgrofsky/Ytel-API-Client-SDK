@@ -1,6 +1,6 @@
 # \SubAccountApi
 
-All URIs are relative to *https://api.message360.com/api/v3/*
+All URIs are relative to *https://api.ytel.com/api/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -19,7 +19,7 @@ Create a sub user account under the parent account
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **firstName** | **string**| Sub account user first name | 
   **lastName** | **string**| sub account user last name | 
   **email** | **string**| Sub account email address | 
@@ -51,7 +51,7 @@ Delete sub account or merge numbers into parent
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **subAccountSID** | **string**| The SubaccountSid to be deleted | 
   **mergeNumber** | **string**| 0 to delete or 1 to merge numbers to parent account. | 
 
@@ -80,7 +80,7 @@ Suspend or unsuspend
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
+ **ctx** | **context.Context** | context for logging, tracing, authentication, etc.
   **subAccountSID** | **string**| The SubaccountSid to be activated or suspended | 
   **activate** | **string**| 0 to suspend or 1 to activate | 
 
