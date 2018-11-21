@@ -2129,15 +2129,14 @@ class PhoneNumberApi
      * Release Number
      *
      * @param  string $phone_number A valid 10-digit Ytel number (E.164 format). (required)
-     * @param  string $response_type Response type format xml or json (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function incomingphoneReleasenumberByResponseTypePost($phone_number, $response_type)
+    public function incomingphoneReleasenumberByResponseTypePost($phone_number)
     {
-        list($response) = $this->incomingphoneReleasenumberByResponseTypePostWithHttpInfo($phone_number, $response_type);
+        list($response) = $this->incomingphoneReleasenumberByResponseTypePostWithHttpInfo($phone_number);
         return $response;
     }
 
@@ -2147,16 +2146,15 @@ class PhoneNumberApi
      * Release Number
      *
      * @param  string $phone_number A valid 10-digit Ytel number (E.164 format). (required)
-     * @param  string $response_type Response type format xml or json (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function incomingphoneReleasenumberByResponseTypePostWithHttpInfo($phone_number, $response_type)
+    public function incomingphoneReleasenumberByResponseTypePostWithHttpInfo($phone_number)
     {
         $returnType = 'string';
-        $request = $this->incomingphoneReleasenumberByResponseTypePostRequest($phone_number, $response_type);
+        $request = $this->incomingphoneReleasenumberByResponseTypePostRequest($phone_number);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2223,14 +2221,13 @@ class PhoneNumberApi
      * Release Number
      *
      * @param  string $phone_number A valid 10-digit Ytel number (E.164 format). (required)
-     * @param  string $response_type Response type format xml or json (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function incomingphoneReleasenumberByResponseTypePostAsync($phone_number, $response_type)
+    public function incomingphoneReleasenumberByResponseTypePostAsync($phone_number)
     {
-        return $this->incomingphoneReleasenumberByResponseTypePostAsyncWithHttpInfo($phone_number, $response_type)
+        return $this->incomingphoneReleasenumberByResponseTypePostAsyncWithHttpInfo($phone_number)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2244,15 +2241,14 @@ class PhoneNumberApi
      * Release Number
      *
      * @param  string $phone_number A valid 10-digit Ytel number (E.164 format). (required)
-     * @param  string $response_type Response type format xml or json (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function incomingphoneReleasenumberByResponseTypePostAsyncWithHttpInfo($phone_number, $response_type)
+    public function incomingphoneReleasenumberByResponseTypePostAsyncWithHttpInfo($phone_number)
     {
         $returnType = 'string';
-        $request = $this->incomingphoneReleasenumberByResponseTypePostRequest($phone_number, $response_type);
+        $request = $this->incomingphoneReleasenumberByResponseTypePostRequest($phone_number);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2295,23 +2291,16 @@ class PhoneNumberApi
      * Create request for operation 'incomingphoneReleasenumberByResponseTypePost'
      *
      * @param  string $phone_number A valid 10-digit Ytel number (E.164 format). (required)
-     * @param  string $response_type Response type format xml or json (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function incomingphoneReleasenumberByResponseTypePostRequest($phone_number, $response_type)
+    protected function incomingphoneReleasenumberByResponseTypePostRequest($phone_number)
     {
         // verify the required parameter 'phone_number' is set
         if ($phone_number === null) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $phone_number when calling incomingphoneReleasenumberByResponseTypePost'
-            );
-        }
-        // verify the required parameter 'response_type' is set
-        if ($response_type === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $response_type when calling incomingphoneReleasenumberByResponseTypePost'
             );
         }
 
@@ -2323,14 +2312,6 @@ class PhoneNumberApi
         $multipart = false;
 
 
-        // path params
-        if ($response_type !== null) {
-            $resourcePath = str_replace(
-                '{' . 'ResponseType' . '}',
-                ObjectSerializer::toPathValue($response_type),
-                $resourcePath
-            );
-        }
 
         // form params
         if ($phone_number !== null) {

@@ -452,7 +452,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **incomingphoneReleasenumberByResponseTypePost**
-> string incomingphoneReleasenumberByResponseTypePost($phone_number, $response_type)
+> string incomingphoneReleasenumberByResponseTypePost($phone_number)
 
 Release Number
 
@@ -476,10 +476,9 @@ $apiInstance = new Swagger\Client\Api\PhoneNumberApi(
     $config
 );
 $phone_number = "phone_number_example"; // string | A valid 10-digit Ytel number (E.164 format).
-$response_type = "response_type_example"; // string | Response type format xml or json
 
 try {
-    $result = $apiInstance->incomingphoneReleasenumberByResponseTypePost($phone_number, $response_type);
+    $result = $apiInstance->incomingphoneReleasenumberByResponseTypePost($phone_number);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PhoneNumberApi->incomingphoneReleasenumberByResponseTypePost: ', $e->getMessage(), PHP_EOL;
@@ -492,7 +491,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **phone_number** | **string**| A valid 10-digit Ytel number (E.164 format). |
- **response_type** | **string**| Response type format xml or json |
 
 ### Return type
 
