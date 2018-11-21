@@ -528,7 +528,7 @@ module SwaggerClient
         fail ArgumentError, "Missing the required parameter 'response_type' when calling PhoneNumberApi.incomingphone_releasenumber_by_response_type_post"
       end
       # resource path
-      local_var_path = "/incomingphone/releasenumber.{ResponseType}".sub('{' + 'ResponseType' + '}', response_type.to_s)
+      local_var_path = "/incomingphone/releasenumber.json".sub('{' + 'ResponseType' + '}', response_type.to_s)
 
       # query parameters
       query_params = {}

@@ -137,7 +137,7 @@ Class | Method | HTTP request | Description
 *SwaggerClient::PhoneNumberApi* | [**incomingphone_listnumber**](docs/PhoneNumberApi.md#incomingphone_listnumber) | **POST** /incomingphone/listnumber.json | List Numbers
 *SwaggerClient::PhoneNumberApi* | [**incomingphone_massreleasenumber**](docs/PhoneNumberApi.md#incomingphone_massreleasenumber) | **POST** /incomingphone/massreleasenumber.json | Bulk Release
 *SwaggerClient::PhoneNumberApi* | [**incomingphone_massupdatenumber**](docs/PhoneNumberApi.md#incomingphone_massupdatenumber) | **POST** /incomingphone/massupdatenumber.json | Bulk Update Numbers
-*SwaggerClient::PhoneNumberApi* | [**incomingphone_releasenumber_by_response_type_post**](docs/PhoneNumberApi.md#incomingphone_releasenumber_by_response_type_post) | **POST** /incomingphone/releasenumber.{ResponseType} | Release Number
+*SwaggerClient::PhoneNumberApi* | [**incomingphone_releasenumber_by_response_type_post**](docs/PhoneNumberApi.md#incomingphone_releasenumber_by_response_type_post) | **POST** /incomingphone/releasenumber.json | Release Number
 *SwaggerClient::PhoneNumberApi* | [**incomingphone_transferphonenumbers**](docs/PhoneNumberApi.md#incomingphone_transferphonenumbers) | **POST** /incomingphone/transferphonenumbers.json | Move Number
 *SwaggerClient::PhoneNumberApi* | [**incomingphone_updatenumber**](docs/PhoneNumberApi.md#incomingphone_updatenumber) | **POST** /incomingphone/updatenumber.json | Update Number
 *SwaggerClient::PhoneNumberApi* | [**incomingphone_viewnumber**](docs/PhoneNumberApi.md#incomingphone_viewnumber) | **POST** /incomingphone/viewnumber.json | View Details
