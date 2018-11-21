@@ -139,7 +139,7 @@ Class | Method | HTTP request | Description
 *PhoneNumberApi* | [**incomingphoneListnumber**](docs/Api/PhoneNumberApi.md#incomingphonelistnumber) | **POST** /incomingphone/listnumber.json | List Numbers
 *PhoneNumberApi* | [**incomingphoneMassreleasenumber**](docs/Api/PhoneNumberApi.md#incomingphonemassreleasenumber) | **POST** /incomingphone/massreleasenumber.json | Bulk Release
 *PhoneNumberApi* | [**incomingphoneMassupdatenumber**](docs/Api/PhoneNumberApi.md#incomingphonemassupdatenumber) | **POST** /incomingphone/massupdatenumber.json | Bulk Update Numbers
-*PhoneNumberApi* | [**incomingphoneReleasenumberByResponseTypePost**](docs/Api/PhoneNumberApi.md#incomingphonereleasenumberbyresponsetypepost) | **POST** /incomingphone/releasenumber.{ResponseType} | Release Number
+*PhoneNumberApi* | [**incomingphoneReleasenumberByResponseTypePost**](docs/Api/PhoneNumberApi.md#incomingphonereleasenumberbyresponsetypepost) | **POST** /incomingphone/releasenumber.json | Release Number
 *PhoneNumberApi* | [**incomingphoneTransferphonenumbers**](docs/Api/PhoneNumberApi.md#incomingphonetransferphonenumbers) | **POST** /incomingphone/transferphonenumbers.json | Move Number
 *PhoneNumberApi* | [**incomingphoneUpdatenumber**](docs/Api/PhoneNumberApi.md#incomingphoneupdatenumber) | **POST** /incomingphone/updatenumber.json | Update Number
 *PhoneNumberApi* | [**incomingphoneViewnumber**](docs/Api/PhoneNumberApi.md#incomingphoneviewnumber) | **POST** /incomingphone/viewnumber.json | View Details

@@ -2315,7 +2315,7 @@ class PhoneNumberApi
             );
         }
 
-        $resourcePath = '/incomingphone/releasenumber.{ResponseType}';
+        $resourcePath = '/incomingphone/releasenumber.json';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
