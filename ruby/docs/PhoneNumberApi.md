@@ -442,7 +442,7 @@ Name | Type | Description  | Notes
 
 
 # **incomingphone_releasenumber_by_response_type_post**
-> String incomingphone_releasenumber_by_response_type_post(phone_number, response_type)
+> String incomingphone_releasenumber_by_response_type_post(phone_number)
 
 Release Number
 
@@ -463,12 +463,10 @@ api_instance = SwaggerClient::PhoneNumberApi.new
 
 phone_number = "phone_number_example" # String | A valid 10-digit Ytel number (E.164 format).
 
-response_type = "response_type_example" # String | Response type format xml or json
-
 
 begin
   #Release Number
-  result = api_instance.incomingphone_releasenumber_by_response_type_post(phone_number, response_type)
+  result = api_instance.incomingphone_releasenumber_by_response_type_post(phone_number)
   p result
 rescue SwaggerClient::ApiError => e
   puts "Exception when calling PhoneNumberApi->incomingphone_releasenumber_by_response_type_post: #{e}"
@@ -480,7 +478,6 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **phone_number** | **String**| A valid 10-digit Ytel number (E.164 format). | 
- **response_type** | **String**| Response type format xml or json | 
 
 ### Return type
 

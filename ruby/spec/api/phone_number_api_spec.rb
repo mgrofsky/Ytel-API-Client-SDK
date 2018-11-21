@@ -141,7 +141,6 @@ describe 'PhoneNumberApi' do
   # Release Number
   # Remove a purchased Ytel number from your account.
   # @param phone_number A valid 10-digit Ytel number (E.164 format).
-  # @param response_type Response type format xml or json
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'incomingphone_releasenumber_by_response_type_post test' do

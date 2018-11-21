@@ -501,21 +501,19 @@ module SwaggerClient
     # Release Number
     # Remove a purchased Ytel number from your account.
     # @param phone_number A valid 10-digit Ytel number (E.164 format).
-    # @param response_type Response type format xml or json
     # @param [Hash] opts the optional parameters
     # @return [String]
-    def incomingphone_releasenumber_by_response_type_post(phone_number, response_type, opts = {})
-      data, _status_code, _headers = incomingphone_releasenumber_by_response_type_post_with_http_info(phone_number, response_type, opts)
+    def incomingphone_releasenumber_by_response_type_post(phone_number, opts = {})
+      data, _status_code, _headers = incomingphone_releasenumber_by_response_type_post_with_http_info(phone_number, opts)
       return data
     end
 
     # Release Number
     # Remove a purchased Ytel number from your account.
     # @param phone_number A valid 10-digit Ytel number (E.164 format).
-    # @param response_type Response type format xml or json
     # @param [Hash] opts the optional parameters
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
-    def incomingphone_releasenumber_by_response_type_post_with_http_info(phone_number, response_type, opts = {})
+    def incomingphone_releasenumber_by_response_type_post_with_http_info(phone_number, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PhoneNumberApi.incomingphone_releasenumber_by_response_type_post ..."
       end
@@ -523,12 +521,8 @@ module SwaggerClient
       if @api_client.config.client_side_validation && phone_number.nil?
         fail ArgumentError, "Missing the required parameter 'phone_number' when calling PhoneNumberApi.incomingphone_releasenumber_by_response_type_post"
       end
-      # verify the required parameter 'response_type' is set
-      if @api_client.config.client_side_validation && response_type.nil?
-        fail ArgumentError, "Missing the required parameter 'response_type' when calling PhoneNumberApi.incomingphone_releasenumber_by_response_type_post"
-      end
       # resource path
-      local_var_path = "/incomingphone/releasenumber.json".sub('{' + 'ResponseType' + '}', response_type.to_s)
+      local_var_path = "/incomingphone/releasenumber.json"
 
       # query parameters
       query_params = {}
