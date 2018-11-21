@@ -182,7 +182,7 @@ Class | Method | HTTP request | Description
 *SWGPhoneNumberApi* | [**incomingphoneListnumber**](docs/SWGPhoneNumberApi.md#incomingphonelistnumber) | **POST** /incomingphone/listnumber.json | List Numbers
 *SWGPhoneNumberApi* | [**incomingphoneMassreleasenumber**](docs/SWGPhoneNumberApi.md#incomingphonemassreleasenumber) | **POST** /incomingphone/massreleasenumber.json | Bulk Release
 *SWGPhoneNumberApi* | [**incomingphoneMassupdatenumber**](docs/SWGPhoneNumberApi.md#incomingphonemassupdatenumber) | **POST** /incomingphone/massupdatenumber.json | Bulk Update Numbers
-*SWGPhoneNumberApi* | [**incomingphoneReleasenumberByResponseTypePost**](docs/SWGPhoneNumberApi.md#incomingphonereleasenumberbyresponsetypepost) | **POST** /incomingphone/releasenumber.{ResponseType} | Release Number
+*SWGPhoneNumberApi* | [**incomingphoneReleasenumberByResponseTypePost**](docs/SWGPhoneNumberApi.md#incomingphonereleasenumberbyresponsetypepost) | **POST** /incomingphone/releasenumber.json | Release Number
 *SWGPhoneNumberApi* | [**incomingphoneTransferphonenumbers**](docs/SWGPhoneNumberApi.md#incomingphonetransferphonenumbers) | **POST** /incomingphone/transferphonenumbers.json | Move Number
 *SWGPhoneNumberApi* | [**incomingphoneUpdatenumber**](docs/SWGPhoneNumberApi.md#incomingphoneupdatenumber) | **POST** /incomingphone/updatenumber.json | Update Number
 *SWGPhoneNumberApi* | [**incomingphoneViewnumber**](docs/SWGPhoneNumberApi.md#incomingphoneviewnumber) | **POST** /incomingphone/viewnumber.json | View Details

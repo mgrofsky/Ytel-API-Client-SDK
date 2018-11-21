@@ -717,7 +717,7 @@ NSInteger kSWGPhoneNumberApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/incomingphone/releasenumber.{ResponseType}"];
+    NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/incomingphone/releasenumber.json"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
     if (responseType != nil) {
