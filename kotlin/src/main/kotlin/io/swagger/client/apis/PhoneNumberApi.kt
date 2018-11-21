@@ -265,17 +265,16 @@ class PhoneNumberApi(basePath: kotlin.String = "https://api.ytel.com/api/v3") : 
     * Release Number
     * Remove a purchased Ytel number from your account.
     * @param phoneNumber A valid 10-digit Ytel number (E.164 format). 
-    * @param responseType Response type format xml or json 
     * @return kotlin.String
     */
     @Suppress("UNCHECKED_CAST")
-    fun incomingphoneReleasenumberByResponseTypePost(phoneNumber: kotlin.String, responseType: kotlin.String) : kotlin.String {
+    fun incomingphoneReleasenumberByResponseTypePost(phoneNumber: kotlin.String) : kotlin.String {
         val localVariableBody: kotlin.Any? = mapOf("PhoneNumber" to "$phoneNumber")
         val localVariableQuery: MultiValueMap = mapOf()
         val localVariableHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf("Content-Type" to "multipart/form-data")
         val localVariableConfig = RequestConfig(
             RequestMethod.POST,
-            "/incomingphone/releasenumber.json".replace("{"+"ResponseType"+"}", "$responseType"),
+            "/incomingphone/releasenumber.json",
             query = localVariableQuery,
             headers = localVariableHeaders
         )

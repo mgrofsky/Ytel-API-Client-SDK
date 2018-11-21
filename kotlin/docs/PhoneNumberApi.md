@@ -390,7 +390,7 @@ Name | Type | Description  | Notes
 
 <a name="incomingphoneReleasenumberByResponseTypePost"></a>
 # **incomingphoneReleasenumberByResponseTypePost**
-> kotlin.String incomingphoneReleasenumberByResponseTypePost(phoneNumber, responseType)
+> kotlin.String incomingphoneReleasenumberByResponseTypePost(phoneNumber)
 
 Release Number
 
@@ -404,9 +404,8 @@ Remove a purchased Ytel number from your account.
 
 val apiInstance = PhoneNumberApi()
 val phoneNumber : kotlin.String = phoneNumber_example // kotlin.String | A valid 10-digit Ytel number (E.164 format).
-val responseType : kotlin.String = responseType_example // kotlin.String | Response type format xml or json
 try {
-    val result : kotlin.String = apiInstance.incomingphoneReleasenumberByResponseTypePost(phoneNumber, responseType)
+    val result : kotlin.String = apiInstance.incomingphoneReleasenumberByResponseTypePost(phoneNumber)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling PhoneNumberApi#incomingphoneReleasenumberByResponseTypePost")
@@ -422,7 +421,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **phoneNumber** | **kotlin.String**| A valid 10-digit Ytel number (E.164 format). |
- **responseType** | **kotlin.String**| Response type format xml or json |
 
 ### Return type
 
