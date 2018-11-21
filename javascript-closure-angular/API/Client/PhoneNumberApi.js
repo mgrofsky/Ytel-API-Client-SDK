@@ -424,14 +424,12 @@ API.Client.PhoneNumberApi.prototype.incomingphoneMassupdatenumber = function(pho
  * Release Number
  * Remove a purchased Ytel number from your account.
  * @param {!string} phoneNumber A valid 10-digit Ytel number (E.164 format).
- * @param {!string} responseType Response type format xml or json
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
  * @return {!angular.$q.Promise<!string>}
  */
-API.Client.PhoneNumberApi.prototype.incomingphoneReleasenumberByResponseTypePost = function(phoneNumber, responseType, opt_extraHttpRequestParams) {
+API.Client.PhoneNumberApi.prototype.incomingphoneReleasenumberByResponseTypePost = function(phoneNumber, opt_extraHttpRequestParams) {
   /** @const {string} */
-  var path = this.basePath_ + '/incomingphone/releasenumber.{ResponseType}'
-      .replace('{' + 'ResponseType' + '}', String(responseType));
+  var path = this.basePath_ + '/incomingphone/releasenumber.json';
 
   /** @type {!Object} */
   var queryParameters = {};
@@ -444,10 +442,6 @@ API.Client.PhoneNumberApi.prototype.incomingphoneReleasenumberByResponseTypePost
   // verify required parameter 'phoneNumber' is set
   if (!phoneNumber) {
     throw new Error('Missing required parameter phoneNumber when calling incomingphoneReleasenumberByResponseTypePost');
-  }
-  // verify required parameter 'responseType' is set
-  if (!responseType) {
-    throw new Error('Missing required parameter responseType when calling incomingphoneReleasenumberByResponseTypePost');
   }
   headerParams['Content-Type'] = 'application/x-www-form-urlencoded';
 
