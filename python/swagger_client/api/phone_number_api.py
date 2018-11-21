@@ -914,7 +914,7 @@ class PhoneNumberApi(object):
         auth_settings = ['auth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/incomingphone/releasenumber.{ResponseType}', 'POST',
+            '/incomingphone/releasenumber.json', 'POST',
             path_params,
             query_params,
             header_params,
