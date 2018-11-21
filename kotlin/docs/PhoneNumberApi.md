@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**incomingphoneListnumber**](PhoneNumberApi.md#incomingphoneListnumber) | **POST** /incomingphone/listnumber.json | List Numbers
 [**incomingphoneMassreleasenumber**](PhoneNumberApi.md#incomingphoneMassreleasenumber) | **POST** /incomingphone/massreleasenumber.json | Bulk Release
 [**incomingphoneMassupdatenumber**](PhoneNumberApi.md#incomingphoneMassupdatenumber) | **POST** /incomingphone/massupdatenumber.json | Bulk Update Numbers
-[**incomingphoneReleasenumberByResponseTypePost**](PhoneNumberApi.md#incomingphoneReleasenumberByResponseTypePost) | **POST** /incomingphone/releasenumber.{ResponseType} | Release Number
+[**incomingphoneReleasenumberByResponseTypePost**](PhoneNumberApi.md#incomingphoneReleasenumberByResponseTypePost) | **POST** /incomingphone/releasenumber.json | Release Number
 [**incomingphoneTransferphonenumbers**](PhoneNumberApi.md#incomingphoneTransferphonenumbers) | **POST** /incomingphone/transferphonenumbers.json | Move Number
 [**incomingphoneUpdatenumber**](PhoneNumberApi.md#incomingphoneUpdatenumber) | **POST** /incomingphone/updatenumber.json | Update Number
 [**incomingphoneViewnumber**](PhoneNumberApi.md#incomingphoneViewnumber) | **POST** /incomingphone/viewnumber.json | View Details

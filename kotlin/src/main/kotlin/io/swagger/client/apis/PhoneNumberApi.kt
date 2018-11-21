@@ -275,7 +275,7 @@ class PhoneNumberApi(basePath: kotlin.String = "https://api.ytel.com/api/v3") : 
         val localVariableHeaders: kotlin.collections.Map<kotlin.String,kotlin.String> = mapOf("Content-Type" to "multipart/form-data")
         val localVariableConfig = RequestConfig(
             RequestMethod.POST,
-            "/incomingphone/releasenumber.{ResponseType}".replace("{"+"ResponseType"+"}", "$responseType"),
+            "/incomingphone/releasenumber.json".replace("{"+"ResponseType"+"}", "$responseType"),
             query = localVariableQuery,
             headers = localVariableHeaders
         )
