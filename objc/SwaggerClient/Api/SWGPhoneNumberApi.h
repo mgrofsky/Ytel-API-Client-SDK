@@ -152,13 +152,11 @@ extern NSInteger kSWGPhoneNumberApiMissingParamErrorCode;
 /// Remove a purchased Ytel number from your account.
 ///
 /// @param phoneNumber A valid 10-digit Ytel number (E.164 format).
-/// @param responseType Response type format xml or json
 /// 
 ///  code:200 message:""
 ///
 /// @return NSString*
 -(NSURLSessionTask*) incomingphoneReleasenumberByResponseTypePostWithPhoneNumber: (NSString*) phoneNumber
-    responseType: (NSString*) responseType
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 

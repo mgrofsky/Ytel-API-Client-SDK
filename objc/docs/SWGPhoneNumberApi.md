@@ -489,7 +489,6 @@ Name | Type | Description  | Notes
 # **incomingphoneReleasenumberByResponseTypePost**
 ```objc
 -(NSURLSessionTask*) incomingphoneReleasenumberByResponseTypePostWithPhoneNumber: (NSString*) phoneNumber
-    responseType: (NSString*) responseType
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
@@ -506,13 +505,11 @@ SWGDefaultConfiguration *apiConfig = [SWGDefaultConfiguration sharedConfig];
 
 
 NSString* phoneNumber = @"phoneNumber_example"; // A valid 10-digit Ytel number (E.164 format).
-NSString* responseType = @"responseType_example"; // Response type format xml or json
 
 SWGPhoneNumberApi*apiInstance = [[SWGPhoneNumberApi alloc] init];
 
 // Release Number
 [apiInstance incomingphoneReleasenumberByResponseTypePostWithPhoneNumber:phoneNumber
-              responseType:responseType
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -528,7 +525,6 @@ SWGPhoneNumberApi*apiInstance = [[SWGPhoneNumberApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **phoneNumber** | **NSString***| A valid 10-digit Ytel number (E.164 format). | 
- **responseType** | **NSString***| Response type format xml or json | 
 
 ### Return type
 

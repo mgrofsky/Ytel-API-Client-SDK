@@ -688,12 +688,9 @@ NSInteger kSWGPhoneNumberApiMissingParamErrorCode = 234513;
 /// Remove a purchased Ytel number from your account.
 ///  @param phoneNumber A valid 10-digit Ytel number (E.164 format). 
 ///
-///  @param responseType Response type format xml or json 
-///
 ///  @returns NSString*
 ///
 -(NSURLSessionTask*) incomingphoneReleasenumberByResponseTypePostWithPhoneNumber: (NSString*) phoneNumber
-    responseType: (NSString*) responseType
     completionHandler: (void (^)(NSString* output, NSError* error)) handler {
     // verify the required parameter 'phoneNumber' is set
     if (phoneNumber == nil) {
@@ -706,23 +703,9 @@ NSInteger kSWGPhoneNumberApiMissingParamErrorCode = 234513;
         return nil;
     }
 
-    // verify the required parameter 'responseType' is set
-    if (responseType == nil) {
-        NSParameterAssert(responseType);
-        if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"responseType"] };
-            NSError* error = [NSError errorWithDomain:kSWGPhoneNumberApiErrorDomain code:kSWGPhoneNumberApiMissingParamErrorCode userInfo:userInfo];
-            handler(nil, error);
-        }
-        return nil;
-    }
-
     NSMutableString* resourcePath = [NSMutableString stringWithFormat:@"/incomingphone/releasenumber.json"];
 
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
-    if (responseType != nil) {
-        pathParams[@"ResponseType"] = responseType;
-    }
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
