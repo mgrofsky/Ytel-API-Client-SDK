@@ -250,7 +250,7 @@ extern NSInteger kSWGCallApiMissingParamErrorCode;
     completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 
 
-/// View Call
+/// View Call Details
 /// Retrieve a single voice call’s information by its CallSid.
 ///
 /// @param callSid The unique identifier for the voice call.

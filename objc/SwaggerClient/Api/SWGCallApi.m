@@ -1121,7 +1121,7 @@ NSInteger kSWGCallApiMissingParamErrorCode = 234513;
 }
 
 ///
-/// View Call
+/// View Call Details
 /// Retrieve a single voice call’s information by its CallSid.
 ///  @param callSid The unique identifier for the voice call. 
 ///

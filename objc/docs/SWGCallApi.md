@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**callsPlayaudios**](SWGCallApi.md#callsplayaudios) | **POST** /calls/playaudios.json | Play Audio
 [**callsRecordcalls**](SWGCallApi.md#callsrecordcalls) | **POST** /calls/recordcalls.json | Record Call
 [**callsSenddigits**](SWGCallApi.md#callssenddigits) | **POST** /calls/senddigits.json | Play DTMF
-[**callsViewcalldetail**](SWGCallApi.md#callsviewcalldetail) | **POST** /calls/viewcalldetail.json | View Call
+[**callsViewcalldetail**](SWGCallApi.md#callsviewcalldetail) | **POST** /calls/viewcalldetail.json | View Call Details
 [**callsViewcalls**](SWGCallApi.md#callsviewcalls) | **POST** /calls/viewcalls.json | View Call
 [**callsVoiceeffect**](SWGCallApi.md#callsvoiceeffect) | **POST** /calls/voiceeffect.json | Voice Effect
 
@@ -727,7 +727,7 @@ Name | Type | Description  | Notes
         completionHandler: (void (^)(NSString* output, NSError* error)) handler;
 ```
 
-View Call
+View Call Details
 
 Retrieve a single voice call’s information by its CallSid.
 
@@ -743,7 +743,7 @@ NSString* callSid = @"callSid_example"; // The unique identifier for the voice c
 
 SWGCallApi*apiInstance = [[SWGCallApi alloc] init];
 
-// View Call
+// View Call Details
 [apiInstance callsViewcalldetailWithCallSid:callSid
           completionHandler: ^(NSString* output, NSError* error) {
                         if (output) {

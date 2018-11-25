@@ -145,7 +145,7 @@ Class | Method | HTTP request | Description
 *SWGCallApi* | [**callsPlayaudios**](docs/SWGCallApi.md#callsplayaudios) | **POST** /calls/playaudios.json | Play Audio
 *SWGCallApi* | [**callsRecordcalls**](docs/SWGCallApi.md#callsrecordcalls) | **POST** /calls/recordcalls.json | Record Call
 *SWGCallApi* | [**callsSenddigits**](docs/SWGCallApi.md#callssenddigits) | **POST** /calls/senddigits.json | Play DTMF
-*SWGCallApi* | [**callsViewcalldetail**](docs/SWGCallApi.md#callsviewcalldetail) | **POST** /calls/viewcalldetail.json | View Call
+*SWGCallApi* | [**callsViewcalldetail**](docs/SWGCallApi.md#callsviewcalldetail) | **POST** /calls/viewcalldetail.json | View Call Details
 *SWGCallApi* | [**callsViewcalls**](docs/SWGCallApi.md#callsviewcalls) | **POST** /calls/viewcalls.json | View Call
 *SWGCallApi* | [**callsVoiceeffect**](docs/SWGCallApi.md#callsvoiceeffect) | **POST** /calls/voiceeffect.json | Voice Effect
 *SWGCarrierApi* | [**carrierLookup**](docs/SWGCarrierApi.md#carrierlookup) | **POST** /carrier/lookup.json | Lookup Carrier
