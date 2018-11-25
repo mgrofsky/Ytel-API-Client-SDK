@@ -339,7 +339,7 @@ class CallApi(basePath: kotlin.String = "https://api.ytel.com/api/v3") : ApiClie
     }
 
     /**
-    * View Call
+    * View Call Details
     * Retrieve a single voice call’s information by its CallSid.
     * @param callSid The unique identifier for the voice call. 
     * @return kotlin.String
