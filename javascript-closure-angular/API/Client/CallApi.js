@@ -636,7 +636,7 @@ API.Client.CallApi.prototype.callsSenddigits = function(callSid, playDtmf, opt_p
 }
 
 /**
- * View Call
+ * View Call Details
  * Retrieve a single voice call’s information by its CallSid.
  * @param {!string} callSid The unique identifier for the voice call.
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
