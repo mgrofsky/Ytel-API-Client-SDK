@@ -88,7 +88,7 @@ class TestCallApi(unittest.TestCase):
     def test_calls_viewcalldetail(self):
         """Test case for calls_viewcalldetail
 
-        View Call  # noqa: E501
+        View Call Details  # noqa: E501
         """
         pass
 

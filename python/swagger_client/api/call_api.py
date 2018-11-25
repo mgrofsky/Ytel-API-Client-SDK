@@ -1138,7 +1138,7 @@ class CallApi(object):
             collection_formats=collection_formats)
 
     def calls_viewcalldetail(self, call_sid, **kwargs):  # noqa: E501
-        """View Call  # noqa: E501
+        """View Call Details  # noqa: E501
 
         Retrieve a single voice call’s information by its CallSid.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -1160,7 +1160,7 @@ class CallApi(object):
             return data
 
     def calls_viewcalldetail_with_http_info(self, call_sid, **kwargs):  # noqa: E501
-        """View Call  # noqa: E501
+        """View Call Details  # noqa: E501
 
         Retrieve a single voice call’s information by its CallSid.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an

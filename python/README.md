@@ -91,7 +91,7 @@ Class | Method | HTTP request | Description
 *CallApi* | [**calls_playaudios**](docs/CallApi.md#calls_playaudios) | **POST** /calls/playaudios.json | Play Audio
 *CallApi* | [**calls_recordcalls**](docs/CallApi.md#calls_recordcalls) | **POST** /calls/recordcalls.json | Record Call
 *CallApi* | [**calls_senddigits**](docs/CallApi.md#calls_senddigits) | **POST** /calls/senddigits.json | Play DTMF
-*CallApi* | [**calls_viewcalldetail**](docs/CallApi.md#calls_viewcalldetail) | **POST** /calls/viewcalldetail.json | View Call
+*CallApi* | [**calls_viewcalldetail**](docs/CallApi.md#calls_viewcalldetail) | **POST** /calls/viewcalldetail.json | View Call Details
 *CallApi* | [**calls_viewcalls**](docs/CallApi.md#calls_viewcalls) | **POST** /calls/viewcalls.json | View Call
 *CallApi* | [**calls_voiceeffect**](docs/CallApi.md#calls_voiceeffect) | **POST** /calls/voiceeffect.json | Voice Effect
 *CarrierApi* | [**carrier_lookup**](docs/CarrierApi.md#carrier_lookup) | **POST** /carrier/lookup.json | Lookup Carrier

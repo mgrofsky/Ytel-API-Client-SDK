@@ -822,47 +822,45 @@ class PhoneNumberApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def incomingphone_releasenumber_by_response_type_post(self, phone_number, response_type, **kwargs):  # noqa: E501
+    def incomingphone_releasenumber_by_response_type_post(self, phone_number, **kwargs):  # noqa: E501
         """Release Number  # noqa: E501
 
         Remove a purchased Ytel number from your account.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.incomingphone_releasenumber_by_response_type_post(phone_number, response_type, async=True)
+        >>> thread = api.incomingphone_releasenumber_by_response_type_post(phone_number, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param str phone_number: A valid 10-digit Ytel number (E.164 format). (required)
-        :param str response_type: Response type format xml or json (required)
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.incomingphone_releasenumber_by_response_type_post_with_http_info(phone_number, response_type, **kwargs)  # noqa: E501
+            return self.incomingphone_releasenumber_by_response_type_post_with_http_info(phone_number, **kwargs)  # noqa: E501
         else:
-            (data) = self.incomingphone_releasenumber_by_response_type_post_with_http_info(phone_number, response_type, **kwargs)  # noqa: E501
+            (data) = self.incomingphone_releasenumber_by_response_type_post_with_http_info(phone_number, **kwargs)  # noqa: E501
             return data
 
-    def incomingphone_releasenumber_by_response_type_post_with_http_info(self, phone_number, response_type, **kwargs):  # noqa: E501
+    def incomingphone_releasenumber_by_response_type_post_with_http_info(self, phone_number, **kwargs):  # noqa: E501
         """Release Number  # noqa: E501
 
         Remove a purchased Ytel number from your account.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.incomingphone_releasenumber_by_response_type_post_with_http_info(phone_number, response_type, async=True)
+        >>> thread = api.incomingphone_releasenumber_by_response_type_post_with_http_info(phone_number, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param str phone_number: A valid 10-digit Ytel number (E.164 format). (required)
-        :param str response_type: Response type format xml or json (required)
         :return: str
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['phone_number', 'response_type']  # noqa: E501
+        all_params = ['phone_number']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -881,16 +879,10 @@ class PhoneNumberApi(object):
         if ('phone_number' not in params or
                 params['phone_number'] is None):
             raise ValueError("Missing the required parameter `phone_number` when calling `incomingphone_releasenumber_by_response_type_post`")  # noqa: E501
-        # verify the required parameter 'response_type' is set
-        if ('response_type' not in params or
-                params['response_type'] is None):
-            raise ValueError("Missing the required parameter `response_type` when calling `incomingphone_releasenumber_by_response_type_post`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'response_type' in params:
-            path_params['ResponseType'] = params['response_type']  # noqa: E501
 
         query_params = []
 

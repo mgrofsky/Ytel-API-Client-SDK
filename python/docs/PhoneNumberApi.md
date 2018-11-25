@@ -431,7 +431,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **incomingphone_releasenumber_by_response_type_post**
-> str incomingphone_releasenumber_by_response_type_post(phone_number, response_type)
+> str incomingphone_releasenumber_by_response_type_post(phone_number)
 
 Release Number
 
@@ -453,11 +453,10 @@ configuration.password = 'YOUR_PASSWORD'
 # create an instance of the API class
 api_instance = swagger_client.PhoneNumberApi(swagger_client.ApiClient(configuration))
 phone_number = 'phone_number_example' # str | A valid 10-digit Ytel number (E.164 format).
-response_type = 'response_type_example' # str | Response type format xml or json
 
 try:
     # Release Number
-    api_response = api_instance.incomingphone_releasenumber_by_response_type_post(phone_number, response_type)
+    api_response = api_instance.incomingphone_releasenumber_by_response_type_post(phone_number)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PhoneNumberApi->incomingphone_releasenumber_by_response_type_post: %s\n" % e)
@@ -468,7 +467,6 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **phone_number** | **str**| A valid 10-digit Ytel number (E.164 format). | 
- **response_type** | **str**| Response type format xml or json | 
 
 ### Return type
 

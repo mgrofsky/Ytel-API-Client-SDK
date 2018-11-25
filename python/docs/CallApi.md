@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**calls_playaudios**](CallApi.md#calls_playaudios) | **POST** /calls/playaudios.json | Play Audio
 [**calls_recordcalls**](CallApi.md#calls_recordcalls) | **POST** /calls/recordcalls.json | Record Call
 [**calls_senddigits**](CallApi.md#calls_senddigits) | **POST** /calls/senddigits.json | Play DTMF
-[**calls_viewcalldetail**](CallApi.md#calls_viewcalldetail) | **POST** /calls/viewcalldetail.json | View Call
+[**calls_viewcalldetail**](CallApi.md#calls_viewcalldetail) | **POST** /calls/viewcalldetail.json | View Call Details
 [**calls_viewcalls**](CallApi.md#calls_viewcalls) | **POST** /calls/viewcalls.json | View Call
 [**calls_voiceeffect**](CallApi.md#calls_voiceeffect) | **POST** /calls/voiceeffect.json | Voice Effect
 
@@ -576,7 +576,7 @@ Name | Type | Description  | Notes
 # **calls_viewcalldetail**
 > str calls_viewcalldetail(call_sid)
 
-View Call
+View Call Details
 
 Retrieve a single voice call’s information by its CallSid.
 
@@ -598,7 +598,7 @@ api_instance = swagger_client.CallApi(swagger_client.ApiClient(configuration))
 call_sid = 'call_sid_example' # str | The unique identifier for the voice call.
 
 try:
-    # View Call
+    # View Call Details
     api_response = api_instance.calls_viewcalldetail(call_sid)
     pprint(api_response)
 except ApiException as e:
