@@ -102,7 +102,7 @@ Class | Method | HTTP request | Description
 *CallApi* | [**callsPlayaudios**](docs/Api/CallApi.md#callsplayaudios) | **POST** /calls/playaudios.json | Play Audio
 *CallApi* | [**callsRecordcalls**](docs/Api/CallApi.md#callsrecordcalls) | **POST** /calls/recordcalls.json | Record Call
 *CallApi* | [**callsSenddigits**](docs/Api/CallApi.md#callssenddigits) | **POST** /calls/senddigits.json | Play DTMF
-*CallApi* | [**callsViewcalldetail**](docs/Api/CallApi.md#callsviewcalldetail) | **POST** /calls/viewcalldetail.json | View Call
+*CallApi* | [**callsViewcalldetail**](docs/Api/CallApi.md#callsviewcalldetail) | **POST** /calls/viewcalldetail.json | View Call Details
 *CallApi* | [**callsViewcalls**](docs/Api/CallApi.md#callsviewcalls) | **POST** /calls/viewcalls.json | View Call
 *CallApi* | [**callsVoiceeffect**](docs/Api/CallApi.md#callsvoiceeffect) | **POST** /calls/voiceeffect.json | Voice Effect
 *CarrierApi* | [**carrierLookup**](docs/Api/CarrierApi.md#carrierlookup) | **POST** /carrier/lookup.json | Lookup Carrier

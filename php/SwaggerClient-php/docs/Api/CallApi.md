@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**callsPlayaudios**](CallApi.md#callsPlayaudios) | **POST** /calls/playaudios.json | Play Audio
 [**callsRecordcalls**](CallApi.md#callsRecordcalls) | **POST** /calls/recordcalls.json | Record Call
 [**callsSenddigits**](CallApi.md#callsSenddigits) | **POST** /calls/senddigits.json | Play DTMF
-[**callsViewcalldetail**](CallApi.md#callsViewcalldetail) | **POST** /calls/viewcalldetail.json | View Call
+[**callsViewcalldetail**](CallApi.md#callsViewcalldetail) | **POST** /calls/viewcalldetail.json | View Call Details
 [**callsViewcalls**](CallApi.md#callsViewcalls) | **POST** /calls/viewcalls.json | View Call
 [**callsVoiceeffect**](CallApi.md#callsVoiceeffect) | **POST** /calls/voiceeffect.json | Voice Effect
 
@@ -600,7 +600,7 @@ Name | Type | Description  | Notes
 # **callsViewcalldetail**
 > string callsViewcalldetail($call_sid)
 
-View Call
+View Call Details
 
 Retrieve a single voice call’s information by its CallSid.
 

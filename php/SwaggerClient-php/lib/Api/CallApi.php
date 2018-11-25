@@ -2847,7 +2847,7 @@ class CallApi
     /**
      * Operation callsViewcalldetail
      *
-     * View Call
+     * View Call Details
      *
      * @param  string $call_sid The unique identifier for the voice call. (required)
      *
@@ -2864,7 +2864,7 @@ class CallApi
     /**
      * Operation callsViewcalldetailWithHttpInfo
      *
-     * View Call
+     * View Call Details
      *
      * @param  string $call_sid The unique identifier for the voice call. (required)
      *
@@ -2939,7 +2939,7 @@ class CallApi
     /**
      * Operation callsViewcalldetailAsync
      *
-     * View Call
+     * View Call Details
      *
      * @param  string $call_sid The unique identifier for the voice call. (required)
      *
@@ -2959,7 +2959,7 @@ class CallApi
     /**
      * Operation callsViewcalldetailAsyncWithHttpInfo
      *
-     * View Call
+     * View Call Details
      *
      * @param  string $call_sid The unique identifier for the voice call. (required)
      *
