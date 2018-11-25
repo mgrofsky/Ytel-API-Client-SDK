@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**calls_playaudios**](CallApi.md#calls_playaudios) | **POST** /calls/playaudios.json | Play Audio
 [**calls_recordcalls**](CallApi.md#calls_recordcalls) | **POST** /calls/recordcalls.json | Record Call
 [**calls_senddigits**](CallApi.md#calls_senddigits) | **POST** /calls/senddigits.json | Play DTMF
-[**calls_viewcalldetail**](CallApi.md#calls_viewcalldetail) | **POST** /calls/viewcalldetail.json | View Call
+[**calls_viewcalldetail**](CallApi.md#calls_viewcalldetail) | **POST** /calls/viewcalldetail.json | View Call Details
 [**calls_viewcalls**](CallApi.md#calls_viewcalls) | **POST** /calls/viewcalls.json | View Call
 [**calls_voiceeffect**](CallApi.md#calls_voiceeffect) | **POST** /calls/voiceeffect.json | Voice Effect
 
@@ -604,7 +604,7 @@ Name | Type | Description  | Notes
 # **calls_viewcalldetail**
 > String calls_viewcalldetail(call_sid)
 
-View Call
+View Call Details
 
 Retrieve a single voice call’s information by its CallSid.
 
@@ -625,7 +625,7 @@ call_sid = "call_sid_example" # String | The unique identifier for the voice cal
 
 
 begin
-  #View Call
+  #View Call Details
   result = api_instance.calls_viewcalldetail(call_sid)
   p result
 rescue SwaggerClient::ApiError => e

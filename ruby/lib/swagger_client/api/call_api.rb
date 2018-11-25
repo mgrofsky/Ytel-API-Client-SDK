@@ -736,7 +736,7 @@ module SwaggerClient
       return data, status_code, headers
     end
 
-    # View Call
+    # View Call Details
     # Retrieve a single voice call’s information by its CallSid.
     # @param call_sid The unique identifier for the voice call.
     # @param [Hash] opts the optional parameters
@@ -746,7 +746,7 @@ module SwaggerClient
       return data
     end
 
-    # View Call
+    # View Call Details
     # Retrieve a single voice call’s information by its CallSid.
     # @param call_sid The unique identifier for the voice call.
     # @param [Hash] opts the optional parameters
