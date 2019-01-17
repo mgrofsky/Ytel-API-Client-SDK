@@ -1,8 +1,0 @@
-
-# Direction
-
-## Enum
-
-
-
-

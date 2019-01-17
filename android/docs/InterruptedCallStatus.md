@@ -1,8 +1,0 @@
-
-# InterruptedCallStatus
-
-## Enum
-
-
-
-

@@ -1,8 +1,0 @@
-
-# Numbertype16
-
-## Enum
-
-
-
-
